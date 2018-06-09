@@ -1,18 +1,8 @@
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
-import {CheerioStatic} from './types';
-
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
-const vocabularySelectors = {
-  activityTypes: ($: CheerioStatic) =>
-      $('#h-activity-types ~ table dfn')
-          .map((i, activityTypeNameEl: CheerioElement) => {
-            return {name: $(activityTypeNameEl).text()};
-          })
-          .get()
-};
 
 if (require.main === module) {
   main()
@@ -31,12 +21,25 @@ async function fetchHtml(url = vocabularySpecUrl) {
   return vocabHtml;
 }
 
-export async function scrapeVocabulary() {
-  const $vocab = cheerio.load(await fetchHtml(vocabularySpecUrl));
-  return Array.from(Object.entries(vocabularySelectors))
-      .reduce((scraped, [key, select]) => {
-        return Object.assign({}, scraped, {[key]: select($vocab)});
-      }, {});
+interface ActivityType {
+  name: string;
+}
+
+interface ScrapedVocabulary {
+  activityTypes: ActivityType[];
+}
+
+export async function scrapeVocabulary(): Promise<ScrapedVocabulary> {
+  const $ = cheerio.load(await fetchHtml(vocabularySpecUrl));
+  return {
+    activityTypes: $('#h-activity-types ~ table dfn')
+                       .map(
+                           (i, activityTypeNameEl: CheerioElement):
+                               ActivityType => {
+                                 return {name: $(activityTypeNameEl).text()};
+                               })
+                       .toArray()
+  };
 }
 
 async function main() {
