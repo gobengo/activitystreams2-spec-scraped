@@ -7,7 +7,7 @@ import assert from 'assert';
 import * as urlm from 'url';
 
 import {LabeledSection, makeTableSelector, optionalRow, TableSection, TableShape} from './tables';
-import {ASType} from './types';
+import {Link} from './types';
 import {CheerioSelector} from './types/cheerio';
 
 // TableShapes for the tables storing all the juicy data in the AS2 Vocab Spec
@@ -61,7 +61,7 @@ export const activityTypeSubClassOf =
         name: subClassOfName,
         ...extendsAbsoluteUrl &&
             {
-              href: extendsAbsoluteUrl
+              type: 'Link', href: extendsAbsoluteUrl
             }
       };
       return subClassOf;
@@ -107,23 +107,25 @@ export const url = ($: CheerioSelector, $el: Cheerio) => {
 
 type Selector = ($: CheerioSelector, $el: Cheerio) => Cheerio;
 
-const makeASTypeSelector = (selectASType: Selector) =>
-    ($: CheerioSelector, $el: Cheerio): ASType[] => {
-      const as2Types =
-          selectASType($, $el).find('code').toArray().map((as2TypeEl) => {
+const makeDomainOrRangeSelector = (selectLink: Selector) =>
+    ($: CheerioSelector, $el: Cheerio): Link[] => {
+      const as2TypeLinks =
+          selectLink($, $el).find('code').toArray().map((as2TypeEl) => {
             const $as2TypeEl = $(as2TypeEl);
             const href = $as2TypeEl.find('a').attr('href');
-            return {
+            const link: Link = {
+              type: 'Link',
               name: $as2TypeEl.text(),
-              url: href,
+              href,
             };
+            return link;
           });
-      return as2Types;
+      return as2TypeLinks;
     };
 
-export const domain = makeASTypeSelector(
+export const domain = makeDomainOrRangeSelector(
     makeTableSelector(propertyTableShape, TableSection.domain));
-export const range = makeASTypeSelector(
+export const range = makeDomainOrRangeSelector(
     makeTableSelector(propertyTableShape, TableSection.range));
 
 export const functional = ($: CheerioSelector, $el: Cheerio) => {
@@ -155,7 +157,7 @@ export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
           .map((el) => {
             return {
               name: $(el).text(),
-              url: $(el).find('a').attr('href'),
+              href: $(el).find('a').attr('href'),
             };
           });
   if (subPropertyOf.length > 1) {

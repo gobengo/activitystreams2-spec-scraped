@@ -7,7 +7,7 @@ import {Readable} from 'stream';
 import * as url from 'url';
 
 import * as selectors from './selectors';
-import {ASType, ScrapedVocabulary} from './types';
+import {Link, ScrapedVocabulary} from './types';
 
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
@@ -54,8 +54,8 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
           example: selectors.example($, $el, baseUrl),
         };
       });
-  const applyBaseUrlToASType = (baseUrl: string, t: ASType) =>
-      t && Object.assign({}, t, {url: withBaseUrl(baseUrl, t.url)});
+  const applyBaseUrlToLink = (baseUrl: string, link: Link) =>
+      link && Object.assign({}, link, {href: withBaseUrl(baseUrl, link.href)});
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
     return {
@@ -65,12 +65,11 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
       // @todo (bengo.is) rename selector to not mention activity vs property
       notes: selectors.notes($, $el),
       example: selectors.example($, $el, baseUrl),
-      domain:
-          selectors.domain($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
-      range: selectors.range($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
+      domain: selectors.domain($, $el).map(d => applyBaseUrlToLink(baseUrl, d)),
+      range: selectors.range($, $el).map(d => applyBaseUrlToLink(baseUrl, d)),
       functional: selectors.functional($, $el),
       subPropertyOf:
-          applyBaseUrlToASType(baseUrl, selectors.subPropertyOf($, $el)),
+          applyBaseUrlToLink(baseUrl, selectors.subPropertyOf($, $el)),
     };
   });
   return {

@@ -4,10 +4,10 @@ export interface ActivityType {
   subClassOf: {name: string; href?: string;};
 }
 
-// @todo (bengo.is) this should probably just be a Link, given what I'm using it for
-export interface ASType {
+export interface Link {
+  type: 'Link';
   name: string;
-  url: string;
+  href: string;
 }
 
 export interface Property {
@@ -15,10 +15,10 @@ export interface Property {
   id: string;
   url: string;
   notes: string;
-  domain: ASType[];
-  range: ASType[];
+  domain: Link[];
+  range: Link[];
   functional: boolean;
-  subPropertyOf?: ASType;
+  subPropertyOf?: Link;
 }
 
 export interface ScrapedVocabulary {
