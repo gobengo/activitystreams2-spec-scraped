@@ -2,10 +2,12 @@ import assert from 'assert';
 import cheerio from 'cheerio';
 import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
+import {relative} from 'path';
+import {Readable} from 'stream';
 import * as url from 'url';
 
-import * as activityTypeSelectors from './activityTypeSelectors';
-import {ScrapedVocabulary} from './types';
+import * as selectors from './selectors';
+import {ASType, ScrapedVocabulary} from './types';
 
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
@@ -26,7 +28,7 @@ export async function scrapeVocabulary(url?: string):
       (f = '../data/activitystreams-vocabulary/1528589057.html') =>
           readFileSync(require.resolve(f)).toString();
   const html = await (url ? fetchHtml(url) : readFixture());
-  const parsed = parseVocabulary(html);
+  const parsed = parseVocabulary(html, url || vocabularySpecUrl);
   return parsed;
 }
 
@@ -34,28 +36,67 @@ export async function scrapeVocabulary(url?: string):
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
-export const parseVocabulary = (html: string) => {
+export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
+  // If provided relativeUrl is not absolute, resolve it relative to baseUrl
+  const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
+    return relativeUrl && url.resolve(baseUrl, relativeUrl);
+  };
   const activityTypes =
       $('#h-activity-types ~ table > tbody').toArray().map((el) => {
         const $el = $(el);
         return {
-          name: activityTypeSelectors.name($, $el),
-          notes: activityTypeSelectors.notes($, $el),
-          subClassOf:
-              activityTypeSelectors.subClassOf($, $el, vocabularySpecUrl),
-          uri: activityTypeSelectors.uri($, $el),
-          example: activityTypeSelectors.example($, $el, vocabularySpecUrl),
+          name: selectors.name($, $el),
+          notes: selectors.notes($, $el),
+          subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
+          id: withBaseUrl(baseUrl, selectors.id($, $el)),
+          url: withBaseUrl(baseUrl, selectors.url($, $el)),
+          example: selectors.example($, $el, baseUrl),
         };
       });
+  const applyBaseUrlToASType = (baseUrl: string, t: ASType) =>
+      t && Object.assign({}, t, {url: withBaseUrl(baseUrl, t.url)});
+  const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
+    const $el = $(el);
+    return {
+      name: selectors.name($, $el),
+      id: withBaseUrl(baseUrl, selectors.id($, $el)),
+      url: withBaseUrl(baseUrl, selectors.url($, $el)),
+      // @todo (bengo.is) rename selector to not mention activity vs property
+      notes: selectors.notes($, $el),
+      example: selectors.example($, $el, baseUrl),
+      domain:
+          selectors.domain($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
+      range: selectors.range($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
+      functional: selectors.functional($, $el),
+      subPropertyOf:
+          applyBaseUrlToASType(baseUrl, selectors.subPropertyOf($, $el)),
+    };
+  });
   return {
     activityTypes,
+    properties,
   };
 };
 
+/**
+ * Scrape and write to stdout
+ */
 async function main() {
-  const html = await scrapeVocabulary();
-  console.log(JSON.stringify(html, null, 2));
+  const vocab = await scrapeVocabulary();
+  const out = JSON.stringify(vocab, null, 2);
+  const stringReader = (str: string) => {
+    const r = new Readable();
+    r.push(str);
+    r.push(null);
+    return r;
+  };
+  return new Promise((resolve, reject) => {
+    stringReader(out)
+        .pipe(process.stdout)
+        .once('error', reject)
+        .once('drain', resolve);
+  });
 }
 
 if (require.main === module) {
