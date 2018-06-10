@@ -25,6 +25,7 @@ export const jsonldContext = [
     'notes': 'rdfs:comment',
     'isDefinedBy': 'rdfs:isDefinedBy',
     'unionOf': 'owl:unionOf',
+    'value': 'rdf:value',
   }
 ];
 
@@ -90,7 +91,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
     const $el = $(el);
     const domain = selectors.domain($, $el);
     return {
-      types: selectors.propertyTypes($, $el),
+      type: selectors.propertyTypes($, $el),
       name: selectors.name($, $el),
       id: withBaseUrl(baseUrl, selectors.id($, $el)),
       url: withBaseUrl(baseUrl, selectors.url($, $el)),
