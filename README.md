@@ -6,6 +6,11 @@ Scrape data from the ActivityStreams 2.0 specs:
 * https://www.w3.org/TR/activitystreams-core/
 * https://www.w3.org/TR/activitystreams-vocabulary/
 
+Why?
+* Test libraries that deal with ActivityStreams2 data, e.g. to make sure the library fully models every vocab term. This was the original motivation: to help test [gobengo/activitystreams2](https://github.com/gobengo/activitystreams2)
+* generate code for libraries in other languages. [go-fed/activity](https://github.com/go-fed/activity/tree/master/tools) did this because the polymorphic nature of ActivityStreams 2.0 / JSON-LD data makes it hard to model in golang's type system
+* render better documentation for ActivityStreams 2.0. Right now the canonical documentation is in a couple huge html files, but it might be easier to maintain HTML docs (ideally with RDFa metadata) if rendered from less messy data like the JSON this library generates.
+
 ## Usage
 
 ### node.js/TypeScript
