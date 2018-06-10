@@ -36,5 +36,8 @@
     "cheerio": "^1.0.0-rc.2",
     "gts": "^0.6.0",
     "node-fetch": "^2.1.2"
+  },
+  "bin": {
+    "activitystreams2-spec-scraped": "./bin/activitystreams2-spec-scraped"
   }
 }
