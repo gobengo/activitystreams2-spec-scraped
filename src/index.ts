@@ -10,6 +10,7 @@ export const vocabularySpecUrl =
 
 /**
  * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
+ * @param [url] - url of vocab document. defaults to canonical url
  */
 export async function scrapeVocabulary(url = vocabularySpecUrl):
     Promise<ScrapedVocabulary> {
@@ -18,7 +19,17 @@ export async function scrapeVocabulary(url = vocabularySpecUrl):
     const vocabHtml = await vocabResponse.text();
     return vocabHtml;
   };
-  const $ = cheerio.load(await fetchHtml(vocabularySpecUrl));
+  const html = await fetchHtml(url);
+  const parsed = parseVocabulary(html);
+  return parsed;
+}
+
+/**
+ * Parse html of an AS2 Vocabulary Document
+ * @param html - ActivityStreams 2.0 Vocabulary document
+ */
+export const parseVocabulary = (html: string) => {
+  const $ = cheerio.load(html);
   const activityTypes =
       $('#h-activity-types ~ table > tbody').toArray().map((el) => {
         const $el = $(el);
@@ -33,7 +44,7 @@ export async function scrapeVocabulary(url = vocabularySpecUrl):
   return {
     activityTypes,
   };
-}
+};
 
 async function main() {
   const html = await scrapeVocabulary();
