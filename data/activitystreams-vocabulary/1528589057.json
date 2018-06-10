@@ -7,7 +7,52 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Accept"
+      "id": "https://www.w3.org/ns/activitystreams#Accept",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept",
+      "example": [
+        {
+          "name": "Example 9",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7a-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally accepted an invitation to a party",
+            "type": "Accept",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Invite",
+              "actor": "http://john.example.org",
+              "object": {
+                "type": "Event",
+                "name": "Going-Away Party for Jim"
+              }
+            }
+          }
+        },
+        {
+          "name": "Example 10",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7b-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally accepted Joe into the club",
+            "type": "Accept",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Person",
+              "name": "Joe"
+            },
+            "target": {
+              "type": "Group",
+              "name": "The Club"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "TentativeAccept",
@@ -16,7 +61,31 @@
         "name": "Accept",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#TentativeAccept"
+      "id": "https://www.w3.org/ns/activitystreams#TentativeAccept",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tentativeaccept",
+      "example": [
+        {
+          "name": "Example 11",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex8-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally tentatively accepted an invitation to a party",
+            "type": "TentativeAccept",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Invite",
+              "actor": "http://john.example.org",
+              "object": {
+                "type": "Event",
+                "name": "Going-Away Party for Jim"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Add",
@@ -25,7 +94,50 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Add"
+      "id": "https://www.w3.org/ns/activitystreams#Add",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-add",
+      "example": [
+        {
+          "name": "Example 12",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex9-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally added an object",
+            "type": "Add",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/abc"
+          }
+        },
+        {
+          "name": "Example 13",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex10-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally added a picture of her cat to her cat picture collection",
+            "type": "Add",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Image",
+              "name": "A picture of my cat",
+              "url": "http://example.org/img/cat.png"
+            },
+            "origin": {
+              "type": "Collection",
+              "name": "Camera Roll"
+            },
+            "target": {
+              "type": "Collection",
+              "name": "My Cat Pictures"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Arrive",
@@ -34,7 +146,31 @@
         "name": "IntransitiveActivity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Arrive"
+      "id": "https://www.w3.org/ns/activitystreams#Arrive",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-arrive",
+      "example": [
+        {
+          "name": "Example 14",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex11-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally arrived at work",
+            "type": "Arrive",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "location": {
+              "type": "Place",
+              "name": "Work"
+            },
+            "origin": {
+              "type": "Place",
+              "name": "Home"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Create",
@@ -43,7 +179,28 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Create"
+      "id": "https://www.w3.org/ns/activitystreams#Create",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-create",
+      "example": [
+        {
+          "name": "Example 15",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex12-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally created a note",
+            "type": "Create",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Note",
+              "name": "A Simple Note",
+              "content": "This is a simple note"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Delete",
@@ -52,7 +209,28 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Delete"
+      "id": "https://www.w3.org/ns/activitystreams#Delete",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-delete",
+      "example": [
+        {
+          "name": "Example 16",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex13-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally deleted a note",
+            "type": "Delete",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/notes/1",
+            "origin": {
+              "type": "Collection",
+              "name": "Sally's Notes"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Follow",
@@ -61,7 +239,27 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Follow"
+      "id": "https://www.w3.org/ns/activitystreams#Follow",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-follow",
+      "example": [
+        {
+          "name": "Example 17",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex15-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally followed John",
+            "type": "Follow",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Person",
+              "name": "John"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Ignore",
@@ -70,7 +268,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Ignore"
+      "id": "https://www.w3.org/ns/activitystreams#Ignore",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-ignore",
+      "example": [
+        {
+          "name": "Example 18",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex16-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally ignored a note",
+            "type": "Ignore",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/notes/1"
+          }
+        }
+      ]
     },
     {
       "name": "Join",
@@ -79,7 +294,27 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Join"
+      "id": "https://www.w3.org/ns/activitystreams#Join",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-join",
+      "example": [
+        {
+          "name": "Example 19",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex17-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally joined a group",
+            "type": "Join",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Group",
+              "name": "A Simple Group"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Leave",
@@ -88,7 +323,44 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Leave"
+      "id": "https://www.w3.org/ns/activitystreams#Leave",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-leave",
+      "example": [
+        {
+          "name": "Example 20",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex18-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally left work",
+            "type": "Leave",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Place",
+              "name": "Work"
+            }
+          }
+        },
+        {
+          "name": "Example 21",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex19-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally left a group",
+            "type": "Leave",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Group",
+              "name": "A Simple Group"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Like",
@@ -97,7 +369,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Like"
+      "id": "https://www.w3.org/ns/activitystreams#Like",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-like",
+      "example": [
+        {
+          "name": "Example 22",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex20-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally liked a note",
+            "type": "Like",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/notes/1"
+          }
+        }
+      ]
     },
     {
       "name": "Offer",
@@ -106,7 +395,31 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Offer"
+      "id": "https://www.w3.org/ns/activitystreams#Offer",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-offer",
+      "example": [
+        {
+          "name": "Example 23",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex21-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered 50% off to Lewis",
+            "type": "Offer",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "http://www.types.example/ProductOffer",
+              "name": "50% Off!"
+            },
+            "target": {
+              "type": "Person",
+              "name": "Lewis"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Invite",
@@ -115,7 +428,37 @@
         "name": "Offer",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-offer"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Invite"
+      "id": "https://www.w3.org/ns/activitystreams#Invite",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-invite",
+      "example": [
+        {
+          "name": "Example 24",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex24-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally invited John and Lisa to a party",
+            "type": "Invite",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Event",
+              "name": "A Party"
+            },
+            "target": [
+              {
+                "type": "Person",
+                "name": "John"
+              },
+              {
+                "type": "Person",
+                "name": "Lisa"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Reject",
@@ -124,7 +467,31 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Reject"
+      "id": "https://www.w3.org/ns/activitystreams#Reject",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-reject",
+      "example": [
+        {
+          "name": "Example 25",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex26-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally rejected an invitation to a party",
+            "type": "Reject",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Invite",
+              "actor": "http://john.example.org",
+              "object": {
+                "type": "Event",
+                "name": "Going-Away Party for Jim"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "TentativeReject",
@@ -133,7 +500,31 @@
         "name": "Reject",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-reject"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#TentativeReject"
+      "id": "https://www.w3.org/ns/activitystreams#TentativeReject",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tentativereject",
+      "example": [
+        {
+          "name": "Example 26",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex27-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally tentatively rejected an invitation to a party",
+            "type": "TentativeReject",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Invite",
+              "actor": "http://john.example.org",
+              "object": {
+                "type": "Event",
+                "name": "Going-Away Party for Jim"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Remove",
@@ -142,7 +533,49 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Remove"
+      "id": "https://www.w3.org/ns/activitystreams#Remove",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-remove",
+      "example": [
+        {
+          "name": "Example 27",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex28-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally removed a note from her notes folder",
+            "type": "Remove",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/notes/1",
+            "target": {
+              "type": "Collection",
+              "name": "Notes Folder"
+            }
+          }
+        },
+        {
+          "name": "Example 28",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex29-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "The moderator removed Sally from a group",
+            "type": "Remove",
+            "actor": {
+              "type": "http://example.org/Role",
+              "name": "The Moderator"
+            },
+            "object": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "origin": {
+              "type": "Group",
+              "name": "A Simple Group"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Undo",
@@ -151,7 +584,26 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Undo"
+      "id": "https://www.w3.org/ns/activitystreams#Undo",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-undo",
+      "example": [
+        {
+          "name": "Example 29",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex32-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally retracted her offer to John",
+            "type": "Undo",
+            "actor": "http://sally.example.org",
+            "object": {
+              "type": "Offer",
+              "actor": "http://sally.example.org",
+              "object": "http://example.org/posts/1",
+              "target": "http://john.example.org"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Update",
@@ -160,7 +612,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Update"
+      "id": "https://www.w3.org/ns/activitystreams#Update",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-update",
+      "example": [
+        {
+          "name": "Example 30",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex33-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally updated her note",
+            "type": "Update",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/notes/1"
+          }
+        }
+      ]
     },
     {
       "name": "View",
@@ -169,7 +638,27 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#View"
+      "id": "https://www.w3.org/ns/activitystreams#View",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-view",
+      "example": [
+        {
+          "name": "Example 31",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex161-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally read an article",
+            "type": "View",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Article",
+              "name": "What You Should Know About Activity Streams"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Listen",
@@ -178,7 +667,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Listen"
+      "id": "https://www.w3.org/ns/activitystreams#Listen",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-listen",
+      "example": [
+        {
+          "name": "Example 32",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex163-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally listened to a piece of music",
+            "type": "Listen",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/music.mp3"
+          }
+        }
+      ]
     },
     {
       "name": "Read",
@@ -187,7 +693,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Read"
+      "id": "https://www.w3.org/ns/activitystreams#Read",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-read",
+      "example": [
+        {
+          "name": "Example 33",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex164-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally read a blog post",
+            "type": "Read",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/posts/1"
+          }
+        }
+      ]
     },
     {
       "name": "Move",
@@ -196,7 +719,32 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Move"
+      "id": "https://www.w3.org/ns/activitystreams#Move",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move",
+      "example": [
+        {
+          "name": "Example 34",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex168-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally moved a post from List A to List B",
+            "type": "Move",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/posts/1",
+            "target": {
+              "type": "Collection",
+              "name": "List B"
+            },
+            "origin": {
+              "type": "Collection",
+              "name": "List A"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Travel",
@@ -205,7 +753,31 @@
         "name": "IntransitiveActivity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Travel"
+      "id": "https://www.w3.org/ns/activitystreams#Travel",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-travel",
+      "example": [
+        {
+          "name": "Example 35",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex169-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally went home from work",
+            "type": "Travel",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "target": {
+              "type": "Place",
+              "name": "Home"
+            },
+            "origin": {
+              "type": "Place",
+              "name": "Work"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Announce",
@@ -214,7 +786,32 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Announce"
+      "id": "https://www.w3.org/ns/activitystreams#Announce",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-announce",
+      "example": [
+        {
+          "name": "Example 36",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex170-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally announced that she had arrived at work",
+            "type": "Announce",
+            "actor": {
+              "type": "Person",
+              "id": "http://sally.example.org",
+              "name": "Sally"
+            },
+            "object": {
+              "type": "Arrive",
+              "actor": "http://sally.example.org",
+              "location": {
+                "type": "Place",
+                "name": "Work"
+              }
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Block",
@@ -223,7 +820,21 @@
         "name": "Ignore",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-ignore"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Block"
+      "id": "https://www.w3.org/ns/activitystreams#Block",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-block",
+      "example": [
+        {
+          "name": "Example 37",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex173-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally blocked Joe",
+            "type": "Block",
+            "actor": "http://sally.example.org",
+            "object": "http://joe.example.org"
+          }
+        }
+      ]
     },
     {
       "name": "Flag",
@@ -232,7 +843,24 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Flag"
+      "id": "https://www.w3.org/ns/activitystreams#Flag",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-flag",
+      "example": [
+        {
+          "name": "Example 38",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex174-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally flagged an inappropriate note",
+            "type": "Flag",
+            "actor": "http://sally.example.org",
+            "object": {
+              "type": "Note",
+              "content": "An inappropriate note"
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Dislike",
@@ -241,7 +869,21 @@
         "name": "Activity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Dislike"
+      "id": "https://www.w3.org/ns/activitystreams#Dislike",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-dislike",
+      "example": [
+        {
+          "name": "Example 39",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex175-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally disliked a post",
+            "type": "Dislike",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1"
+          }
+        }
+      ]
     },
     {
       "name": "Question",
@@ -250,7 +892,2737 @@
         "name": "IntransitiveActivity",
         "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity"
       },
-      "uri": "https://www.w3.org/ns/activitystreams#Question"
+      "id": "https://www.w3.org/ns/activitystreams#Question",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question",
+      "example": [
+        {
+          "name": "Example 40",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55a-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Question",
+            "name": "What is the answer?",
+            "oneOf": [
+              {
+                "type": "Note",
+                "name": "Option A"
+              },
+              {
+                "type": "Note",
+                "name": "Option B"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Example 41",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55b-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Question",
+            "name": "What is the answer?",
+            "closed": "2016-05-10T00:00:00Z"
+          }
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "id",
+      "id": "https://www.w3.org/TR/activitystreams-vocabulary/@id",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id",
+      "notes": "Provides the globally unique identifier for an Object or Link.",
+      "example": [
+        {
+          "name": "Example 61",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#exid-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Foo",
+            "id": "http://example.org/foo"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "anyURI"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "type",
+      "id": "https://www.w3.org/TR/activitystreams-vocabulary/@type",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type",
+      "notes": "Identifies the Object or Link type. Multiple values may be specified.",
+      "example": [
+        {
+          "name": "Example 62",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#extype-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A foo",
+            "type": "http://example.org/Foo"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "anyURI"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "actor",
+      "id": "https://www.w3.org/ns/activitystreams#actor",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor",
+      "notes": "Describes one or more entities that either performed or are expected to perform the activity. Any single activity can have multiple actors. The actor MAY be specified using an indirect Link.",
+      "example": [
+        {
+          "name": "Example 63",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex59-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered the Foo object",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/foo"
+          }
+        },
+        {
+          "name": "Example 64",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex60-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered the Foo object",
+            "type": "Offer",
+            "actor": {
+              "type": "Person",
+              "id": "http://sally.example.org",
+              "summary": "Sally"
+            },
+            "object": "http://example.org/foo"
+          }
+        },
+        {
+          "name": "Example 65",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex61-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally and Joe offered the Foo object",
+            "type": "Offer",
+            "actor": [
+              "http://joe.example.org",
+              {
+                "type": "Person",
+                "id": "http://sally.example.org",
+                "name": "Sally"
+              }
+            ],
+            "object": "http://example.org/foo"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false,
+      "subPropertyOf": {
+        "name": "attributedTo",
+        "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attributedto"
+      }
+    },
+    {
+      "name": "attachment",
+      "id": "https://www.w3.org/ns/activitystreams#attachment",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment",
+      "notes": "Identifies a resource attached or related to an object that potentially requires special handling. The intent is to provide a model that is at least semantically similar to attachments in email.",
+      "example": [
+        {
+          "name": "Example 66",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex64-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Note",
+            "name": "Have you seen my cat?",
+            "attachment": [
+              {
+                "type": "Image",
+                "content": "This is what he looks like.",
+                "url": "http://example.org/cat.jpeg"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "attributedTo",
+      "id": "https://www.w3.org/ns/activitystreams#attributedTo",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attributedto",
+      "notes": "Identifies one or more entities to which this object is attributed. The attributed entities might not be Actors. For instance, an object might be attributed to the completion of another activity.",
+      "example": [
+        {
+          "name": "Example 67",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex65-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Image",
+            "name": "My cat taking a nap",
+            "url": "http://example.org/cat.jpeg",
+            "attributedTo": [
+              {
+                "type": "Person",
+                "name": "Sally"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Example 68",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex66-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Image",
+            "name": "My cat taking a nap",
+            "url": "http://example.org/cat.jpeg",
+            "attributedTo": [
+              "http://joe.example.org",
+              {
+                "type": "Person",
+                "name": "Sally"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "audience",
+      "id": "https://www.w3.org/ns/activitystreams#audience",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-audience",
+      "notes": "Identifies one or more entities that represent the total population of entities for which the object can considered to be relevant.",
+      "example": [
+        {
+          "name": "Example 69",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex113-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Holiday announcement",
+            "type": "Note",
+            "content": "Thursday will be a company-wide holiday. Enjoy your day off!",
+            "audience": {
+              "type": "http://example.org/Organization",
+              "name": "ExampleCo LLC"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "bcc",
+      "id": "https://www.w3.org/ns/activitystreams#bcc",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bcc",
+      "notes": "Identifies one or more Objects that are part of the private secondary audience of this Object.",
+      "example": [
+        {
+          "name": "Example 70",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex68-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered a post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": "http://john.example.org",
+            "bcc": [
+              "http://joe.example.org"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "bto",
+      "id": "https://www.w3.org/ns/activitystreams#bto",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bto",
+      "notes": "Identifies an Object that is part of the private primary audience of this Object.",
+      "example": [
+        {
+          "name": "Example 71",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex69-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered a post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": "http://john.example.org",
+            "bto": [
+              "http://joe.example.org"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "cc",
+      "id": "https://www.w3.org/ns/activitystreams#cc",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-cc",
+      "notes": "Identifies an Object that is part of the public secondary audience of this Object.",
+      "example": [
+        {
+          "name": "Example 72",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex70-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered a post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": "http://john.example.org",
+            "cc": [
+              "http://joe.example.org"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "context",
+      "id": "https://www.w3.org/ns/activitystreams#context",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-context",
+      "notes": "Identifies the context within which the object exists or an activity was performed. The notion of \"context\" used is intentionally vague. The intended function is to serve as a means of grouping objects and activities that share a common originating context or purpose. An example could be all activities relating to a common project or event.",
+      "example": [
+        {
+          "name": "Example 73",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex171-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Activities in context 1",
+            "type": "Collection",
+            "items": [
+              {
+                "type": "Offer",
+                "actor": "http://sally.example.org",
+                "object": "http://example.org/posts/1",
+                "target": "http://john.example.org",
+                "context": "http://example.org/contexts/1"
+              },
+              {
+                "type": "Like",
+                "actor": "http://joe.example.org",
+                "object": "http://example.org/posts/2",
+                "context": "http://example.org/contexts/1"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "current",
+      "id": "https://www.w3.org/ns/activitystreams#current",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-current",
+      "notes": "In a paged Collection, indicates the page that contains the most recently updated member items.",
+      "example": [
+        {
+          "name": "Example 74",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex71-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's blog posts",
+            "type": "Collection",
+            "totalItems": 3,
+            "current": "http://example.org/collection",
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        },
+        {
+          "name": "Example 75",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex72-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's blog posts",
+            "type": "Collection",
+            "totalItems": 3,
+            "current": {
+              "type": "Link",
+              "summary": "Most Recent Items",
+              "href": "http://example.org/collection"
+            },
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "range": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "first",
+      "id": "https://www.w3.org/ns/activitystreams#first",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-first",
+      "notes": "In a paged Collection, indicates the furthest preceeding page of items in the collection.",
+      "example": [
+        {
+          "name": "Example 76",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex73-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's blog posts",
+            "type": "Collection",
+            "totalItems": 3,
+            "first": "http://example.org/collection?page=0"
+          }
+        },
+        {
+          "name": "Example 77",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex74-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's blog posts",
+            "type": "Collection",
+            "totalItems": 3,
+            "first": {
+              "type": "Link",
+              "summary": "First Page",
+              "href": "http://example.org/collection?page=0"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "range": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "generator",
+      "id": "https://www.w3.org/ns/activitystreams#generator",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-generator",
+      "notes": "Identifies the entity (e.g. an application) that generated the object.",
+      "example": [
+        {
+          "name": "Example 78",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex75-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "generator": {
+              "type": "Application",
+              "name": "Exampletron 3000"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "icon",
+      "id": "https://www.w3.org/ns/activitystreams#icon",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-icon",
+      "notes": "Indicates an entity that describes an icon for this object. The image should have an aspect ratio of one (horizontal) to one (vertical) and should be suitable for presentation at a small size.",
+      "example": [
+        {
+          "name": "Example 79",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex77-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "icon": {
+              "type": "Image",
+              "name": "Note icon",
+              "url": "http://example.org/note.png",
+              "width": 16,
+              "height": 16
+            }
+          }
+        },
+        {
+          "name": "Example 80",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex78-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "A simple note",
+            "icon": [
+              {
+                "type": "Image",
+                "summary": "Note (16x16)",
+                "url": "http://example.org/note1.png",
+                "width": 16,
+                "height": 16
+              },
+              {
+                "type": "Image",
+                "summary": "Note (32x32)",
+                "url": "http://example.org/note2.png",
+                "width": 32,
+                "height": 32
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Image",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "image",
+      "id": "https://www.w3.org/ns/activitystreams#image",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image-term",
+      "notes": "Indicates an entity that describes an image for this object. Unlike the icon property, there are no aspect ratio or display size limitations assumed.",
+      "example": [
+        {
+          "name": "Example 81",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex80-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "image": {
+              "type": "Image",
+              "name": "A Cat",
+              "url": "http://example.org/cat.png"
+            }
+          }
+        },
+        {
+          "name": "Example 82",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex81-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "image": [
+              {
+                "type": "Image",
+                "name": "Cat 1",
+                "url": "http://example.org/cat1.png"
+              },
+              {
+                "type": "Image",
+                "name": "Cat 2",
+                "url": "http://example.org/cat2.png"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Image",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "inReplyTo",
+      "id": "https://www.w3.org/ns/activitystreams#inReplyTo",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto",
+      "notes": "Indicates one or more entities for which this object is considered a response.",
+      "example": [
+        {
+          "name": "Example 83",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex83-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "inReplyTo": {
+              "summary": "Previous note",
+              "type": "Note",
+              "content": "What else is there?"
+            }
+          }
+        },
+        {
+          "name": "Example 84",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex84-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "This is all there is.",
+            "inReplyTo": "http://example.org/posts/1"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "instrument",
+      "id": "https://www.w3.org/ns/activitystreams#instrument",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-instrument",
+      "notes": "Identifies one or more objects used (or to be used) in the completion of an Activity.",
+      "example": [
+        {
+          "name": "Example 85",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex101-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally listened to a piece of music on the Acme Music Service",
+            "type": "Listen",
+            "actor": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "object": "http://example.org/foo.mp3",
+            "instrument": {
+              "type": "Service",
+              "name": "Acme Music Service"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object | Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "last",
+      "id": "https://www.w3.org/ns/activitystreams#last",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-last",
+      "notes": "In a paged Collection, indicates the furthest proceeding page of the collection.",
+      "example": [
+        {
+          "name": "Example 86",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex87-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A collection",
+            "type": "Collection",
+            "totalItems": 3,
+            "last": "http://example.org/collection?page=1"
+          }
+        },
+        {
+          "name": "Example 87",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex88-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A collection",
+            "type": "Collection",
+            "totalItems": 5,
+            "last": {
+              "type": "Link",
+              "summary": "Last Page",
+              "href": "http://example.org/collection?page=1"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "range": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "location",
+      "id": "https://www.w3.org/ns/activitystreams#location",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location",
+      "notes": "Indicates one or more physical or logical locations associated with the object.",
+      "example": [
+        {
+          "name": "Example 88",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex89-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Person",
+            "name": "Sally",
+            "location": {
+              "name": "Over the Arabian Sea, east of Socotra Island Nature Sanctuary",
+              "type": "Place",
+              "longitude": 12.34,
+              "latitude": 56.78,
+              "altitude": 90,
+              "units": "m"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object | Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "items",
+      "id": "https://www.w3.org/ns/activitystreams#items",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-items",
+      "notes": "Identifies the items contained in a collection. The items might be ordered or unordered.",
+      "example": [
+        {
+          "name": "Example 89",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex91-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's notes",
+            "type": "Collection",
+            "totalItems": 2,
+            "items": [
+              {
+                "type": "Note",
+                "name": "Reminder for Going-Away Party"
+              },
+              {
+                "type": "Note",
+                "name": "Meeting 2016-11-17"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Example 90",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex92-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's notes",
+            "type": "OrderedCollection",
+            "totalItems": 2,
+            "orderedItems": [
+              {
+                "type": "Note",
+                "name": "Meeting 2016-11-17"
+              },
+              {
+                "type": "Note",
+                "name": "Reminder for Going-Away Party"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "oneOf",
+      "id": "https://www.w3.org/ns/activitystreams#oneOf",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-oneof",
+      "notes": "Identifies an exclusive option for a Question. Use of oneOf implies that the Question can have only a single answer. To indicate that a Question can have multiple answers, use anyOf.",
+      "example": [
+        {
+          "name": "Example 91",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex93-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Question",
+            "name": "What is the answer?",
+            "oneOf": [
+              {
+                "type": "Note",
+                "name": "Option A"
+              },
+              {
+                "type": "Note",
+                "name": "Option B"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Question",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "anyOf",
+      "id": "https://www.w3.org/ns/activitystreams#anyOf",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-anyof",
+      "notes": "Identifies an inclusive option for a Question. Use of anyOf implies that the Question can have multiple answers. To indicate that a Question can have only one answer, use oneOf.",
+      "example": [
+        {
+          "name": "Example 92",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Question",
+            "name": "What is the answer?",
+            "anyOf": [
+              {
+                "type": "Note",
+                "name": "Option A"
+              },
+              {
+                "type": "Note",
+                "name": "Option B"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Question",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "closed",
+      "id": "https://www.w3.org/ns/activitystreams#closed",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-closed",
+      "notes": "Indicates that a question has been closed, and answers are no longer accepted.",
+      "example": [
+        {
+          "name": "Example 93",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94b-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Question",
+            "name": "What is the answer?",
+            "closed": "2016-05-10T00:00:00Z"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Question",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "xsd:dateTime"
+        },
+        {
+          "name": "xsd:boolean"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "origin",
+      "id": "https://www.w3.org/ns/activitystreams#origin",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-origin",
+      "notes": "Describes an indirect object of the activity from which the activity is directed. The precise meaning of the origin is the object of the English preposition \"from\". For instance, in the activity \"John moved an item to List B from List A\", the origin of the activity is \"List A\".",
+      "example": [
+        {
+          "name": "Example 94",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex166-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally moved a post from List A to List B",
+            "type": "Move",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": {
+              "type": "Collection",
+              "name": "List B"
+            },
+            "origin": {
+              "type": "Collection",
+              "name": "List A"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "next",
+      "id": "https://www.w3.org/ns/activitystreams#next",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-next",
+      "notes": "In a paged Collection, indicates the next page of items.",
+      "example": [
+        {
+          "name": "Example 95",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex96-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 2 of Sally's blog posts",
+            "type": "CollectionPage",
+            "next": "http://example.org/collection?page=2",
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        },
+        {
+          "name": "Example 96",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex97-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 2 of Sally's blog posts",
+            "type": "CollectionPage",
+            "next": {
+              "type": "Link",
+              "name": "Next Page",
+              "href": "http://example.org/collection?page=2"
+            },
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        }
+      ],
+      "range": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "object",
+      "id": "https://www.w3.org/ns/activitystreams#object",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object-term",
+      "notes": "When used within an Activity, describes the direct object of the activity. For instance, in the activity \"John added a movie to his wishlist\", the object of the activity is the movie added. When used within a Relationship describes the entity to which the subject is related.",
+      "example": [
+        {
+          "name": "Example 97",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex98-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally liked a post",
+            "type": "Like",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1"
+          }
+        },
+        {
+          "name": "Example 98",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex99-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Like",
+            "actor": "http://sally.example.org",
+            "object": {
+              "type": "Note",
+              "content": "A simple note"
+            }
+          }
+        },
+        {
+          "name": "Example 99",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex100-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally liked a note",
+            "type": "Like",
+            "actor": "http://sally.example.org",
+            "object": [
+              "http://example.org/posts/1",
+              {
+                "type": "Note",
+                "summary": "A simple note",
+                "content": "That is a tree."
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        },
+        {
+          "name": "Relationship",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "prev",
+      "id": "https://www.w3.org/ns/activitystreams#prev",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-prev",
+      "notes": "In a paged Collection, identifies the previous page of items.",
+      "example": [
+        {
+          "name": "Example 100",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex104-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 1 of Sally's blog posts",
+            "type": "CollectionPage",
+            "prev": "http://example.org/collection?page=1",
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        },
+        {
+          "name": "Example 101",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex105-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 1 of Sally's blog posts",
+            "type": "CollectionPage",
+            "prev": {
+              "type": "Link",
+              "name": "Previous Page",
+              "href": "http://example.org/collection?page=1"
+            },
+            "items": [
+              "http://example.org/posts/1",
+              "http://example.org/posts/2",
+              "http://example.org/posts/3"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        }
+      ],
+      "range": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "preview",
+      "id": "https://www.w3.org/ns/activitystreams#preview",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-preview",
+      "notes": "Identifies an entity that provides a preview of this object.",
+      "example": [
+        {
+          "name": "Example 102",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex106-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Video",
+            "name": "Cool New Movie",
+            "duration": "PT2H30M",
+            "preview": {
+              "type": "Video",
+              "name": "Trailer",
+              "duration": "PT1M",
+              "url": {
+                "href": "http://example.org/trailer.mkv",
+                "mediaType": "video/mkv"
+              }
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "result",
+      "id": "https://www.w3.org/ns/activitystreams#result",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-result",
+      "notes": "Describes the result of the activity. For instance, if a particular action results in the creation of a new resource, the result property can be used to describe that new resource.",
+      "example": [
+        {
+          "name": "Example 103",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex108-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally checked that her flight was on time",
+            "type": [
+              "Activity",
+              "http://www.verbs.example/Check"
+            ],
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/flights/1",
+            "result": {
+              "type": "http://www.types.example/flightstatus",
+              "name": "On Time"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "replies",
+      "id": "https://www.w3.org/ns/activitystreams#replies",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies",
+      "notes": "Identifies a Collection containing objects considered to be responses to this object.",
+      "example": [
+        {
+          "name": "Example 104",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex112-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "id": "http://www.test.example/notes/1",
+            "content": "I am fine.",
+            "replies": {
+              "type": "Collection",
+              "totalItems": 1,
+              "items": [
+                {
+                  "summary": "A response to the note",
+                  "type": "Note",
+                  "content": "I am glad to hear it.",
+                  "inReplyTo": "http://www.test.example/notes/1"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "tag",
+      "id": "https://www.w3.org/ns/activitystreams#tag",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag",
+      "notes": "One or more \"tags\" that have been associated with an objects. A tag can be any kind of Object. The key difference between attachment and tag is that the former implies association by inclusion, while the latter implies associated by reference.",
+      "example": [
+        {
+          "name": "Example 105",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex118-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Image",
+            "summary": "Picture of Sally",
+            "url": "http://example.org/sally.jpg",
+            "tag": [
+              {
+                "type": "Person",
+                "id": "http://sally.example.org",
+                "name": "Sally"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "target",
+      "id": "https://www.w3.org/ns/activitystreams#target",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-target",
+      "notes": "Describes the indirect object, or target, of the activity. The precise meaning of the target is largely dependent on the type of action being described but will often be the object of the English preposition \"to\". For instance, in the activity \"John added a movie to his wishlist\", the target of the activity is John's wishlist. An activity can have more than one target.",
+      "example": [
+        {
+          "name": "Example 106",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex120-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered the post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": "http://john.example.org"
+          }
+        },
+        {
+          "name": "Example 107",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex121-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered the post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": {
+              "type": "Person",
+              "name": "John"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "to",
+      "id": "https://www.w3.org/ns/activitystreams#to",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-to",
+      "notes": "Identifies an entity considered to be part of the public primary audience of an Object",
+      "example": [
+        {
+          "name": "Example 108",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex123-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally offered the post to John",
+            "type": "Offer",
+            "actor": "http://sally.example.org",
+            "object": "http://example.org/posts/1",
+            "target": "http://john.example.org",
+            "to": [
+              "http://joe.example.org"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "url",
+      "id": "https://www.w3.org/ns/activitystreams#url",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url",
+      "notes": "Identifies one or more links to representations of the object",
+      "example": [
+        {
+          "name": "Example 109",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex124-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Document",
+            "name": "4Q Sales Forecast",
+            "url": "http://example.org/4q-sales-forecast.pdf"
+          }
+        },
+        {
+          "name": "Example 110",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex125-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Document",
+            "name": "4Q Sales Forecast",
+            "url": {
+              "type": "Link",
+              "href": "http://example.org/4q-sales-forecast.pdf"
+            }
+          }
+        },
+        {
+          "name": "Example 111",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex126-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Document",
+            "name": "4Q Sales Forecast",
+            "url": [
+              {
+                "type": "Link",
+                "href": "http://example.org/4q-sales-forecast.pdf",
+                "mediaType": "application/pdf"
+              },
+              {
+                "type": "Link",
+                "href": "http://example.org/4q-sales-forecast.html",
+                "mediaType": "text/html"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:anyURI"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "accuracy",
+      "id": "https://www.w3.org/ns/activitystreams#accuracy",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accuracy",
+      "notes": "Indicates the accuracy of position coordinates on a Place objects. Expressed in properties of percentage. e.g. \"94.0\" means \"94.0% accurate\".",
+      "example": [
+        {
+          "name": "Example 112",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex127-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Liu Gu Lu Cun, Pingdu, Qingdao, Shandong, China",
+            "type": "Place",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "accuracy": 94.5
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Place",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:float"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "altitude",
+      "id": "https://www.w3.org/ns/activitystreams#altitude",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-altitude",
+      "notes": "Indicates the altitude of a place. The measurement units is indicated using the units property. If units is not specified, the default is assumed to be \"m\" indicating meters.",
+      "example": [
+        {
+          "name": "Example 113",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex129-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "altitude": 15,
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "units": "miles"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:float"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "content",
+      "id": "https://www.w3.org/ns/activitystreams#content",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content",
+      "notes": "The content or textual representation of the Object encoded as a JSON string. By default, the value of content is HTML. The mediaType property can be used in the object to indicate a different content type. The content MAY be expressed using multiple language-tagged values.",
+      "example": [
+        {
+          "name": "Example 114",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "A <em>simple</em> note"
+          }
+        },
+        {
+          "name": "Example 115",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex131-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "contentMap": {
+              "en": "A <em>simple</em> note",
+              "es": "Una nota <em>sencilla</em>",
+              "zh-Hans": "一段<em>简单的</em>笔记"
+            }
+          }
+        },
+        {
+          "name": "Example 116",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130b-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "mediaType": "text/markdown",
+            "content": "## A simple note\nA simple markdown `note`"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:string"
+        },
+        {
+          "name": "rdf:langString"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "name",
+      "id": "https://www.w3.org/ns/activitystreams#name",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name",
+      "notes": "A simple, human-readable, plain-text name for the object. HTML markup MUST NOT be included. The name MAY be expressed using multiple language-tagged values.",
+      "example": [
+        {
+          "name": "Example 117",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex132-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Note",
+            "name": "A simple note"
+          }
+        },
+        {
+          "name": "Example 118",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex133-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Note",
+            "nameMap": {
+              "en": "A simple note",
+              "es": "Una nota sencilla",
+              "zh-Hans": "一段简单的笔记"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:string"
+        },
+        {
+          "name": "rdf:langString"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "duration",
+      "id": "https://www.w3.org/ns/activitystreams#duration",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration",
+      "notes": "When the object describes a time-bound resource, such as an audio or video, a meeting, etc, the duration property indicates the object's approximate duration. The value MUST be expressed as an xsd:duration as defined by [ xmlschema11-2], section 3.3.6 (e.g. a period of 5 seconds is represented as \"PT5S\").",
+      "example": [
+        {
+          "name": "Example 119",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex134-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Video",
+            "name": "Birds Flying",
+            "url": "http://example.org/video.mkv",
+            "duration": "PT2H"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:duration"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "height",
+      "id": "https://www.w3.org/ns/activitystreams#height",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height",
+      "notes": "On a Link, specifies a hint as to the rendering height in device-independent pixels of the linked resource.",
+      "example": [
+        {
+          "name": "Example 120",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex136-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/image.png",
+            "height": 100,
+            "width": 100
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:nonNegativeInteger"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "href",
+      "id": "https://www.w3.org/ns/activitystreams#href",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href",
+      "notes": "The target resource pointed to by a Link.",
+      "example": [
+        {
+          "name": "Example 121",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex137-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/abc",
+            "mediaType": "text/html",
+            "name": "Previous"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:anyURI"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "hreflang",
+      "id": "https://www.w3.org/ns/activitystreams#hreflang",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-hreflang",
+      "notes": "Hints as to the language used by the target resource. Value MUST be a [BCP47] Language-Tag.",
+      "example": [
+        {
+          "name": "Example 122",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex138-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/abc",
+            "hreflang": "en",
+            "mediaType": "text/html",
+            "name": "Previous"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [],
+      "functional": true
+    },
+    {
+      "name": "partOf",
+      "id": "https://www.w3.org/ns/activitystreams#partOf",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-partof",
+      "notes": "Identifies the Collection to which a CollectionPage objects items belong.",
+      "example": [
+        {
+          "name": "Example 123",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex139-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 1 of Sally's notes",
+            "type": "CollectionPage",
+            "id": "http://example.org/collection?page=1",
+            "partOf": "http://example.org/collection",
+            "items": [
+              {
+                "type": "Note",
+                "name": "Pizza Toppings to Try"
+              },
+              {
+                "type": "Note",
+                "name": "Thought about California"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        }
+      ],
+      "range": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "latitude",
+      "id": "https://www.w3.org/ns/activitystreams#latitude",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude",
+      "notes": "The latitude of a place",
+      "example": [
+        {
+          "name": "Example 124",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex140-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "radius": 15,
+            "units": "miles"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Place",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:float"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "longitude",
+      "id": "https://www.w3.org/ns/activitystreams#longitude",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-longitude",
+      "notes": "The longitude of a place",
+      "example": [
+        {
+          "name": "Example 125",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex141-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "radius": 15,
+            "units": "miles"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Place",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:float"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "mediaType",
+      "id": "https://www.w3.org/ns/activitystreams#mediaType",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype",
+      "notes": "When used on a Link, identifies the MIME media type of the referenced resource. When used on an Object, identifies the MIME media type of the value of the content property. If not specified, the content property is assumed to contain text/html content.",
+      "example": [
+        {
+          "name": "Example 126",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex142-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/abc",
+            "hreflang": "en",
+            "mediaType": "text/html",
+            "name": "Next"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [],
+      "functional": true
+    },
+    {
+      "name": "endTime",
+      "id": "https://www.w3.org/ns/activitystreams#endTime",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-endtime",
+      "notes": "The date and time describing the actual or expected ending time of the object. When used with an Activity object, for instance, the endTime property specifies the moment the activity concluded or is expected to conclude.",
+      "example": [
+        {
+          "name": "Example 127",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex144-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Event",
+            "name": "Going-Away Party for Jim",
+            "startTime": "2014-12-31T23:00:00-08:00",
+            "endTime": "2015-01-01T06:00:00-08:00"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:dateTime"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "published",
+      "id": "https://www.w3.org/ns/activitystreams#published",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published",
+      "notes": "The date and time at which the object was published",
+      "example": [
+        {
+          "name": "Example 128",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex145-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "A simple note",
+            "type": "Note",
+            "content": "Fish swim.",
+            "published": "2014-12-12T12:12:12Z"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:dateTime"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "startTime",
+      "id": "https://www.w3.org/ns/activitystreams#startTime",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-starttime",
+      "notes": "The date and time describing the actual or expected starting time of the object. When used with an Activity object, for instance, the startTime property specifies the moment the activity began or is scheduled to begin.",
+      "example": [
+        {
+          "name": "Example 129",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex146-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Event",
+            "name": "Going-Away Party for Jim",
+            "startTime": "2014-12-31T23:00:00-08:00",
+            "endTime": "2015-01-01T06:00:00-08:00"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:dateTime"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "radius",
+      "id": "https://www.w3.org/ns/activitystreams#radius",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-radius",
+      "notes": "The radius from the given latitude and longitude for a Place. The units is expressed by the units property. If units is not specified, the default is assumed to be \"m\" indicating \"meters\".",
+      "example": [
+        {
+          "name": "Example 130",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex147-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "radius": 15,
+            "units": "miles"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Place",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:float"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "rel",
+      "id": "https://www.w3.org/ns/activitystreams#rel",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-rel",
+      "notes": "A link relation associated with a Link. The value MUST conform to both the [HTML5] and [RFC5988] \"link relation\" definitions. In the [HTML5], any string not containing the \"space\" U+0020, \"tab\" (U+0009), \"LF\" (U+000A), \"FF\" (U+000C), \"CR\" (U+000D) or \",\" (U+002C) characters can be used as a valid link relation.",
+      "example": [
+        {
+          "name": "Example 131",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex149-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/abc",
+            "hreflang": "en",
+            "mediaType": "text/html",
+            "name": "Preview",
+            "rel": [
+              "canonical",
+              "preview"
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [],
+      "functional": false
+    },
+    {
+      "name": "startIndex",
+      "id": "https://www.w3.org/ns/activitystreams#startIndex",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-startindex",
+      "notes": "A non-negative integer value identifying the relative position within the logical view of a strictly ordered collection.",
+      "example": [
+        {
+          "name": "Example 132",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex150-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Page 1 of Sally's notes",
+            "type": "OrderedCollectionPage",
+            "startIndex": 0,
+            "orderedItems": [
+              {
+                "type": "Note",
+                "name": "Density of Water"
+              },
+              {
+                "type": "Note",
+                "name": "Air Mattress Idea"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "OrderedCollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollectionpage"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:nonNegativeInteger"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "summary",
+      "id": "https://www.w3.org/ns/activitystreams#summary",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-summary",
+      "notes": "A natural language summarization of the object encoded as HTML. Multiple language tagged summaries MAY be provided.",
+      "example": [
+        {
+          "name": "Example 133",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex152-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Cane Sugar Processing",
+            "type": "Note",
+            "summary": "A simple <em>note</em>"
+          }
+        },
+        {
+          "name": "Example 134",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex153-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Cane Sugar Processing",
+            "type": "Note",
+            "summaryMap": {
+              "en": "A simple <em>note</em>",
+              "es": "Una <em>nota</em> sencilla",
+              "zh-Hans": "一段<em>简单的</em>笔记"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:string"
+        },
+        {
+          "name": "rdf:langString"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "totalItems",
+      "id": "https://www.w3.org/ns/activitystreams#totalItems",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-totalitems",
+      "notes": "A non-negative integer specifying the total number of objects contained by the logical view of the collection. This number might not reflect the actual number of items serialized within the Collection object instance.",
+      "example": [
+        {
+          "name": "Example 135",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex156-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's notes",
+            "type": "Collection",
+            "totalItems": 2,
+            "items": [
+              {
+                "type": "Note",
+                "name": "Which Staircase Should I Use"
+              },
+              {
+                "type": "Note",
+                "name": "Something to Remember"
+              }
+            ]
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:nonNegativeInteger"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "units",
+      "id": "https://www.w3.org/ns/activitystreams#units",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-units",
+      "notes": "Specifies the measurement units for the radius and altitude properties on a Place object. If not specified, the default is assumed to be \"m\" for \"meters\".",
+      "example": [
+        {
+          "name": "Example 136",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex157-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "radius": 15,
+            "units": "miles"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Place",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
+        }
+      ],
+      "range": [
+        {
+          "name": "cm"
+        },
+        {
+          "name": "feet"
+        },
+        {
+          "name": "inches"
+        },
+        {
+          "name": "km"
+        },
+        {
+          "name": "m"
+        },
+        {
+          "name": "miles"
+        },
+        {
+          "name": "xsd:anyURI"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "updated",
+      "id": "https://www.w3.org/ns/activitystreams#updated",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-updated",
+      "notes": "The date and time at which the object was updated",
+      "example": [
+        {
+          "name": "Example 137",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex158-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "name": "Cranberry Sauce Idea",
+            "type": "Note",
+            "content": "Mush it up so it does not have the same shape as the can.",
+            "updated": "2014-12-12T12:12:12Z"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:dateTime"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "width",
+      "id": "https://www.w3.org/ns/activitystreams#width",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width",
+      "notes": "On a Link, specifies a hint as to the rendering width in device-independent pixels of the linked resource.",
+      "example": [
+        {
+          "name": "Example 138",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex159-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Link",
+            "href": "http://example.org/image.png",
+            "height": 100,
+            "width": 100
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:nonNegativeInteger"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "subject",
+      "id": "https://www.w3.org/ns/activitystreams#subject",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-subject",
+      "notes": "On a Relationship object, the subject property identifies one of the connected individuals. For instance, for a Relationship object describing \"John is related to Sally\", subject would refer to John.",
+      "example": [
+        {
+          "name": "Example 139",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22a-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally is an acquaintance of John's",
+            "type": "Relationship",
+            "subject": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "relationship": "http://purl.org/vocab/relationship/acquaintanceOf",
+            "object": {
+              "type": "Person",
+              "name": "John"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Relationship",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship"
+        }
+      ],
+      "range": [
+        {
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "relationship",
+      "id": "https://www.w3.org/ns/activitystreams#relationship",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship-term",
+      "notes": "On a Relationship object, the relationship property identifies the kind of relationship that exists between subject and object.",
+      "example": [
+        {
+          "name": "Example 140",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22c-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally is an acquaintance of John's",
+            "type": "Relationship",
+            "subject": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "relationship": "http://purl.org/vocab/relationship/acquaintanceOf",
+            "object": {
+              "type": "Person",
+              "name": "John"
+            }
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Relationship",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "describes",
+      "id": "https://www.w3.org/ns/activitystreams#describes",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-describes",
+      "notes": "On a Profile object, the describes property identifies the object described by the Profile.",
+      "example": [
+        {
+          "name": "Example 141",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally's profile",
+            "type": "Profile",
+            "describes": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "url": "http://sally.example.org"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Profile",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-profile"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": true
+    },
+    {
+      "name": "formerType",
+      "id": "https://www.w3.org/ns/activitystreams#formerType",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-formertype",
+      "notes": "On a Tombstone object, the formerType property identifies the type of the object that was deleted.",
+      "example": [
+        {
+          "name": "Example 142",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185b-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "This image has been deleted",
+            "type": "Tombstone",
+            "formerType": "Image",
+            "url": "http://example.org/image/2"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Tombstone",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone"
+        }
+      ],
+      "range": [
+        {
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        }
+      ],
+      "functional": false
+    },
+    {
+      "name": "deleted",
+      "id": "https://www.w3.org/ns/activitystreams#deleted",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-deleted",
+      "notes": "On a Tombstone object, the deleted property is a timestamp for when the object was deleted.",
+      "example": [
+        {
+          "name": "Example 143",
+          "uri": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185c-jsonld",
+          "object": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "This image has been deleted",
+            "type": "Tombstone",
+            "deleted": "2016-05-03T00:00:00Z"
+          }
+        }
+      ],
+      "domain": [
+        {
+          "name": "Tombstone",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone"
+        }
+      ],
+      "range": [
+        {
+          "name": "xsd:dateTime"
+        }
+      ],
+      "functional": true
     }
   ]
 }
