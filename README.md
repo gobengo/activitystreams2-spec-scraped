@@ -1,5 +1,7 @@
 # activitystreams2-spec-scraped
 
+[![Build Status](https://travis-ci.com/gobengo/activitystreams2-spec-scraped.svg?branch=master)](https://travis-ci.com/gobengo/activitystreams2-spec-scraped)
+
 Scrape data from the ActivityStreams 2.0 specs:
 * https://www.w3.org/TR/activitystreams-core/
 * https://www.w3.org/TR/activitystreams-vocabulary/
