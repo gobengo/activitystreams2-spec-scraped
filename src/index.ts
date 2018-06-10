@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 import * as url from 'url';
 
 import * as activityTypeSelectors from './activityTypeSelectors';
+import * as propertySelectors from './propertySelectors';
 import {ScrapedVocabulary} from './types';
 
 export const vocabularySpecUrl =
@@ -48,8 +49,15 @@ export const parseVocabulary = (html: string) => {
           example: activityTypeSelectors.example($, $el, vocabularySpecUrl),
         };
       });
+  const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
+    const $el = $(el);
+    return {
+      name: propertySelectors.name($, $el),
+    };
+  });
   return {
     activityTypes,
+    properties,
   };
 };
 
