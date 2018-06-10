@@ -6,7 +6,7 @@ export interface ActivityType {
 
 export interface ASType {
   name: string;
-  uri: string;
+  id: string;
 }
 
 export interface Property {

@@ -55,14 +55,14 @@ export const notes = ($: CheerioSelector, $el: Cheerio) => {
   return notes;
 };
 
-export const uri = ($: CheerioSelector, $el: Cheerio) => {
+export const id = ($: CheerioSelector, $el: Cheerio) => {
   const uriLabel = $el.find('> tr:first-child > td:nth-child(2)').text();
   assert.equal(
       uriLabel, 'URI:',
       `Expected uriLabel of 'URI:' when parsing Activity Type ${
           name($, $el)}, but got ${uriLabel}`);
-  const uri = $el.find('> tr:first-child > td:nth-child(3)').text();
-  return uri;
+  const id = $el.find('> tr:first-child > td:nth-child(3)').text();
+  return id;
 };
 
 

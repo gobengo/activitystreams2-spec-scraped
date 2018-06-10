@@ -46,7 +46,7 @@ export const parseVocabulary = (html: string) => {
           notes: activityTypeSelectors.notes($, $el),
           subClassOf:
               activityTypeSelectors.subClassOf($, $el, vocabularySpecUrl),
-          uri: activityTypeSelectors.uri($, $el),
+          id: activityTypeSelectors.id($, $el),
           example: activityTypeSelectors.example($, $el, vocabularySpecUrl),
         };
       });
