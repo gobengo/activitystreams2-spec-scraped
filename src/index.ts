@@ -74,6 +74,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
     };
   });
   return {
+    '@context': 'https://www.w3.org/ns/activitystreams',
     activityTypes,
     properties,
   };
