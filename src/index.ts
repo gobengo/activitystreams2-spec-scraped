@@ -28,7 +28,7 @@ export async function scrapeVocabulary(url?: string):
       (f = '../data/activitystreams-vocabulary/1528589057.html') =>
           readFileSync(require.resolve(f)).toString();
   const html = await (url ? fetchHtml(url) : readFixture());
-  const parsed = parseVocabulary(html);
+  const parsed = parseVocabulary(html, url);
   return parsed;
 }
 
@@ -36,31 +36,31 @@ export async function scrapeVocabulary(url?: string):
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
-export const parseVocabulary = (html: string) => {
+export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
+  // If provided relativeUrl is not absolute, resolve it relative to baseUrl
+  const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
+    return relativeUrl && url.resolve(baseUrl, relativeUrl);
+  };
   const activityTypes =
       $('#h-activity-types ~ table > tbody').toArray().map((el) => {
         const $el = $(el);
         return {
           name: activityTypeSelectors.name($, $el),
           notes: activityTypeSelectors.notes($, $el),
-          subClassOf:
-              activityTypeSelectors.subClassOf($, $el, vocabularySpecUrl),
-          id: activityTypeSelectors.id($, $el),
-          example: activityTypeSelectors.example($, $el, vocabularySpecUrl),
+          subClassOf: activityTypeSelectors.subClassOf($, $el, baseUrl),
+          id: withBaseUrl(baseUrl, activityTypeSelectors.id($, $el)),
+          url: withBaseUrl(baseUrl, activityTypeSelectors.url($, $el)),
+          example: activityTypeSelectors.example($, $el, baseUrl),
         };
       });
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
     const relativeId = propertySelectors.id($, $el);
-    // If provided relativeUrl is not absolute, resolve it relative to baseUrl
-    const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
-      return relativeUrl && url.resolve(baseUrl || '', relativeUrl);
-    };
     return {
       name: propertySelectors.name($, $el),
-      id: withBaseUrl(vocabularySpecUrl, propertySelectors.id($, $el)),
-      url: withBaseUrl(vocabularySpecUrl, propertySelectors.url($, $el)),
+      id: withBaseUrl(baseUrl, propertySelectors.id($, $el)),
+      url: withBaseUrl(baseUrl, propertySelectors.url($, $el)),
     };
   });
   return {

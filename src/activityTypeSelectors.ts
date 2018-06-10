@@ -3,7 +3,7 @@
  * Elements documenting each Activity Type
  */
 import assert from 'assert';
-import * as url from 'url';
+import * as urlm from 'url';
 
 /**
  * Clean up HTML we scraped. e.g. indented HTML will have lots of extra
@@ -26,7 +26,7 @@ export const subClassOf =
           `Failed to find name of Activity Type that ${name} extends`);
       const extendsHref = $extends.find('a').attr('href');
       const extendsAbsoluteUrl =
-          extendsHref && url.resolve(baseUrl, extendsHref);
+          extendsHref && urlm.resolve(baseUrl, extendsHref);
       const subClassOf = {
         name: subClassOfName,
         ...extendsAbsoluteUrl &&
@@ -74,10 +74,16 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
                          const domId = $example.attr('id');
                          const example = {
                            name: $example.find('.example-title').text(),
-                           uri: domId && url.resolve(baseUrl, `#${domId}`),
+                           uri: domId && urlm.resolve(baseUrl, `#${domId}`),
                            object: JSON.parse($example.find('.json').text()),
                          };
                          return example;
                        });
   return examples;
+};
+
+export const url = ($: CheerioSelector, $el: Cheerio) => {
+  const anchorName =
+      $el.find('> tr:first-child > td:first-child dfn').attr('id');
+  return `#${anchorName}`;
 };
