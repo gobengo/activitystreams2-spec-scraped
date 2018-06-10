@@ -1,10 +1,61 @@
 import assert from 'assert';
 import cheerio from 'cheerio';
+import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
 import * as url from 'url';
 
+import * as activityTypeSelectors from './activityTypeSelectors';
+import {ScrapedVocabulary} from './types';
+
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
+
+/**
+ * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
+ * @param [url] - url of vocab document. If not provided, a fixture will be used
+ * and you won't have up-to-date data
+ */
+export async function scrapeVocabulary(url?: string):
+    Promise<ScrapedVocabulary> {
+  const fetchHtml = async (url = vocabularySpecUrl) => {
+    const vocabResponse = await fetch(vocabularySpecUrl);
+    const vocabHtml = await vocabResponse.text();
+    return vocabHtml;
+  };
+  const readFixture =
+      (f = '../data/activitystreams-vocabulary/1528589057.html') =>
+          readFileSync(require.resolve(f)).toString();
+  const html = await (url ? fetchHtml(url) : readFixture());
+  const parsed = parseVocabulary(html);
+  return parsed;
+}
+
+/**
+ * Parse html of an AS2 Vocabulary Document
+ * @param html - ActivityStreams 2.0 Vocabulary document
+ */
+export const parseVocabulary = (html: string) => {
+  const $ = cheerio.load(html);
+  const activityTypes =
+      $('#h-activity-types ~ table > tbody').toArray().map((el) => {
+        const $el = $(el);
+        return {
+          name: activityTypeSelectors.name($, $el),
+          notes: activityTypeSelectors.notes($, $el),
+          subClassOf:
+              activityTypeSelectors.subClassOf($, $el, vocabularySpecUrl),
+          uri: activityTypeSelectors.uri($, $el),
+        };
+      });
+  return {
+    activityTypes,
+  };
+};
+
+async function main() {
+  const html = await scrapeVocabulary();
+  console.log(JSON.stringify(html, null, 2));
+}
 
 if (require.main === module) {
   main()
@@ -15,86 +66,4 @@ if (require.main === module) {
         console.error(error);
         process.exit(1);
       });
-}
-
-async function fetchHtml(url = vocabularySpecUrl) {
-  const vocabResponse = await fetch(vocabularySpecUrl);
-  const vocabHtml = await vocabResponse.text();
-  return vocabHtml;
-}
-
-export interface ActivityType {
-  name: string;
-  notes: string;
-  extends: {name: string; href?: string;};
-}
-
-export interface ScrapedVocabulary {
-  activityTypes: ActivityType[];
-}
-
-/**
- * Clean up HTML we scraped. e.g. indented HTML will have lots of extra
- * whitespace we want to collapse.
- * @param rawHtml - html to clean
- */
-const cleanHtml = (rawHtml: string) => rawHtml.trim().replace(/\s\s+/g, ' ');
-
-export async function scrapeVocabulary(): Promise<ScrapedVocabulary> {
-  const $ = cheerio.load(await fetchHtml(vocabularySpecUrl));
-  const activityTypes =
-      $('#h-activity-types ~ table > tbody').toArray().map((el) => {
-        const $el = $(el);
-        // Activity Type Name
-        const name = $el.find('> tr:first-child > td:first-child dfn').text();
-        const uriLabel = $el.find('> tr:first-child > td:nth-child(2)').text();
-        assert.equal(
-            uriLabel, 'URI:',
-            `Expected uriLabel of 'URI:' when parsing Activity Type ${
-                name}, but got ${uriLabel}`);
-        const uri = $el.find('> tr:first-child > td:nth-child(3)').text();
-        // Activity Type Notes
-        const [notesLabel, notes] = $el.find('> tr:nth-child(2) > td')
-                                        .toArray()
-                                        .slice(0, 2)
-                                        .map(n => $(n).text())
-                                        .map(cleanHtml);
-        assert.equal(
-            notesLabel, 'Notes:',
-            `Expected notes label of 'Notes:' when parsing Acitivty Type ${
-                name}, but got ${notesLabel}`);
-        // Activity Type Parent Type (Extends)
-        const [$extendsLabel, $extends] =
-            $el.find('> tr:nth-child(3) > td').toArray().map($);
-        assert.equal(
-            $extendsLabel.text(), 'Extends:',
-            `Failed to find 'Extends:' label when parsing Acitivty Type ${
-                name}`);
-        const extendsName = $extends.find('code').text();
-        assert(
-            extendsName,
-            `Failed to find name of Activity Type that ${name} extends`);
-        const extendsHref = $extends.find('a').attr('href');
-        const extendsAbsoluteUrl =
-            extendsHref && url.resolve(vocabularySpecUrl, extendsHref);
-        return {
-          name,
-          notes,
-          extends: {
-            name: extendsName,
-            ...extendsAbsoluteUrl &&
-                {
-                  href: extendsAbsoluteUrl
-                }
-          }
-        };
-      });
-  return {
-    activityTypes,
-  };
-}
-
-async function main() {
-  const html = await scrapeVocabulary();
-  console.log(JSON.stringify(html, null, 2));
 }
