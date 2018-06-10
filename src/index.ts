@@ -5,12 +5,28 @@ import fetch from 'node-fetch';
 import {relative} from 'path';
 import {Readable} from 'stream';
 import * as url from 'url';
+
 import {cli} from './cli';
 import * as selectors from './selectors';
-import {Link, ScrapedVocabulary} from './types';
+import {DataType, Link, Property, ScrapedVocabulary} from './types';
 
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
+export const jsonldContext = [
+  'https://www.w3.org/ns/activitystreams', {
+    'owl': 'http://www.w3.org/2002/07/owl#',
+    'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+    'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+    'xsd': 'http://www.w3.org/2001/XMLSchema#',
+    'subClassOf': 'rdfs:subClassof',
+    'subPropertyOf': 'rdfs:subPropertyof',
+    'domain': 'rdfs:domain',
+    'range': 'rdfs:range',
+    'notes': 'rdfs:comment',
+    'isDefinedBy': 'rdfs:isDefinedBy',
+    'unionOf': 'owl:unionOf',
+  }
+];
 
 /**
  * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
@@ -32,20 +48,36 @@ export async function scrapeVocabulary(url?: string):
   return parsed;
 }
 
+const applyBaseUrlToLink = (baseUrl: string, link: Link) =>
+    link && Object.assign({}, link, {href: withBaseUrl(baseUrl, link.href)});
+
+// If provided relativeUrl is not absolute, resolve it relative to baseUrl
+const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
+  return relativeUrl && url.resolve(baseUrl, relativeUrl);
+};
+
+const applyBaseUrlToDataType = (baseUrl: string, dt: DataType): DataType => {
+  return Object.assign({}, dt, {
+    unionOf: dt.unionOf.map((dt2 => {
+      if (typeof dt2 === 'string') {
+        return withBaseUrl(baseUrl, dt2);
+      }
+      return applyBaseUrlToLink(baseUrl, dt2);
+    }))
+  });
+};
+
 /**
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
 export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
-  // If provided relativeUrl is not absolute, resolve it relative to baseUrl
-  const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
-    return relativeUrl && url.resolve(baseUrl, relativeUrl);
-  };
   const activityTypes =
       $('#h-activity-types ~ table > tbody').toArray().map((el) => {
         const $el = $(el);
         return {
+          type: 'owl:Class',
           name: selectors.name($, $el),
           notes: selectors.notes($, $el),
           subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
@@ -54,26 +86,26 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
           example: selectors.example($, $el, baseUrl),
         };
       });
-  const applyBaseUrlToLink = (baseUrl: string, link: Link) =>
-      link && Object.assign({}, link, {href: withBaseUrl(baseUrl, link.href)});
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
+    const domain = selectors.domain($, $el);
     return {
+      types: selectors.propertyTypes($, $el),
       name: selectors.name($, $el),
       id: withBaseUrl(baseUrl, selectors.id($, $el)),
       url: withBaseUrl(baseUrl, selectors.url($, $el)),
+      isDefinedBy: withBaseUrl(baseUrl, selectors.url($, $el)),
       // @todo (bengo.is) rename selector to not mention activity vs property
       notes: selectors.notes($, $el),
       example: selectors.example($, $el, baseUrl),
-      domain: selectors.domain($, $el).map(d => applyBaseUrlToLink(baseUrl, d)),
-      range: selectors.range($, $el).map(d => applyBaseUrlToLink(baseUrl, d)),
-      functional: selectors.functional($, $el),
+      domain: applyBaseUrlToDataType(baseUrl, domain),
+      range: applyBaseUrlToDataType(baseUrl, selectors.range($, $el)),
       subPropertyOf:
           applyBaseUrlToLink(baseUrl, selectors.subPropertyOf($, $el)),
     };
   });
   return {
-    '@context': 'https://www.w3.org/ns/activitystreams',
+    '@context': jsonldContext,
     activityTypes,
     properties,
   };

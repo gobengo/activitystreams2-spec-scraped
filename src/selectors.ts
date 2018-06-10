@@ -7,8 +7,9 @@ import assert from 'assert';
 import * as urlm from 'url';
 
 import {LabeledSection, makeTableSelector, optionalRow, TableSection, TableShape} from './tables';
-import {Link} from './types';
+import {DataType, Link} from './types';
 import {CheerioSelector} from './types/cheerio';
+
 
 // TableShapes for the tables storing all the juicy data in the AS2 Vocab Spec
 // clang-format off
@@ -89,8 +90,8 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
             const domId = $example.attr('id');
             const example = {
               name: $example.find('.example-title').text(),
-              uri: domId && urlm.resolve(baseUrl, `#${domId}`),
-              object: JSON.parse($example.find('.json').text()),
+              id: domId && urlm.resolve(baseUrl, `#${domId}`),
+              value: JSON.parse($example.find('.json').text()),
             };
             return example;
           });
@@ -107,21 +108,24 @@ export const url = ($: CheerioSelector, $el: Cheerio) => {
 
 type Selector = ($: CheerioSelector, $el: Cheerio) => Cheerio;
 
-const makeDomainOrRangeSelector = (selectLink: Selector) =>
-    ($: CheerioSelector, $el: Cheerio): Link[] => {
-      const as2TypeLinks =
-          selectLink($, $el).find('code').toArray().map((as2TypeEl) => {
-            const $as2TypeEl = $(as2TypeEl);
-            const href = $as2TypeEl.find('a').attr('href');
-            const link: Link = {
-              type: 'Link',
-              name: $as2TypeEl.text(),
-              href,
-            };
-            return link;
-          });
-      return as2TypeLinks;
-    };
+const makeDomainOrRangeSelector = (selectDomainOrRange: Selector) => (
+    $: CheerioSelector, $el: Cheerio): DataType => {
+  const as2TypeLinks =
+      selectDomainOrRange($, $el).find('code').toArray().map((as2TypeEl) => {
+        const $as2TypeEl = $(as2TypeEl);
+        const name = $as2TypeEl.text();
+        const href = $as2TypeEl.find('a').attr('href');
+        // assuming it's a URI or curie
+        if (!href) return name;
+        const link: Link = {
+          type: 'Link',
+          name,
+          href,
+        };
+        return link;
+      });
+  return {unionOf: as2TypeLinks};
+};
 
 export const domain = makeDomainOrRangeSelector(
     makeTableSelector(propertyTableShape, TableSection.domain));
@@ -156,6 +160,7 @@ export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
           .toArray()
           .map((el) => {
             return {
+              type: 'Link' as 'Link',
               name: $(el).text(),
               href: $(el).find('a').attr('href'),
             };
@@ -165,3 +170,24 @@ export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
   }
   return subPropertyOf[0];
 };
+
+export const propertyTypes = ($: CheerioStatic, $el: Cheerio) => {
+  const collapseEmpty = <T>(arr: T[]): T[]|void => arr.length ? arr : undefined;
+  const types = collapseEmpty([
+    'rdf:Property',
+    domainIncludesObject(domain($, $el)) && 'owl:ObjectProperty',
+    functional($, $el) && 'owl:FunctionalProperty',
+  ].filter(Boolean));
+  return types;
+};
+
+const objectClassUri = '#dfn-object';
+// @todo (bengo.is) this will fail if the domain has a subClassOf of Object
+// but not Object itself. Need to walk up
+const domainIncludesObject = (domain: DataType) =>
+    domain.unionOf
+        .filter((l) => {
+          if (typeof l === 'string') return l === objectClassUri;
+          return l.href === objectClassUri;
+        })
+        .length;

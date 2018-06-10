@@ -10,15 +10,26 @@ export interface Link {
   href: string;
 }
 
+export interface Example {
+  name: string;
+  id: string;
+  value: object;
+}
+
+export interface DataType {
+  unionOf: Array<string|Link>
+}
+
 export interface Property {
   name: string;
   id: string;
   url: string;
   notes: string;
-  domain: Link[];
-  range: Link[];
-  functional: boolean;
+  domain: DataType;
+  range: DataType;
   subPropertyOf?: Link;
+  isDefinedBy: string;
+  example: Example[];
 }
 
 export interface ScrapedVocabulary {
