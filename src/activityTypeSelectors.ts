@@ -64,3 +64,20 @@ export const uri = ($: CheerioSelector, $el: Cheerio) => {
   const uri = $el.find('> tr:first-child > td:nth-child(3)').text();
   return uri;
 };
+
+
+export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
+  const examples = $el.find('> tr:nth-child(1) > td:nth-child(4) > *[id]')
+                       .toArray()
+                       .map((el) => {
+                         const $example = $(el);
+                         const domId = $example.attr('id');
+                         const example = {
+                           name: $example.find('.example-title').text(),
+                           uri: domId && url.resolve(baseUrl, `#${domId}`),
+                           object: JSON.parse($example.find('.json').text()),
+                         };
+                         return example;
+                       });
+  return examples;
+};

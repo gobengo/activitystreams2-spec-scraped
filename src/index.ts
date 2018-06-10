@@ -45,6 +45,7 @@ export const parseVocabulary = (html: string) => {
           subClassOf:
               activityTypeSelectors.subClassOf($, $el, vocabularySpecUrl),
           uri: activityTypeSelectors.uri($, $el),
+          example: activityTypeSelectors.example($, $el, vocabularySpecUrl),
         };
       });
   return {
