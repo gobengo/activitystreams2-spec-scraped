@@ -1,13 +1,13 @@
 import {scrapeVocabulary, vocabularySpecUrl} from '.';
 
-(async () => {
-  let v;
-
+export const test = async () => {
   // This will load from a fixture and *will not* make an http request
-  v = await scrapeVocabulary();
+  await scrapeVocabulary();
 
   // Provide a URL to fetch the html from there, then parse
-  v = await scrapeVocabulary(vocabularySpecUrl);
+  await scrapeVocabulary(vocabularySpecUrl);
+};
 
-  console.log(v);
-})();
+if (require.main === module) {
+  test().catch(e => console.error(e) && process.exit(1));
+}
