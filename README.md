@@ -49,4 +49,4 @@ $ npm install && npm start
 }
 ```
 
-The above output is truncated. See [./data/](./data/activitystreams-vocabulary/1528590716.json) for a full example.
+The above output is truncated. See [./data/](./data/activitystreams-vocabulary/1528589057.json) for a full example.
