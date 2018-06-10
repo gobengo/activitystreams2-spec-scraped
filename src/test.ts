@@ -10,7 +10,7 @@ export const test = async () => {
   // await scrapeVocabulary(vocabularySpecUrl);
 
   assert.equal(vocab.activityTypes.length, 28);
-  assert(vocab.properties.length > 0);
+  assert.equal(vocab.properties.length, 62);
 };
 
 if (require.main === module) {

@@ -2,6 +2,7 @@ import assert from 'assert';
 import cheerio from 'cheerio';
 import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
+import {relative} from 'path';
 import * as url from 'url';
 
 import * as activityTypeSelectors from './activityTypeSelectors';
@@ -51,8 +52,10 @@ export const parseVocabulary = (html: string) => {
       });
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
+    const relativeId = propertySelectors.id($, $el);
     return {
       name: propertySelectors.name($, $el),
+      id: relativeId && url.resolve(vocabularySpecUrl || '', relativeId),
     };
   });
   return {
