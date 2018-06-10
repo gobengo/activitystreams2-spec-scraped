@@ -89,15 +89,15 @@ export const url = ($: CheerioSelector, $el: Cheerio) => {
 
 const makeASTypeSelector = (domQuery: string, expectedLabel: string) =>
     ($: CheerioSelector, $el: Cheerio): ASType[] => {
-      const [rangeLabelElement, rangeElement] =
+      const [labelElement, asTypeElement] =
           $el.find(domQuery).toArray().slice(0, 2);
-      const rangeLabel = $(rangeLabelElement).text();
+      const rangeLabel = $(labelElement).text();
       assert.equal(
           rangeLabel, expectedLabel,
           `Expected rangeLabel of '${expectedLabel}' when parsing ${
               name($, $el)}, but got ${rangeLabel}`);
       const range =
-          $(rangeElement).find('code').toArray().map((rangeComponentEl) => {
+          $(asTypeElement).find('code').toArray().map((rangeComponentEl) => {
             const $rangeComponentEl = $(rangeComponentEl);
             const href = $rangeComponentEl.find('a').attr('href');
             return {
@@ -110,3 +110,28 @@ const makeASTypeSelector = (domQuery: string, expectedLabel: string) =>
 
 export const domain = makeASTypeSelector('> tr:nth-child(3) > td', 'Domain:');
 export const range = makeASTypeSelector('> tr:nth-child(4) > td', 'Range:');
+
+export const functional = ($: CheerioSelector, $el: Cheerio) => {
+  const [labelElement, valueElement] =
+      $el.find('> tr:nth-child(5) > td').toArray().slice(0, 2);
+  const label = $(labelElement).text();
+  const expectedLabel = 'Functional:';
+  if (label !== expectedLabel) {
+    // spec omits this alltogether for nonfunctional properties
+    // (but we'll still support it being present and set to 'false')
+    return false;
+  }
+  assert.equal(
+      label, 'Functional:',
+      `Expected label of '${expectedLabel}' when parsing ${
+          name($, $el)}, but got ${label}`);
+  switch ($(valueElement).text().toLowerCase()) {
+    case 'true':
+      return true;
+    case 'false':
+      return false;
+    default:
+      throw new Error(
+          `Can't determine whether property ${name($, $el)} is functional`);
+  }
+};

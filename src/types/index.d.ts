@@ -16,6 +16,7 @@ export interface Property {
   notes: string;
   domain: ASType[];
   range: ASType[];
+  functional: boolean;
 }
 
 export interface ScrapedVocabulary {

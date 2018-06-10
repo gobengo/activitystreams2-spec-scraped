@@ -67,6 +67,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
       domain:
           selectors.domain($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
       range: selectors.range($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
+      functional: selectors.functional($, $el),
     };
   });
   return {
