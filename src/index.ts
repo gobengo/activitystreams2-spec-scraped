@@ -53,9 +53,14 @@ export const parseVocabulary = (html: string) => {
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
     const relativeId = propertySelectors.id($, $el);
+    // If provided relativeUrl is not absolute, resolve it relative to baseUrl
+    const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
+      return relativeUrl && url.resolve(baseUrl || '', relativeUrl);
+    };
     return {
       name: propertySelectors.name($, $el),
-      id: relativeId && url.resolve(vocabularySpecUrl || '', relativeId),
+      id: withBaseUrl(vocabularySpecUrl, propertySelectors.id($, $el)),
+      url: withBaseUrl(vocabularySpecUrl, propertySelectors.url($, $el)),
     };
   });
   return {

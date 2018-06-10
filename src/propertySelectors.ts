@@ -14,3 +14,9 @@ export const id = ($: CheerioSelector, $el: Cheerio) => {
   const id = $el.find('> tr:first-child > td:nth-child(3)').text();
   return id;
 };
+
+export const url = ($: CheerioSelector, $el: Cheerio) => {
+  const anchorName =
+      $el.find('> tr:first-child > td:first-child dfn').attr('id');
+  return `#${anchorName}`;
+};

@@ -12,6 +12,7 @@ export interface ASType {
 export interface Property {
   name: string;
   id: string;
+  url: string;
   // notes: string;
   // domain: ASType;
   // range: ASType;
