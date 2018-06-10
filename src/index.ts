@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import {relative} from 'path';
 import {Readable} from 'stream';
 import * as url from 'url';
-
+import {cli} from './cli';
 import * as selectors from './selectors';
 import {Link, ScrapedVocabulary} from './types';
 
@@ -73,38 +73,12 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
     };
   });
   return {
+    '@context': 'https://www.w3.org/ns/activitystreams',
     activityTypes,
     properties,
   };
 };
 
-/**
- * Scrape and write to stdout
- */
-async function main() {
-  const vocab = await scrapeVocabulary();
-  const out = JSON.stringify(vocab, null, 2);
-  const stringReader = (str: string) => {
-    const r = new Readable();
-    r.push(str);
-    r.push(null);
-    return r;
-  };
-  return new Promise((resolve, reject) => {
-    stringReader(out)
-        .pipe(process.stdout)
-        .once('error', reject)
-        .once('drain', resolve);
-  });
-}
-
 if (require.main === module) {
-  main()
-      .then((d) => {
-        process.exit();
-      })
-      .catch((error) => {
-        console.error(error);
-        process.exit(1);
-      });
+  cli();
 }

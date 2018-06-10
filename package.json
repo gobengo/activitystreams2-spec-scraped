@@ -1,6 +1,6 @@
 {
   "name": "activitystreams2-spec-scraped",
-  "version": "0.1.1",
+  "version": "0.4.0",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -36,5 +36,8 @@
     "cheerio": "^1.0.0-rc.2",
     "gts": "^0.6.0",
     "node-fetch": "^2.1.2"
+  },
+  "bin": {
+    "activitystreams2-spec-scraped": "./bin/activitystreams2-spec-scraped"
   }
 }

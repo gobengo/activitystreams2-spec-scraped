@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+require('../build/cli').cli().catch(error => console.error(error) && process.exit(1))
