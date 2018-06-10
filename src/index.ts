@@ -1,7 +1,9 @@
 import assert from 'assert';
 import cheerio from 'cheerio';
+import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
 import * as url from 'url';
+
 import * as activityTypeSelectors from './activityTypeSelectors';
 import {ScrapedVocabulary} from './types';
 
@@ -10,16 +12,20 @@ export const vocabularySpecUrl =
 
 /**
  * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
- * @param [url] - url of vocab document. defaults to canonical url
+ * @param [url] - url of vocab document. If not provided, a fixture will be used
+ * and you won't have up-to-date data
  */
-export async function scrapeVocabulary(url = vocabularySpecUrl):
+export async function scrapeVocabulary(url?: string):
     Promise<ScrapedVocabulary> {
   const fetchHtml = async (url = vocabularySpecUrl) => {
     const vocabResponse = await fetch(vocabularySpecUrl);
     const vocabHtml = await vocabResponse.text();
     return vocabHtml;
   };
-  const html = await fetchHtml(url);
+  const readFixture =
+      (f = '../data/activitystreams-vocabulary/1528589057.html') =>
+          readFileSync(require.resolve(f)).toString();
+  const html = await (url ? fetchHtml(url) : readFixture());
   const parsed = parseVocabulary(html);
   return parsed;
 }

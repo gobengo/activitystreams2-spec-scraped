@@ -7,3 +7,8 @@ export interface ActivityType {
 export interface ScrapedVocabulary {
   activityTypes: ActivityType[];
 }
+
+declare module "*.html" {
+  const content: string;
+  export default content;
+}
