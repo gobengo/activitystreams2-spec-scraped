@@ -1,9 +1,11 @@
 /**
  * @file Functions that will select different bits of metadata from the HTML
- * Elements documenting each Activity Type
+ * Elements documenting each Activity Vocabulary item (e.g. Activity Type,
+ * Property)
  */
 import assert from 'assert';
 import * as urlm from 'url';
+import {ASType} from './types';
 
 /**
  * Clean up HTML we scraped. e.g. indented HTML will have lots of extra
@@ -18,12 +20,9 @@ export const subClassOf =
           $el.find('> tr:nth-child(3) > td').toArray().map($);
       assert.equal(
           $extendsLabel.text(), 'Extends:',
-          `Failed to find 'Extends:' label when parsing Acitivty Type ${
-              name($, $el)}`);
+          `Failed to find 'Extends:' label when parsing ${name($, $el)}`);
       const subClassOfName = $extends.find('code').text();
-      assert(
-          subClassOfName,
-          `Failed to find name of Activity Type that ${name} extends`);
+      assert(subClassOfName, `Failed to find subClassOf for ${name}`);
       const extendsHref = $extends.find('a').attr('href');
       const extendsAbsoluteUrl =
           extendsHref && urlm.resolve(baseUrl, extendsHref);
@@ -50,8 +49,8 @@ export const notes = ($: CheerioSelector, $el: Cheerio) => {
                                   .map(cleanHtml);
   assert.equal(
       notesLabel, 'Notes:',
-      `Expected notes label of 'Notes:' when parsing Acitivty Type ${
-          name($, $el)}, but got ${notesLabel}`);
+      `Expected notes label of 'Notes:' when parsing ${name($, $el)}, but got ${
+          notesLabel}`);
   return notes;
 };
 
@@ -59,8 +58,8 @@ export const id = ($: CheerioSelector, $el: Cheerio) => {
   const uriLabel = $el.find('> tr:first-child > td:nth-child(2)').text();
   assert.equal(
       uriLabel, 'URI:',
-      `Expected uriLabel of 'URI:' when parsing Activity Type ${
-          name($, $el)}, but got ${uriLabel}`);
+      `Expected uriLabel of 'URI:' when parsing ${name($, $el)}, but got ${
+          uriLabel}`);
   const id = $el.find('> tr:first-child > td:nth-child(3)').text();
   return id;
 };
@@ -87,3 +86,27 @@ export const url = ($: CheerioSelector, $el: Cheerio) => {
       $el.find('> tr:first-child > td:first-child dfn').attr('id');
   return `#${anchorName}`;
 };
+
+const makeASTypeSelector = (domQuery: string, expectedLabel: string) =>
+    ($: CheerioSelector, $el: Cheerio): ASType[] => {
+      const [rangeLabelElement, rangeElement] =
+          $el.find(domQuery).toArray().slice(0, 2);
+      const rangeLabel = $(rangeLabelElement).text();
+      assert.equal(
+          rangeLabel, expectedLabel,
+          `Expected rangeLabel of '${expectedLabel}' when parsing ${
+              name($, $el)}, but got ${rangeLabel}`);
+      const range =
+          $(rangeElement).find('code').toArray().map((rangeComponentEl) => {
+            const $rangeComponentEl = $(rangeComponentEl);
+            const href = $rangeComponentEl.find('a').attr('href');
+            return {
+              name: $rangeComponentEl.text(),
+              url: href,
+            };
+          });
+      return range;
+    };
+
+export const domain = makeASTypeSelector('> tr:nth-child(3) > td', 'Domain:');
+export const range = makeASTypeSelector('> tr:nth-child(4) > td', 'Range:');

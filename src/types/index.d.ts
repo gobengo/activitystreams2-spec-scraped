@@ -6,7 +6,7 @@ export interface ActivityType {
 
 export interface ASType {
   name: string;
-  id: string;
+  url: string;
 }
 
 export interface Property {
@@ -14,8 +14,8 @@ export interface Property {
   id: string;
   url: string;
   notes: string;
-  // domain: ASType;
-  // range: ASType;
+  domain: ASType[];
+  range: ASType[];
 }
 
 export interface ScrapedVocabulary {
