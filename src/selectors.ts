@@ -6,73 +6,52 @@
 import assert from 'assert';
 import * as urlm from 'url';
 
-import {activityTypeTableShape, betterPropertyTableShape, commonTableShape, isOptional, propertyTableShape, RichTableShape, rowMatchesShape, tableQuery, TableSection,} from './tables';
+import {LabeledSection, makeTableSelector, optionalRow, TableSection, TableShape} from './tables';
 import {ASType} from './types';
 import {CheerioSelector} from './types/cheerio';
 
-export const makeTableSelector =
-    (tableShape: RichTableShape, target: TableSection) =>
-        ($: CheerioSelector, $el: Cheerio): Cheerio => {
-          const shapeRowIndex = 0;
-          let rowIndex = 0;
-          const rows = $el.find('> tr').toArray();
-          let foundTargetInTableShape = false;
-          for (const rowShape of tableShape) {
-            const rowToCheck = rows[rowIndex];
-            if (rowShape.includes(target)) {
-              foundTargetInTableShape = true;
-            }
-            if (rowShape[isOptional]) {
-              // determine whether nextRow is this optional one
-              if (!rowMatchesShape($, rowToCheck, rowShape)) {
-                // optional row isn't here. no worries
-                continue;
-              }
-            }
-            if (!rowToCheck) {
-              throw new Error('Required row is missing');
-            }
-            if (rowShape.includes(target)) {
-              // it should be here!
-              const found =
-                  $(rowToCheck).find('> td').get(rowShape.indexOf(target));
-              if (!found) {
-                throw new Error(
-                    `target ${target} should be in this row, but it's not.`);
-              }
-              return $(found);
-            }
-            rowIndex++;
-          }
-          if (!foundTargetInTableShape) {
-            throw new Error(
-                `target ${target} not found in provided shape ${tableShape}`);
-          }
-          // just return empty Cheerio set. We didn't find anything
-          return $('');
-        };
+// TableShapes for the tables storing all the juicy data in the AS2 Vocab Spec
+// clang-format off
+/** TableShape that all tables have in common for first couple rows */
+export const commonTableShape: TableShape = [
+  [TableSection.name, ...new LabeledSection(TableSection.uri, 'URI:'), TableSection.example],
+  new LabeledSection(TableSection.notes, 'Notes:'),
+];
 
+/** TableShape for AS2 Vocab Activity Types */
+export const activityTypeTableShape: TableShape = [
+  ...commonTableShape,
+  new LabeledSection(TableSection.extends, 'Extends:'),
+  new LabeledSection(TableSection.properties, 'Properties:'),
+];
 
-/**
- * Clean up HTML we scraped. e.g. indented HTML will have lots of extra
- * whitespace we want to collapse.
- * @param rawHtml - html to clean
- */
-const cleanHtml = (rawHtml: string) => rawHtml.trim().replace(/\s\s+/g, ' ');
+/** TableShape for AS2 Vocab Properties */
+export const propertyTableShape: TableShape = [
+  ...commonTableShape,
+  new LabeledSection(TableSection.domain, 'Domain:'),
+  new LabeledSection(TableSection.range, 'Range:'),
+  optionalRow(new LabeledSection(TableSection.functional, 'Functional:')),
+  optionalRow(new LabeledSection(TableSection.subPropertyOf, 'Subproperty Of:')),
+];
+// clang-format on
 
 export const name = ($: CheerioSelector, $el: Cheerio) => {
-  const $name = $el.find(tableQuery(commonTableShape, 'name'));
+  const $name =
+      makeTableSelector(propertyTableShape, TableSection.name)($, $el);
   return $name.text();
 };
 
 export const notes = ($: CheerioSelector, $el: Cheerio) => {
-  const $notes = $el.find(tableQuery(commonTableShape, 'notes'));
+  const $notes =
+      makeTableSelector(commonTableShape, TableSection.notes)($, $el);
+  const cleanHtml = (rawHtml: string) => rawHtml.trim().replace(/\s\s+/g, ' ');
   return cleanHtml($notes.text());
 };
 
 export const activityTypeSubClassOf =
     ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
-      const $extends = $el.find(tableQuery(activityTypeTableShape, 'extends'));
+      const $extends = makeTableSelector(activityTypeTableShape,
+                                         TableSection.extends)($, $el);
       const subClassOfName = $extends.find('code').text();
       assert(subClassOfName, `Failed to find subClassOf for ${name}`);
       const extendsHref = $extends.find('a').attr('href');
@@ -94,57 +73,62 @@ const closestTrLabel = ($el: Cheerio) => {
 };
 
 export const id = ($: CheerioSelector, $el: Cheerio) => {
-  const $uri = $el.find(tableQuery(activityTypeTableShape, 'uri'));
+  const $uri =
+      makeTableSelector(activityTypeTableShape, TableSection.uri)($, $el);
   const id = $uri.text();
   return id;
 };
 
 export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
-  const examples = $el.find(tableQuery(commonTableShape, 'example'))
-                       .find('*[id]')
-                       .toArray()
-                       .map((el) => {
-                         const $example = $(el);
-                         const domId = $example.attr('id');
-                         const example = {
-                           name: $example.find('.example-title').text(),
-                           uri: domId && urlm.resolve(baseUrl, `#${domId}`),
-                           object: JSON.parse($example.find('.json').text()),
-                         };
-                         return example;
-                       });
+  const examples =
+      makeTableSelector(commonTableShape, TableSection.example)($, $el)
+          .find('*[id]')
+          .toArray()
+          .map((el) => {
+            const $example = $(el);
+            const domId = $example.attr('id');
+            const example = {
+              name: $example.find('.example-title').text(),
+              uri: domId && urlm.resolve(baseUrl, `#${domId}`),
+              object: JSON.parse($example.find('.json').text()),
+            };
+            return example;
+          });
   return examples;
 };
 
 export const url = ($: CheerioSelector, $el: Cheerio) => {
   const anchorName =
-      $el.find(tableQuery(commonTableShape, 'name')).find('dfn').attr('id');
+      makeTableSelector(commonTableShape, TableSection.name)($, $el)
+          .find('dfn')
+          .attr('id');
   return `#${anchorName}`;
 };
 
-const makeASTypeSelector = (domQuery: string, expectedLabel: string) => (
-    $: CheerioSelector, $el: Cheerio): ASType[] => {
-  const asTypeElement = $el.find(domQuery).get();
-  const range = $el.find(domQuery).find('code').toArray().map((asTypeEl) => {
-    const $asTypeEl = $(asTypeEl);
-    const href = $asTypeEl.find('a').attr('href');
-    return {
-      name: $asTypeEl.text(),
-      url: href,
-    };
-  });
-  return range;
-};
+type Selector = ($: CheerioSelector, $el: Cheerio) => Cheerio;
 
-export const domain =
-    makeASTypeSelector(tableQuery(propertyTableShape, 'domain'), 'Domain:');
-export const range =
-    makeASTypeSelector(tableQuery(propertyTableShape, 'range'), 'Range:');
+const makeASTypeSelector = (selectASType: Selector) =>
+    ($: CheerioSelector, $el: Cheerio): ASType[] => {
+      const as2Types =
+          selectASType($, $el).find('code').toArray().map((as2TypeEl) => {
+            const $as2TypeEl = $(as2TypeEl);
+            const href = $as2TypeEl.find('a').attr('href');
+            return {
+              name: $as2TypeEl.text(),
+              url: href,
+            };
+          });
+      return as2Types;
+    };
+
+export const domain = makeASTypeSelector(
+    makeTableSelector(propertyTableShape, TableSection.domain));
+export const range = makeASTypeSelector(
+    makeTableSelector(propertyTableShape, TableSection.range));
 
 export const functional = ($: CheerioSelector, $el: Cheerio) => {
-  const $functional = $(makeTableSelector(
-      betterPropertyTableShape, TableSection.functional)($, $el));
-  // const $functional = $el.find(tableQuery(propertyTableShape, 'functional'))
+  const $functional =
+      $(makeTableSelector(propertyTableShape, TableSection.functional)($, $el));
   const functional = $functional.text();
   if (!functional) {
     // spec omits this alltogether for nonfunctional properties
@@ -164,7 +148,7 @@ export const functional = ($: CheerioSelector, $el: Cheerio) => {
 
 export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
   const subPropertyOf =
-      $(makeTableSelector(betterPropertyTableShape, TableSection.subPropertyOf)(
+      $(makeTableSelector(propertyTableShape, TableSection.subPropertyOf)(
             $, $el))
           .find('code')
           .toArray()

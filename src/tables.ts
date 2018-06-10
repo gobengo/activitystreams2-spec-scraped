@@ -27,10 +27,9 @@ type CanBeOptional = {
 };
 type TableCell = (SectionLabel|TableSection)&CanBeOptional;
 type TableRow = TableCell[]&CanBeOptional;
-export type RichTableShape = TableRow[];
+export type TableShape = TableRow[];
 
-class TableRowPiece extends Array<TableCell> {}
-class LabeledSection extends TableRowPiece {
+export class LabeledSection extends Array<TableCell> {
   0: SectionLabel;
   1: TableSection;
   length = 2;
@@ -46,20 +45,9 @@ class LabeledSection extends TableRowPiece {
 interface CanMatchElement {
   match($: CheerioSelector, el: CheerioElement): boolean;
 }
-const optionalRow = (row: TableRow&CanMatchElement) => {
+export const optionalRow = (row: TableRow&CanMatchElement) => {
   return Object.assign(row.slice(), {[isOptional]: true});
 };
-
-// clang-format off
-export const betterPropertyTableShape: RichTableShape = [
-  [TableSection.name, ...new LabeledSection(TableSection.uri, 'URI:'), TableSection.example],
-  new LabeledSection(TableSection.notes, 'Notes:'),
-  new LabeledSection(TableSection.domain, 'Domain:'),
-  new LabeledSection(TableSection.range, 'Range:'),
-  optionalRow(new LabeledSection(TableSection.functional, 'Functional:')),
-  optionalRow(new LabeledSection(TableSection.subPropertyOf, 'Subproperty Of:')),
-];
-// clang-format on
 
 export const rowMatchesShape =
     ($: CheerioSelector, row: CheerioElement, rowShape: TableRow) => {
@@ -69,6 +57,48 @@ export const rowMatchesShape =
       return $(row).find('td').toArray().length === rowShape.length;
     };
 
+export const makeTableSelector =
+    (tableShape: TableShape, target: TableSection) =>
+        ($: CheerioSelector, $el: Cheerio): Cheerio => {
+          const shapeRowIndex = 0;
+          let rowIndex = 0;
+          const rows = $el.find('> tr').toArray();
+          let foundTargetInTableShape = false;
+          for (const rowShape of tableShape) {
+            const rowToCheck = rows[rowIndex];
+            if (rowShape.includes(target)) {
+              foundTargetInTableShape = true;
+            }
+            if (rowShape[isOptional]) {
+              // determine whether nextRow is this optional one
+              if (!rowMatchesShape($, rowToCheck, rowShape)) {
+                // optional row isn't here. no worries
+                continue;
+              }
+            }
+            if (!rowToCheck) {
+              throw new Error('Required row is missing');
+            }
+            if (rowShape.includes(target)) {
+              // it should be here!
+              const found =
+                  $(rowToCheck).find('> td').get(rowShape.indexOf(target));
+              if (!found) {
+                throw new Error(
+                    `target ${target} should be in this row, but it's not.`);
+              }
+              return $(found);
+            }
+            rowIndex++;
+          }
+          if (!foundTargetInTableShape) {
+            throw new Error(
+                `target ${target} not found in provided shape ${tableShape}`);
+          }
+          // just return empty Cheerio set. We didn't find anything
+          return $('');
+        };
+
 
 // What follows uses 'SimpleTableShapes'
 // It proved insufficient to deal with the optional rows in the
@@ -77,23 +107,21 @@ export const rowMatchesShape =
 
 type SimpleTableShape = string[][];
 
-export const commonTableShape: SimpleTableShape =
-    [['name', 'uriLabel', 'uri', 'example'], ['notesLabel', 'notes']];
+// clang-format off
+export const simpleCommonTableShape: SimpleTableShape = [
+  ['name', 'uriLabel', 'uri', 'example'],
+  ['notesLabel', 'notes']
+];
+// clang-format on
 
-export const activityTypeTableShape: SimpleTableShape = [
+// clang-format off
+export const simpleActivityTypeTableShape: SimpleTableShape = [
   ['name', 'uriLabel', 'uri', 'example'],
   ['notesLabel', 'notes'],
   ['extendsLabel', 'extends'],
   ['propertiesLabel', 'properties'],
 ];
-
-export const propertyTableShape: SimpleTableShape = [
-  ['name', 'uriLabel', 'uri', 'example'],
-  ['notesLabel', 'notes'],
-  ['domainLabel', 'domain'],
-  ['rangeLabel', 'range'],
-  ['functionalLabel', 'functional'],
-];
+// clang-format on
 
 const findTableCoords = (table: SimpleTableShape, section: string) => {
   const coords = {tr: 0, td: 0};
