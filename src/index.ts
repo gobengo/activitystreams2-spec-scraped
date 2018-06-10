@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
 import {relative} from 'path';
+import {Readable} from 'stream';
 import * as url from 'url';
 
 import * as selectors from './selectors';
@@ -47,14 +48,14 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
         return {
           name: selectors.name($, $el),
           notes: selectors.notes($, $el),
-          subClassOf: selectors.subClassOf($, $el, baseUrl),
+          subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
           id: withBaseUrl(baseUrl, selectors.id($, $el)),
           url: withBaseUrl(baseUrl, selectors.url($, $el)),
           example: selectors.example($, $el, baseUrl),
         };
       });
   const applyBaseUrlToASType = (baseUrl: string, t: ASType) =>
-      Object.assign({}, t, {url: withBaseUrl(baseUrl, t.url)});
+      t && Object.assign({}, t, {url: withBaseUrl(baseUrl, t.url)});
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
     return {
@@ -68,6 +69,8 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
           selectors.domain($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
       range: selectors.range($, $el).map(d => applyBaseUrlToASType(baseUrl, d)),
       functional: selectors.functional($, $el),
+      subPropertyOf:
+          applyBaseUrlToASType(baseUrl, selectors.subPropertyOf($, $el)),
     };
   });
   return {
@@ -76,9 +79,24 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
   };
 };
 
+/**
+ * Scrape and write to stdout
+ */
 async function main() {
-  const html = await scrapeVocabulary();
-  console.log(JSON.stringify(html, null, 2));
+  const vocab = await scrapeVocabulary();
+  const out = JSON.stringify(vocab, null, 2);
+  const stringReader = (str: string) => {
+    const r = new Readable();
+    r.push(str);
+    r.push(null);
+    return r;
+  };
+  return new Promise((resolve, reject) => {
+    stringReader(out)
+        .pipe(process.stdout)
+        .once('error', reject)
+        .once('drain', resolve);
+  });
 }
 
 if (require.main === module) {

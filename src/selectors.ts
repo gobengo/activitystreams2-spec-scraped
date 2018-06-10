@@ -5,7 +5,53 @@
  */
 import assert from 'assert';
 import * as urlm from 'url';
+
+import {activityTypeTableShape, betterPropertyTableShape, commonTableShape, isOptional, propertyTableShape, RichTableShape, rowMatchesShape, tableQuery, TableSection,} from './tables';
 import {ASType} from './types';
+import {CheerioSelector} from './types/cheerio';
+
+export const makeTableSelector =
+    (tableShape: RichTableShape, target: TableSection) =>
+        ($: CheerioSelector, $el: Cheerio): Cheerio => {
+          const shapeRowIndex = 0;
+          let rowIndex = 0;
+          const rows = $el.find('> tr').toArray();
+          let foundTargetInTableShape = false;
+          for (const rowShape of tableShape) {
+            const rowToCheck = rows[rowIndex];
+            if (rowShape.includes(target)) {
+              foundTargetInTableShape = true;
+            }
+            if (rowShape[isOptional]) {
+              // determine whether nextRow is this optional one
+              if (!rowMatchesShape($, rowToCheck, rowShape)) {
+                // optional row isn't here. no worries
+                continue;
+              }
+            }
+            if (!rowToCheck) {
+              throw new Error('Required row is missing');
+            }
+            if (rowShape.includes(target)) {
+              // it should be here!
+              const found =
+                  $(rowToCheck).find('> td').get(rowShape.indexOf(target));
+              if (!found) {
+                throw new Error(
+                    `target ${target} should be in this row, but it's not.`);
+              }
+              return $(found);
+            }
+            rowIndex++;
+          }
+          if (!foundTargetInTableShape) {
+            throw new Error(
+                `target ${target} not found in provided shape ${tableShape}`);
+          }
+          // just return empty Cheerio set. We didn't find anything
+          return $('');
+        };
+
 
 /**
  * Clean up HTML we scraped. e.g. indented HTML will have lots of extra
@@ -14,13 +60,19 @@ import {ASType} from './types';
  */
 const cleanHtml = (rawHtml: string) => rawHtml.trim().replace(/\s\s+/g, ' ');
 
-export const subClassOf =
+export const name = ($: CheerioSelector, $el: Cheerio) => {
+  const $name = $el.find(tableQuery(commonTableShape, 'name'));
+  return $name.text();
+};
+
+export const notes = ($: CheerioSelector, $el: Cheerio) => {
+  const $notes = $el.find(tableQuery(commonTableShape, 'notes'));
+  return cleanHtml($notes.text());
+};
+
+export const activityTypeSubClassOf =
     ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
-      const [$extendsLabel, $extends] =
-          $el.find('> tr:nth-child(3) > td').toArray().map($);
-      assert.equal(
-          $extendsLabel.text(), 'Extends:',
-          `Failed to find 'Extends:' label when parsing ${name($, $el)}`);
+      const $extends = $el.find(tableQuery(activityTypeTableShape, 'extends'));
       const subClassOfName = $extends.find('code').text();
       assert(subClassOfName, `Failed to find subClassOf for ${name}`);
       const extendsHref = $extends.find('a').attr('href');
@@ -36,37 +88,20 @@ export const subClassOf =
       return subClassOf;
     };
 
-export const name = ($: CheerioSelector, $el: Cheerio) => {
-  const name = $el.find('> tr:first-child > td:first-child dfn').text();
-  return name;
-};
-
-export const notes = ($: CheerioSelector, $el: Cheerio) => {
-  const [notesLabel, notes] = $el.find('> tr:nth-child(2) > td')
-                                  .toArray()
-                                  .slice(0, 2)
-                                  .map(n => $(n).text())
-                                  .map(cleanHtml);
-  assert.equal(
-      notesLabel, 'Notes:',
-      `Expected notes label of 'Notes:' when parsing ${name($, $el)}, but got ${
-          notesLabel}`);
-  return notes;
+const closestTrLabel = ($el: Cheerio) => {
+  const label = $el.closest('tr').find('> td:nth-child(1)').text();
+  return label;
 };
 
 export const id = ($: CheerioSelector, $el: Cheerio) => {
-  const uriLabel = $el.find('> tr:first-child > td:nth-child(2)').text();
-  assert.equal(
-      uriLabel, 'URI:',
-      `Expected uriLabel of 'URI:' when parsing ${name($, $el)}, but got ${
-          uriLabel}`);
-  const id = $el.find('> tr:first-child > td:nth-child(3)').text();
+  const $uri = $el.find(tableQuery(activityTypeTableShape, 'uri'));
+  const id = $uri.text();
   return id;
 };
 
-
 export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
-  const examples = $el.find('> tr:nth-child(1) > td:nth-child(4) > *[id]')
+  const examples = $el.find(tableQuery(commonTableShape, 'example'))
+                       .find('*[id]')
                        .toArray()
                        .map((el) => {
                          const $example = $(el);
@@ -83,49 +118,40 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
 
 export const url = ($: CheerioSelector, $el: Cheerio) => {
   const anchorName =
-      $el.find('> tr:first-child > td:first-child dfn').attr('id');
+      $el.find(tableQuery(commonTableShape, 'name')).find('dfn').attr('id');
   return `#${anchorName}`;
 };
 
-const makeASTypeSelector = (domQuery: string, expectedLabel: string) =>
-    ($: CheerioSelector, $el: Cheerio): ASType[] => {
-      const [labelElement, asTypeElement] =
-          $el.find(domQuery).toArray().slice(0, 2);
-      const rangeLabel = $(labelElement).text();
-      assert.equal(
-          rangeLabel, expectedLabel,
-          `Expected rangeLabel of '${expectedLabel}' when parsing ${
-              name($, $el)}, but got ${rangeLabel}`);
-      const range =
-          $(asTypeElement).find('code').toArray().map((rangeComponentEl) => {
-            const $rangeComponentEl = $(rangeComponentEl);
-            const href = $rangeComponentEl.find('a').attr('href');
-            return {
-              name: $rangeComponentEl.text(),
-              url: href,
-            };
-          });
-      return range;
+const makeASTypeSelector = (domQuery: string, expectedLabel: string) => (
+    $: CheerioSelector, $el: Cheerio): ASType[] => {
+  const asTypeElement = $el.find(domQuery).get();
+  const range = $el.find(domQuery).find('code').toArray().map((asTypeEl) => {
+    const $asTypeEl = $(asTypeEl);
+    const href = $asTypeEl.find('a').attr('href');
+    return {
+      name: $asTypeEl.text(),
+      url: href,
     };
+  });
+  return range;
+};
 
-export const domain = makeASTypeSelector('> tr:nth-child(3) > td', 'Domain:');
-export const range = makeASTypeSelector('> tr:nth-child(4) > td', 'Range:');
+export const domain =
+    makeASTypeSelector(tableQuery(propertyTableShape, 'domain'), 'Domain:');
+export const range =
+    makeASTypeSelector(tableQuery(propertyTableShape, 'range'), 'Range:');
 
 export const functional = ($: CheerioSelector, $el: Cheerio) => {
-  const [labelElement, valueElement] =
-      $el.find('> tr:nth-child(5) > td').toArray().slice(0, 2);
-  const label = $(labelElement).text();
-  const expectedLabel = 'Functional:';
-  if (label !== expectedLabel) {
+  const $functional = $(makeTableSelector(
+      betterPropertyTableShape, TableSection.functional)($, $el));
+  // const $functional = $el.find(tableQuery(propertyTableShape, 'functional'))
+  const functional = $functional.text();
+  if (!functional) {
     // spec omits this alltogether for nonfunctional properties
     // (but we'll still support it being present and set to 'false')
     return false;
   }
-  assert.equal(
-      label, 'Functional:',
-      `Expected label of '${expectedLabel}' when parsing ${
-          name($, $el)}, but got ${label}`);
-  switch ($(valueElement).text().toLowerCase()) {
+  switch (functional.toLowerCase()) {
     case 'true':
       return true;
     case 'false':
@@ -134,4 +160,22 @@ export const functional = ($: CheerioSelector, $el: Cheerio) => {
       throw new Error(
           `Can't determine whether property ${name($, $el)} is functional`);
   }
+};
+
+export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
+  const subPropertyOf =
+      $(makeTableSelector(betterPropertyTableShape, TableSection.subPropertyOf)(
+            $, $el))
+          .find('code')
+          .toArray()
+          .map((el) => {
+            return {
+              name: $(el).text(),
+              url: $(el).find('a').attr('href'),
+            };
+          });
+  if (subPropertyOf.length > 1) {
+    throw new Error(`subPropertyOf should not have more than 1 value`);
+  }
+  return subPropertyOf[0];
 };
