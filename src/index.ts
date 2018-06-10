@@ -5,8 +5,7 @@ import fetch from 'node-fetch';
 import {relative} from 'path';
 import * as url from 'url';
 
-import * as activityTypeSelectors from './activityTypeSelectors';
-import * as propertySelectors from './propertySelectors';
+import * as selectors from './selectors';
 import {ScrapedVocabulary} from './types';
 
 export const vocabularySpecUrl =
@@ -28,7 +27,7 @@ export async function scrapeVocabulary(url?: string):
       (f = '../data/activitystreams-vocabulary/1528589057.html') =>
           readFileSync(require.resolve(f)).toString();
   const html = await (url ? fetchHtml(url) : readFixture());
-  const parsed = parseVocabulary(html, url);
+  const parsed = parseVocabulary(html, url || vocabularySpecUrl);
   return parsed;
 }
 
@@ -46,21 +45,23 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
       $('#h-activity-types ~ table > tbody').toArray().map((el) => {
         const $el = $(el);
         return {
-          name: activityTypeSelectors.name($, $el),
-          notes: activityTypeSelectors.notes($, $el),
-          subClassOf: activityTypeSelectors.subClassOf($, $el, baseUrl),
-          id: withBaseUrl(baseUrl, activityTypeSelectors.id($, $el)),
-          url: withBaseUrl(baseUrl, activityTypeSelectors.url($, $el)),
-          example: activityTypeSelectors.example($, $el, baseUrl),
+          name: selectors.name($, $el),
+          notes: selectors.notes($, $el),
+          subClassOf: selectors.subClassOf($, $el, baseUrl),
+          id: withBaseUrl(baseUrl, selectors.id($, $el)),
+          url: withBaseUrl(baseUrl, selectors.url($, $el)),
+          example: selectors.example($, $el, baseUrl),
         };
       });
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
-    const relativeId = propertySelectors.id($, $el);
     return {
-      name: propertySelectors.name($, $el),
-      id: withBaseUrl(baseUrl, propertySelectors.id($, $el)),
-      url: withBaseUrl(baseUrl, propertySelectors.url($, $el)),
+      name: selectors.name($, $el),
+      id: withBaseUrl(baseUrl, selectors.id($, $el)),
+      url: withBaseUrl(baseUrl, selectors.url($, $el)),
+      // @todo (bengo.is) rename selector to not mention activity vs property
+      notes: selectors.notes($, $el),
+      example: selectors.example($, $el, baseUrl),
     };
   });
   return {
