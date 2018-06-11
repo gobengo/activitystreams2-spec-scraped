@@ -71,25 +71,32 @@ const applyBaseUrlToDataType = (baseUrl: string, dt: DataType): DataType => {
   });
 };
 
+const parseClassElement =
+    ($: CheerioSelector, el: CheerioElement, baseUrl: string) => {
+      const $el = $(el);
+      return {
+        type: 'owl:Class',
+        name: selectors.name($, $el),
+        notes: selectors.notes($, $el),
+        subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
+        id: withBaseUrl(baseUrl, selectors.id($, $el)),
+        url: withBaseUrl(baseUrl, selectors.url($, $el)),
+        example: selectors.example($, $el, baseUrl),
+      };
+    };
+
 /**
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
 export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
-  const activityTypes =
-      $('#h-activity-types ~ table > tbody').toArray().map((el) => {
-        const $el = $(el);
-        return {
-          type: 'owl:Class',
-          name: selectors.name($, $el),
-          notes: selectors.notes($, $el),
-          subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
-          id: withBaseUrl(baseUrl, selectors.id($, $el)),
-          url: withBaseUrl(baseUrl, selectors.url($, $el)),
-          example: selectors.example($, $el, baseUrl),
-        };
-      });
+  const activityTypes = $('#h-activity-types ~ table > tbody')
+                            .toArray()
+                            .map(el => parseClassElement($, el, baseUrl));
+  const actorTypes = $('#h-actor-types ~ table > tbody')
+                         .toArray()
+                         .map(el => parseClassElement($, el, baseUrl));
   const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
     const $el = $(el);
     const domain = selectors.domain($, $el);
@@ -111,6 +118,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
   return {
     '@context': jsonldContext,
     activityTypes,
+    actorTypes,
     properties,
   };
 };
