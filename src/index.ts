@@ -17,6 +17,7 @@ export const jsonldContext = [
     'owl': 'http://www.w3.org/2002/07/owl#',
     'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
     'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+    'schema': 'http://schema.org/',
     'xsd': 'http://www.w3.org/2001/XMLSchema#',
     'subClassOf': 'rdfs:subClassof',
     'subPropertyOf': 'rdfs:subPropertyof',
@@ -26,6 +27,8 @@ export const jsonldContext = [
     'isDefinedBy': 'rdfs:isDefinedBy',
     'unionOf': 'owl:unionOf',
     'value': 'rdf:value',
+    'example': 'schema:workExample',
+    'mainEntity': 'schema:mainEntity',
   }
 ];
 

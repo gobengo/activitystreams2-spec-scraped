@@ -91,7 +91,7 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
             const example = {
               name: $example.find('.example-title').text(),
               id: domId && urlm.resolve(baseUrl, `#${domId}`),
-              value: JSON.parse($example.find('.json').text()),
+              mainEntity: JSON.parse($example.find('.json').text()),
             };
             return example;
           });

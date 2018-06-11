@@ -13,7 +13,7 @@ export interface Link {
 export interface Example {
   name: string;
   id: string;
-  value: object;
+  mainEntity: object;
 }
 
 export interface DataType {
