@@ -1003,6 +1003,494 @@
       ]
     }
   ],
+  "actorTypes": [
+    {
+      "type": "owl:Class",
+      "name": "Application",
+      "notes": "Describes a software application.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Application",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-application",
+      "example": [
+        {
+          "name": "Example 42",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex34-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Application",
+            "name": "Exampletron 3000"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Group",
+      "notes": "Represents a formal or informal collective of Actors.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Group",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-group",
+      "example": [
+        {
+          "name": "Example 43",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex37-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Group",
+            "name": "Big Beards of Austin"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Organization",
+      "notes": "Represents an organization.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Organization",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-organization",
+      "example": [
+        {
+          "name": "Example 44",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex186-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Organization",
+            "name": "Example Co."
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Person",
+      "notes": "Represents an individual person.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Person",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-person",
+      "example": [
+        {
+          "name": "Example 45",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex39-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Person",
+            "name": "Sally Smith"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Service",
+      "notes": "Represents a service of any kind.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Service",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-service",
+      "example": [
+        {
+          "name": "Example 46",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex42-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Service",
+            "name": "Acme Web Service"
+          }
+        }
+      ]
+    }
+  ],
+  "objectTypes": [
+    {
+      "type": "owl:Class",
+      "name": "Relationship",
+      "notes": "Describes a relationship between two individuals. The subject and object properties are used to identify the connected individuals. See 5.2 Representing Relationships Between Entities for additional information.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Relationship",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship",
+      "example": [
+        {
+          "name": "Example 47",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Sally is an acquaintance of John",
+            "type": "Relationship",
+            "subject": {
+              "type": "Person",
+              "name": "Sally"
+            },
+            "relationship": "http://purl.org/vocab/relationship/acquaintanceOf",
+            "object": {
+              "type": "Person",
+              "name": "John"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Article",
+      "notes": "Represents any kind of multi-paragraph written work.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Article",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-article",
+      "example": [
+        {
+          "name": "Example 48",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex43-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Article",
+            "name": "What a Crazy Day I Had",
+            "content": "<div>... you will never believe ...</div>",
+            "attributedTo": "http://sally.example.org"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Document",
+      "notes": "Represents a document of any kind.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Document",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
+      "example": [
+        {
+          "name": "Example 49",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex48-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Document",
+            "name": "4Q Sales Forecast",
+            "url": "http://example.org/4q-sales-forecast.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Audio",
+      "notes": "Represents an audio document of any kind.",
+      "subClassOf": {
+        "name": "Document",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Audio",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-audio",
+      "example": [
+        {
+          "name": "Example 50",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex49-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Audio",
+            "name": "Interview With A Famous Technologist",
+            "url": {
+              "type": "Link",
+              "href": "http://example.org/podcast.mp3",
+              "mediaType": "audio/mp3"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Image",
+      "notes": "An image document of any kind",
+      "subClassOf": {
+        "name": "Document",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Image",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image",
+      "example": [
+        {
+          "name": "Example 51",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex50-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Image",
+            "name": "Cat Jumping on Wagon",
+            "url": [
+              {
+                "type": "Link",
+                "href": "http://example.org/image.jpeg",
+                "mediaType": "image/jpeg"
+              },
+              {
+                "type": "Link",
+                "href": "http://example.org/image.png",
+                "mediaType": "image/png"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Video",
+      "notes": "Represents a video document of any kind.",
+      "subClassOf": {
+        "name": "Document",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Video",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-video",
+      "example": [
+        {
+          "name": "Example 52",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex51-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Video",
+            "name": "Puppy Plays With Ball",
+            "url": "http://example.org/video.mkv",
+            "duration": "PT2H"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Note",
+      "notes": "Represents a short written work typically less than a single paragraph in length.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Note",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note",
+      "example": [
+        {
+          "name": "Example 53",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex52-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Note",
+            "name": "A Word of Warning",
+            "content": "Looks like it is going to rain today. Bring an umbrella!"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Page",
+      "notes": "Represents a Web Page.",
+      "subClassOf": {
+        "name": "Document",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Page",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-page",
+      "example": [
+        {
+          "name": "Example 54",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex53-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Page",
+            "name": "Omaha Weather Report",
+            "url": "http://example.org/weather-in-omaha.html"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Event",
+      "notes": "Represents any kind of event.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Event",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-event",
+      "example": [
+        {
+          "name": "Example 55",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex56-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Event",
+            "name": "Going-Away Party for Jim",
+            "startTime": "2014-12-31T23:00:00-08:00",
+            "endTime": "2015-01-01T06:00:00-08:00"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Place",
+      "notes": "Represents a logical or physical location. See 5.3 Representing Places for additional information.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Place",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
+      "example": [
+        {
+          "name": "Example 56",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex57-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Work"
+          }
+        },
+        {
+          "name": "Example 57",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex58-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Place",
+            "name": "Fresno Area",
+            "latitude": 36.75,
+            "longitude": 119.7667,
+            "radius": 15,
+            "units": "miles"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Mention",
+      "notes": "A specialized Link that represents an @mention.",
+      "subClassOf": {
+        "name": "Link",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Mention",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mention",
+      "example": [
+        {
+          "name": "Example 58",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex181-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "summary": "Mention of Joe by Carrie in her note",
+            "type": "Mention",
+            "href": "http://example.org/joe",
+            "name": "Joe"
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Profile",
+      "notes": "A Profile is a content object that describes another Object, typically used to describe Actor Type objects. The describes property is used to reference the object being described by the profile.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Profile",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-profile",
+      "example": [
+        {
+          "name": "Example 59",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex184a-jsonld",
+          "mainEntity": {
+            "@context": "https://www.w3.org/ns/activitystreams",
+            "type": "Profile",
+            "summary": "Sally's Profile",
+            "describes": {
+              "type": "Person",
+              "name": "Sally Smith"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "owl:Class",
+      "name": "Tombstone",
+      "notes": "A Tombstone represents a content object that has been deleted. It can be used in Collections to signify that there used to be an object at this position, but it has been deleted.",
+      "subClassOf": {
+        "name": "Object",
+        "type": "Link",
+        "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+      },
+      "id": "https://www.w3.org/ns/activitystreams#Tombstone",
+      "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone",
+      "example": [
+        {
+          "name": "Example 60",
+          "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex184b-jsonld",
+          "mainEntity": {
+            "type": "OrderedCollection",
+            "totalItems": 3,
+            "name": "Vacation photos 2016",
+            "orderedItems": [
+              {
+                "type": "Image",
+                "id": "http://image.example/1"
+              },
+              {
+                "type": "Tombstone",
+                "formerType": "Image",
+                "id": "http://image.example/2",
+                "deleted": "2016-03-17T00:00:00Z"
+              },
+              {
+                "type": "Image",
+                "id": "http://image.example/3"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
   "properties": [
     {
       "type": [

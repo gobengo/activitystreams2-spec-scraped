@@ -85,41 +85,42 @@ const parseClassElement =
       };
     };
 
+const parseProperty =
+    ($: CheerioSelector, el: CheerioElement, baseUrl: string) => {
+      const $el = $(el);
+      const domain = selectors.domain($, $el);
+      return {
+        type: selectors.propertyTypes($, $el),
+        name: selectors.name($, $el),
+        id: withBaseUrl(baseUrl, selectors.id($, $el)),
+        url: withBaseUrl(baseUrl, selectors.url($, $el)),
+        isDefinedBy: withBaseUrl(baseUrl, selectors.url($, $el)),
+        // @todo (bengo.is) rename selector to not mention activity vs property
+        notes: selectors.notes($, $el),
+        example: selectors.example($, $el, baseUrl),
+        domain: applyBaseUrlToDataType(baseUrl, domain),
+        range: applyBaseUrlToDataType(baseUrl, selectors.range($, $el)),
+        subPropertyOf:
+            applyBaseUrlToLink(baseUrl, selectors.subPropertyOf($, $el)),
+      };
+    };
+
 /**
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
 export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
-  const activityTypes = $('#h-activity-types ~ table > tbody')
-                            .toArray()
-                            .map(el => parseClassElement($, el, baseUrl));
-  const actorTypes = $('#h-actor-types ~ table > tbody')
-                         .toArray()
-                         .map(el => parseClassElement($, el, baseUrl));
-  const properties = $('#h-properties ~ table > tbody').toArray().map((el) => {
-    const $el = $(el);
-    const domain = selectors.domain($, $el);
-    return {
-      type: selectors.propertyTypes($, $el),
-      name: selectors.name($, $el),
-      id: withBaseUrl(baseUrl, selectors.id($, $el)),
-      url: withBaseUrl(baseUrl, selectors.url($, $el)),
-      isDefinedBy: withBaseUrl(baseUrl, selectors.url($, $el)),
-      // @todo (bengo.is) rename selector to not mention activity vs property
-      notes: selectors.notes($, $el),
-      example: selectors.example($, $el, baseUrl),
-      domain: applyBaseUrlToDataType(baseUrl, domain),
-      range: applyBaseUrlToDataType(baseUrl, selectors.range($, $el)),
-      subPropertyOf:
-          applyBaseUrlToLink(baseUrl, selectors.subPropertyOf($, $el)),
-    };
-  });
+  const parseClassTable = ($el: Cheerio) =>
+      $el.toArray().map(el => parseClassElement($, el, baseUrl));
   return {
     '@context': jsonldContext,
-    activityTypes,
-    actorTypes,
-    properties,
+    activityTypes: parseClassTable($('#h-activity-types ~ table > tbody')),
+    actorTypes: parseClassTable($('#h-actor-types ~ table > tbody')),
+    objectTypes: parseClassTable($('#h-object-types ~ table > tbody')),
+    properties: $('#h-properties ~ table > tbody')
+                    .toArray()
+                    .map(el => parseProperty($, el, baseUrl)),
   };
 };
 
