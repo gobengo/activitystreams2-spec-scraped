@@ -171,7 +171,7 @@ export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
   return subPropertyOf[0];
 };
 
-export const propertyTypes = ($: CheerioStatic, $el: Cheerio) => {
+export const propertyTypes = ($: CheerioSelector, $el: Cheerio) => {
   const collapseEmpty = <T>(arr: T[]): T[]|void => arr.length ? arr : undefined;
   const types = collapseEmpty([
     'rdf:Property',

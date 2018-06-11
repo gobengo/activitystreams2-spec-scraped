@@ -1,4 +1,4 @@
-export interface ActivityType {
+export interface ParsedClass {
   name: string;
   notes: string;
   subClassOf: {name: string; href?: string;};
@@ -33,6 +33,8 @@ export interface Property {
 }
 
 export interface ScrapedVocabulary {
-  activityTypes: ActivityType[];
+  activityTypes: ParsedClass[];
+  actorTypes: ParsedClass[];
+  objectTypes: ParsedClass[];
   properties: Property[]
 }
