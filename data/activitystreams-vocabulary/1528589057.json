@@ -5,6 +5,7 @@
       "owl": "http://www.w3.org/2002/07/owl#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "subClassOf": "rdfs:subClassof",
       "subPropertyOf": "rdfs:subPropertyof",
@@ -13,7 +14,9 @@
       "notes": "rdfs:comment",
       "isDefinedBy": "rdfs:isDefinedBy",
       "unionOf": "owl:unionOf",
-      "value": "rdf:value"
+      "value": "rdf:value",
+      "example": "schema:workExample",
+      "mainEntity": "schema:mainEntity"
     }
   ],
   "activityTypes": [
@@ -32,7 +35,7 @@
         {
           "name": "Example 9",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7a-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally accepted an invitation to a party",
             "type": "Accept",
@@ -53,7 +56,7 @@
         {
           "name": "Example 10",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7b-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally accepted Joe into the club",
             "type": "Accept",
@@ -88,7 +91,7 @@
         {
           "name": "Example 11",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex8-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally tentatively accepted an invitation to a party",
             "type": "TentativeAccept",
@@ -123,7 +126,7 @@
         {
           "name": "Example 12",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex9-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally added an object",
             "type": "Add",
@@ -137,7 +140,7 @@
         {
           "name": "Example 13",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex10-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally added a picture of her cat to her cat picture collection",
             "type": "Add",
@@ -177,7 +180,7 @@
         {
           "name": "Example 14",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex11-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally arrived at work",
             "type": "Arrive",
@@ -212,7 +215,7 @@
         {
           "name": "Example 15",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex12-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally created a note",
             "type": "Create",
@@ -244,7 +247,7 @@
         {
           "name": "Example 16",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex13-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally deleted a note",
             "type": "Delete",
@@ -276,7 +279,7 @@
         {
           "name": "Example 17",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex15-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally followed John",
             "type": "Follow",
@@ -307,7 +310,7 @@
         {
           "name": "Example 18",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex16-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally ignored a note",
             "type": "Ignore",
@@ -335,7 +338,7 @@
         {
           "name": "Example 19",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex17-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally joined a group",
             "type": "Join",
@@ -366,7 +369,7 @@
         {
           "name": "Example 20",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex18-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally left work",
             "type": "Leave",
@@ -383,7 +386,7 @@
         {
           "name": "Example 21",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex19-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally left a group",
             "type": "Leave",
@@ -414,7 +417,7 @@
         {
           "name": "Example 22",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex20-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally liked a note",
             "type": "Like",
@@ -442,7 +445,7 @@
         {
           "name": "Example 23",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex21-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered 50% off to Lewis",
             "type": "Offer",
@@ -477,7 +480,7 @@
         {
           "name": "Example 24",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex24-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally invited John and Lisa to a party",
             "type": "Invite",
@@ -518,7 +521,7 @@
         {
           "name": "Example 25",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex26-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally rejected an invitation to a party",
             "type": "Reject",
@@ -553,7 +556,7 @@
         {
           "name": "Example 26",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex27-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally tentatively rejected an invitation to a party",
             "type": "TentativeReject",
@@ -588,7 +591,7 @@
         {
           "name": "Example 27",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex28-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally removed a note from her notes folder",
             "type": "Remove",
@@ -606,7 +609,7 @@
         {
           "name": "Example 28",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex29-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "The moderator removed Sally from a group",
             "type": "Remove",
@@ -641,7 +644,7 @@
         {
           "name": "Example 29",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex32-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally retracted her offer to John",
             "type": "Undo",
@@ -671,7 +674,7 @@
         {
           "name": "Example 30",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex33-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally updated her note",
             "type": "Update",
@@ -699,7 +702,7 @@
         {
           "name": "Example 31",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex161-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally read an article",
             "type": "View",
@@ -730,7 +733,7 @@
         {
           "name": "Example 32",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex163-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally listened to a piece of music",
             "type": "Listen",
@@ -758,7 +761,7 @@
         {
           "name": "Example 33",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex164-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally read a blog post",
             "type": "Read",
@@ -786,7 +789,7 @@
         {
           "name": "Example 34",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex168-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally moved a post from List A to List B",
             "type": "Move",
@@ -822,7 +825,7 @@
         {
           "name": "Example 35",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex169-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally went home from work",
             "type": "Travel",
@@ -857,7 +860,7 @@
         {
           "name": "Example 36",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex170-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally announced that she had arrived at work",
             "type": "Announce",
@@ -893,7 +896,7 @@
         {
           "name": "Example 37",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex173-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally blocked Joe",
             "type": "Block",
@@ -918,7 +921,7 @@
         {
           "name": "Example 38",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex174-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally flagged an inappropriate note",
             "type": "Flag",
@@ -946,7 +949,7 @@
         {
           "name": "Example 39",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex175-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally disliked a post",
             "type": "Dislike",
@@ -971,7 +974,7 @@
         {
           "name": "Example 40",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55a-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Question",
             "name": "What is the answer?",
@@ -990,7 +993,7 @@
         {
           "name": "Example 41",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55b-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Question",
             "name": "What is the answer?",
@@ -1016,7 +1019,7 @@
         {
           "name": "Example 61",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#exid-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Foo",
             "id": "http://example.org/foo"
@@ -1057,7 +1060,7 @@
         {
           "name": "Example 62",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#extype-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A foo",
             "type": "http://example.org/Foo"
@@ -1097,7 +1100,7 @@
         {
           "name": "Example 63",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex59-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered the Foo object",
             "type": "Offer",
@@ -1108,7 +1111,7 @@
         {
           "name": "Example 64",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex60-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered the Foo object",
             "type": "Offer",
@@ -1123,7 +1126,7 @@
         {
           "name": "Example 65",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex61-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally and Joe offered the Foo object",
             "type": "Offer",
@@ -1182,7 +1185,7 @@
         {
           "name": "Example 66",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex64-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Note",
             "name": "Have you seen my cat?",
@@ -1234,7 +1237,7 @@
         {
           "name": "Example 67",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex65-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Image",
             "name": "My cat taking a nap",
@@ -1250,7 +1253,7 @@
         {
           "name": "Example 68",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex66-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Image",
             "name": "My cat taking a nap",
@@ -1308,7 +1311,7 @@
         {
           "name": "Example 69",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex113-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Holiday announcement",
             "type": "Note",
@@ -1358,7 +1361,7 @@
         {
           "name": "Example 70",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex68-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered a post to John",
             "type": "Offer",
@@ -1409,7 +1412,7 @@
         {
           "name": "Example 71",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex69-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered a post to John",
             "type": "Offer",
@@ -1460,7 +1463,7 @@
         {
           "name": "Example 72",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex70-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered a post to John",
             "type": "Offer",
@@ -1511,7 +1514,7 @@
         {
           "name": "Example 73",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex171-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Activities in context 1",
             "type": "Collection",
@@ -1571,7 +1574,7 @@
         {
           "name": "Example 74",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex71-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's blog posts",
             "type": "Collection",
@@ -1587,7 +1590,7 @@
         {
           "name": "Example 75",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex72-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's blog posts",
             "type": "Collection",
@@ -1643,7 +1646,7 @@
         {
           "name": "Example 76",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex73-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's blog posts",
             "type": "Collection",
@@ -1654,7 +1657,7 @@
         {
           "name": "Example 77",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex74-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's blog posts",
             "type": "Collection",
@@ -1705,7 +1708,7 @@
         {
           "name": "Example 78",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex75-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -1755,7 +1758,7 @@
         {
           "name": "Example 79",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex77-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -1772,7 +1775,7 @@
         {
           "name": "Example 80",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex78-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -1834,7 +1837,7 @@
         {
           "name": "Example 81",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex80-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "A simple note",
             "type": "Note",
@@ -1849,7 +1852,7 @@
         {
           "name": "Example 82",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex81-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "A simple note",
             "type": "Note",
@@ -1907,7 +1910,7 @@
         {
           "name": "Example 83",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex83-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -1922,7 +1925,7 @@
         {
           "name": "Example 84",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex84-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -1968,7 +1971,7 @@
         {
           "name": "Example 85",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex101-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally listened to a piece of music on the Acme Music Service",
             "type": "Listen",
@@ -2017,7 +2020,7 @@
         {
           "name": "Example 86",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex87-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A collection",
             "type": "Collection",
@@ -2028,7 +2031,7 @@
         {
           "name": "Example 87",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex88-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A collection",
             "type": "Collection",
@@ -2079,7 +2082,7 @@
         {
           "name": "Example 88",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex89-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Person",
             "name": "Sally",
@@ -2126,7 +2129,7 @@
         {
           "name": "Example 89",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex91-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's notes",
             "type": "Collection",
@@ -2146,7 +2149,7 @@
         {
           "name": "Example 90",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex92-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's notes",
             "type": "OrderedCollection",
@@ -2211,7 +2214,7 @@
         {
           "name": "Example 91",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex93-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Question",
             "name": "What is the answer?",
@@ -2265,7 +2268,7 @@
         {
           "name": "Example 92",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Question",
             "name": "What is the answer?",
@@ -2319,7 +2322,7 @@
         {
           "name": "Example 93",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94b-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Question",
             "name": "What is the answer?",
@@ -2366,7 +2369,7 @@
         {
           "name": "Example 94",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex166-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally moved a post from List A to List B",
             "type": "Move",
@@ -2421,7 +2424,7 @@
         {
           "name": "Example 95",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex96-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 2 of Sally's blog posts",
             "type": "CollectionPage",
@@ -2436,7 +2439,7 @@
         {
           "name": "Example 96",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex97-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 2 of Sally's blog posts",
             "type": "CollectionPage",
@@ -2490,7 +2493,7 @@
         {
           "name": "Example 97",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex98-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally liked a post",
             "type": "Like",
@@ -2501,7 +2504,7 @@
         {
           "name": "Example 98",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex99-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Like",
             "actor": "http://sally.example.org",
@@ -2514,7 +2517,7 @@
         {
           "name": "Example 99",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex100-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally liked a note",
             "type": "Like",
@@ -2573,7 +2576,7 @@
         {
           "name": "Example 100",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex104-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 1 of Sally's blog posts",
             "type": "CollectionPage",
@@ -2588,7 +2591,7 @@
         {
           "name": "Example 101",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex105-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 1 of Sally's blog posts",
             "type": "CollectionPage",
@@ -2643,7 +2646,7 @@
         {
           "name": "Example 102",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex106-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Video",
             "name": "Cool New Movie",
@@ -2702,7 +2705,7 @@
         {
           "name": "Example 103",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex108-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally checked that her flight was on time",
             "type": [
@@ -2757,7 +2760,7 @@
         {
           "name": "Example 104",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex112-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -2811,7 +2814,7 @@
         {
           "name": "Example 105",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex118-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Image",
             "summary": "Picture of Sally",
@@ -2863,7 +2866,7 @@
         {
           "name": "Example 106",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex120-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered the post to John",
             "type": "Offer",
@@ -2875,7 +2878,7 @@
         {
           "name": "Example 107",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex121-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered the post to John",
             "type": "Offer",
@@ -2926,7 +2929,7 @@
         {
           "name": "Example 108",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex123-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally offered the post to John",
             "type": "Offer",
@@ -2977,7 +2980,7 @@
         {
           "name": "Example 109",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex124-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Document",
             "name": "4Q Sales Forecast",
@@ -2987,7 +2990,7 @@
         {
           "name": "Example 110",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex125-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Document",
             "name": "4Q Sales Forecast",
@@ -3000,7 +3003,7 @@
         {
           "name": "Example 111",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex126-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Document",
             "name": "4Q Sales Forecast",
@@ -3053,7 +3056,7 @@
         {
           "name": "Example 112",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex127-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Liu Gu Lu Cun, Pingdu, Qingdao, Shandong, China",
             "type": "Place",
@@ -3093,7 +3096,7 @@
         {
           "name": "Example 113",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex129-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Place",
             "name": "Fresno Area",
@@ -3133,7 +3136,7 @@
         {
           "name": "Example 114",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -3143,7 +3146,7 @@
         {
           "name": "Example 115",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex131-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -3157,7 +3160,7 @@
         {
           "name": "Example 116",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130b-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -3196,7 +3199,7 @@
         {
           "name": "Example 117",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex132-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Note",
             "name": "A simple note"
@@ -3205,7 +3208,7 @@
         {
           "name": "Example 118",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex133-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Note",
             "nameMap": {
@@ -3252,7 +3255,7 @@
         {
           "name": "Example 119",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex134-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Video",
             "name": "Birds Flying",
@@ -3290,7 +3293,7 @@
         {
           "name": "Example 120",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex136-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/image.png",
@@ -3328,7 +3331,7 @@
         {
           "name": "Example 121",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex137-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/abc",
@@ -3366,7 +3369,7 @@
         {
           "name": "Example 122",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex138-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/abc",
@@ -3403,7 +3406,7 @@
         {
           "name": "Example 123",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex139-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 1 of Sally's notes",
             "type": "CollectionPage",
@@ -3460,7 +3463,7 @@
         {
           "name": "Example 124",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex140-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Place",
             "name": "Fresno Area",
@@ -3500,7 +3503,7 @@
         {
           "name": "Example 125",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex141-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Place",
             "name": "Fresno Area",
@@ -3541,7 +3544,7 @@
         {
           "name": "Example 126",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex142-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/abc",
@@ -3584,7 +3587,7 @@
         {
           "name": "Example 127",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex144-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Event",
             "name": "Going-Away Party for Jim",
@@ -3623,7 +3626,7 @@
         {
           "name": "Example 128",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex145-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "A simple note",
             "type": "Note",
@@ -3662,7 +3665,7 @@
         {
           "name": "Example 129",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex146-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Event",
             "name": "Going-Away Party for Jim",
@@ -3700,7 +3703,7 @@
         {
           "name": "Example 130",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex147-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Place",
             "name": "Fresno Area",
@@ -3739,7 +3742,7 @@
         {
           "name": "Example 131",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex149-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/abc",
@@ -3780,7 +3783,7 @@
         {
           "name": "Example 132",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex150-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Page 1 of Sally's notes",
             "type": "OrderedCollectionPage",
@@ -3827,7 +3830,7 @@
         {
           "name": "Example 133",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex152-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Cane Sugar Processing",
             "type": "Note",
@@ -3837,7 +3840,7 @@
         {
           "name": "Example 134",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex153-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Cane Sugar Processing",
             "type": "Note",
@@ -3879,7 +3882,7 @@
         {
           "name": "Example 135",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex156-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's notes",
             "type": "Collection",
@@ -3926,7 +3929,7 @@
         {
           "name": "Example 136",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex157-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Place",
             "name": "Fresno Area",
@@ -3973,7 +3976,7 @@
         {
           "name": "Example 137",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex158-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "name": "Cranberry Sauce Idea",
             "type": "Note",
@@ -4011,7 +4014,7 @@
         {
           "name": "Example 138",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex159-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "type": "Link",
             "href": "http://example.org/image.png",
@@ -4049,7 +4052,7 @@
         {
           "name": "Example 139",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22a-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally is an acquaintance of John's",
             "type": "Relationship",
@@ -4102,7 +4105,7 @@
         {
           "name": "Example 140",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22c-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally is an acquaintance of John's",
             "type": "Relationship",
@@ -4151,7 +4154,7 @@
         {
           "name": "Example 141",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "Sally's profile",
             "type": "Profile",
@@ -4195,7 +4198,7 @@
         {
           "name": "Example 142",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185b-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "This image has been deleted",
             "type": "Tombstone",
@@ -4237,7 +4240,7 @@
         {
           "name": "Example 143",
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185c-jsonld",
-          "value": {
+          "mainEntity": {
             "@context": "https://www.w3.org/ns/activitystreams",
             "summary": "This image has been deleted",
             "type": "Tombstone",
