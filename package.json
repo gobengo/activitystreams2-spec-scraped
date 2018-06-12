@@ -21,7 +21,8 @@
     "pretest": "npm run compile",
     "posttest": "npm run check",
     "preversion": "npm test",
-    "start": "ts-node src"
+    "start": "ts-node src",
+    "updateDataFixtures": "ts-node src > data/activitystreams-vocabulary/1528589057.json"
   },
   "devDependencies": {
     "@types/node": "^10.3.2",
