@@ -7,30 +7,13 @@ import {Readable} from 'stream';
 import * as url from 'url';
 
 import {cli} from './cli';
+import {scrapedVocabularyJsonldContext} from './jsonld/context';
 import * as selectors from './selectors';
 import {Link, Ontology as IOntology, OwlClassUnion, ParsedClass, Property, RDFList, ScrapedVocabulary,} from './types';
 
+export const as2ContextUrl = 'https://www.w3.org/ns/activitystreams';
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
-export const jsonldContext = [
-  'https://www.w3.org/ns/activitystreams', {
-    'owl': 'http://www.w3.org/2002/07/owl#',
-    'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-    'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
-    'schema': 'http://schema.org/',
-    'xsd': 'http://www.w3.org/2001/XMLSchema#',
-    'subClassOf': 'rdfs:subClassOf',
-    'subPropertyOf': 'rdfs:subPropertyOf',
-    'domain': 'rdfs:domain',
-    'range': 'rdfs:range',
-    'notes': 'rdfs:comment',
-    'isDefinedBy': 'rdfs:isDefinedBy',
-    'unionOf': 'owl:unionOf',
-    'value': 'rdf:value',
-    'example': 'schema:workExample',
-    'mainEntity': 'schema:mainEntity',
-  }
-];
 
 /**
  * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
@@ -127,31 +110,22 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
   const parseClassTable = ($el: Cheerio) =>
       $el.toArray().map(el => parseClassElement($, el, baseUrl));
   return {
-    '@context': [
-      ...jsonldContext, {
-        activityTypes:
-            'https://www.w3.org/TR/activitystreams-vocabulary/#activity-types',
-        actorTypes:
-            'https://www.w3.org/TR/activitystreams-vocabulary/#actor-types',
-        objectTypes:
-            'https://www.w3.org/TR/activitystreams-vocabulary/#object-types',
-        properties:
-            'https://www.w3.org/TR/activitystreams-vocabulary/#properties',
-      }
-    ],
+    '@context': scrapedVocabularyJsonldContext,
     '@id': 'https://www.w3.org/TR/activitystreams-vocabulary/',
     type: 'http://www.w3.org/2002/07/owl#Ontology',
-    activityTypes: new Ontology<ParsedClass>(
-        {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),
-    actorTypes: new Ontology<ParsedClass>(
-        {members: parseClassTable($('#h-actor-types ~ table > tbody'))}),
-    objectTypes: new Ontology<ParsedClass>(
-        {members: parseClassTable($('#h-object-types ~ table > tbody'))}),
-    properties: new Ontology<Property>({
-      members: $('#h-properties ~ table > tbody')
-                   .toArray()
-                   .map(el => parseProperty($, el, baseUrl))
-    }),
+    sections: {
+      activityTypes: new Ontology<ParsedClass>(
+          {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),
+      actorTypes: new Ontology<ParsedClass>(
+          {members: parseClassTable($('#h-actor-types ~ table > tbody'))}),
+      objectTypes: new Ontology<ParsedClass>(
+          {members: parseClassTable($('#h-object-types ~ table > tbody'))}),
+      properties: new Ontology<Property>({
+        members: $('#h-properties ~ table > tbody')
+                     .toArray()
+                     .map(el => parseProperty($, el, baseUrl))
+      })
+    },
   };
 };
 

@@ -7,41 +7,23 @@
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "schema": "http://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#"
-    },
-    {
-      "domain": "rdfs:domain",
-      "example": "schema:workExample",
-      "isDefinedBy": "rdfs:isDefinedBy",
-      "mainEntity": "schema:mainEntity",
-      "members": "owl:members",
-      "notes": "rdfs:comment",
-      "range": "rdfs:range",
-      "subClassOf": "rdfs:subClassOf",
-      "subPropertyOf": "rdfs:subPropertyOf",
-      "unionOf": "owl:unionOf",
-      "value": "rdf:value"
-    },
-    {
-      "sections": {
-        "@id": "owl:imports",
-        "@container": "@index"
-      }
     }
   ],
   "id": "https://www.w3.org/TR/activitystreams-vocabulary/",
   "type": "owl:Ontology",
-  "sections": {
-    "activityTypes": {
+  "owl:imports": [
+    {
+      "@index": "activityTypes",
       "type": "owl:Ontology",
-      "members": [
+      "owl:members": [
         {
           "id": "as:Accept",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7a-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Accept",
                 "actor": {
                   "type": "Person",
@@ -62,7 +44,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex7b-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Accept",
                 "actor": {
                   "type": "Person",
@@ -81,8 +63,8 @@
               "name": "Example 10"
             }
           ],
-          "notes": "Indicates that the actor accepts the object. The target property can be used in certain circumstances to indicate the context into which the object has been accepted.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor accepts the object. The target property can be used in certain circumstances to indicate the context into which the object has been accepted.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -93,10 +75,10 @@
         {
           "id": "as:TentativeAccept",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex8-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "TentativeAccept",
               "actor": {
                 "type": "Person",
@@ -114,8 +96,8 @@
             },
             "name": "Example 11"
           },
-          "notes": "A specialization of Accept indicating that the acceptance is tentative.",
-          "subClassOf": {
+          "rdfs:comment": "A specialization of Accept indicating that the acceptance is tentative.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept",
             "name": "Accept"
@@ -126,11 +108,11 @@
         {
           "id": "as:Add",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex9-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Add",
                 "actor": {
                   "type": "Person",
@@ -144,7 +126,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex10-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Add",
                 "actor": {
                   "type": "Person",
@@ -168,8 +150,8 @@
               "name": "Example 13"
             }
           ],
-          "notes": "Indicates that the actor has added the object to the target. If the target property is not explicitly specified, the target would need to be determined implicitly by context. The origin can be used to identify the context from which the object originated.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has added the object to the target. If the target property is not explicitly specified, the target would need to be determined implicitly by context. The origin can be used to identify the context from which the object originated.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -180,10 +162,10 @@
         {
           "id": "as:Arrive",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex11-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Arrive",
               "actor": {
                 "type": "Person",
@@ -201,8 +183,8 @@
             },
             "name": "Example 14"
           },
-          "notes": "An IntransitiveActivity that indicates that the actor has arrived at the location. The origin can be used to identify the context from which the actor originated. The target typically has no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "An IntransitiveActivity that indicates that the actor has arrived at the location. The origin can be used to identify the context from which the actor originated. The target typically has no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
@@ -213,10 +195,10 @@
         {
           "id": "as:Create",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex12-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Create",
               "actor": {
                 "type": "Person",
@@ -231,8 +213,8 @@
             },
             "name": "Example 15"
           },
-          "notes": "Indicates that the actor has created the object.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has created the object.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -243,10 +225,10 @@
         {
           "id": "as:Delete",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex13-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Delete",
               "actor": {
                 "type": "Person",
@@ -261,8 +243,8 @@
             },
             "name": "Example 16"
           },
-          "notes": "Indicates that the actor has deleted the object. If specified, the origin indicates the context from which the object was deleted.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has deleted the object. If specified, the origin indicates the context from which the object was deleted.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -273,10 +255,10 @@
         {
           "id": "as:Follow",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex15-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Follow",
               "actor": {
                 "type": "Person",
@@ -290,8 +272,8 @@
             },
             "name": "Example 17"
           },
-          "notes": "Indicates that the actor is \"following\" the object. Following is defined in the sense typically used within Social systems in which the actor is interested in any activity performed by or on the object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is \"following\" the object. Following is defined in the sense typically used within Social systems in which the actor is interested in any activity performed by or on the object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -302,10 +284,10 @@
         {
           "id": "as:Ignore",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex16-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Ignore",
               "actor": {
                 "type": "Person",
@@ -316,8 +298,8 @@
             },
             "name": "Example 18"
           },
-          "notes": "Indicates that the actor is ignoring the object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is ignoring the object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -328,10 +310,10 @@
         {
           "id": "as:Join",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex17-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Join",
               "actor": {
                 "type": "Person",
@@ -345,8 +327,8 @@
             },
             "name": "Example 19"
           },
-          "notes": "Indicates that the actor has joined the object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has joined the object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -357,11 +339,11 @@
         {
           "id": "as:Leave",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex18-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Leave",
                 "actor": {
                   "type": "Person",
@@ -378,7 +360,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex19-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Leave",
                 "actor": {
                   "type": "Person",
@@ -393,8 +375,8 @@
               "name": "Example 21"
             }
           ],
-          "notes": "Indicates that the actor has left the object. The target and origin typically have no meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has left the object. The target and origin typically have no meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -405,10 +387,10 @@
         {
           "id": "as:Like",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex20-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Like",
               "actor": {
                 "type": "Person",
@@ -419,8 +401,8 @@
             },
             "name": "Example 22"
           },
-          "notes": "Indicates that the actor likes, recommends or endorses the object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor likes, recommends or endorses the object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -431,10 +413,10 @@
         {
           "id": "as:Offer",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex21-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Offer",
               "actor": {
                 "type": "Person",
@@ -452,8 +434,8 @@
             },
             "name": "Example 23"
           },
-          "notes": "Indicates that the actor is offering the object. If specified, the target indicates the entity to which the object is being offered.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is offering the object. If specified, the target indicates the entity to which the object is being offered.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -464,10 +446,10 @@
         {
           "id": "as:Invite",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex24-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Invite",
               "actor": {
                 "type": "Person",
@@ -491,8 +473,8 @@
             },
             "name": "Example 24"
           },
-          "notes": "A specialization of Offer in which the actor is extending an invitation for the object to the target.",
-          "subClassOf": {
+          "rdfs:comment": "A specialization of Offer in which the actor is extending an invitation for the object to the target.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-offer",
             "name": "Offer"
@@ -503,10 +485,10 @@
         {
           "id": "as:Reject",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex26-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Reject",
               "actor": {
                 "type": "Person",
@@ -524,8 +506,8 @@
             },
             "name": "Example 25"
           },
-          "notes": "Indicates that the actor is rejecting the object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is rejecting the object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -536,10 +518,10 @@
         {
           "id": "as:TentativeReject",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex27-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "TentativeReject",
               "actor": {
                 "type": "Person",
@@ -557,8 +539,8 @@
             },
             "name": "Example 26"
           },
-          "notes": "A specialization of Reject in which the rejection is considered tentative.",
-          "subClassOf": {
+          "rdfs:comment": "A specialization of Reject in which the rejection is considered tentative.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-reject",
             "name": "Reject"
@@ -569,11 +551,11 @@
         {
           "id": "as:Remove",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex28-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Remove",
                 "actor": {
                   "type": "Person",
@@ -591,7 +573,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex29-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Remove",
                 "actor": {
                   "type": "http://example.org/Role",
@@ -610,8 +592,8 @@
               "name": "Example 28"
             }
           ],
-          "notes": "Indicates that the actor is removing the object. If specified, the origin indicates the context from which the object is being removed.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is removing the object. If specified, the origin indicates the context from which the object is being removed.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -622,10 +604,10 @@
         {
           "id": "as:Undo",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex32-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Undo",
               "actor": "http://sally.example.org",
               "object": {
@@ -638,8 +620,8 @@
             },
             "name": "Example 29"
           },
-          "notes": "Indicates that the actor is undoing the object. In most cases, the object will be an Activity describing some previously performed action (for instance, a person may have previously \"liked\" an article but, for whatever reason, might choose to undo that like at some later point in time). The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is undoing the object. In most cases, the object will be an Activity describing some previously performed action (for instance, a person may have previously \"liked\" an article but, for whatever reason, might choose to undo that like at some later point in time). The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -650,10 +632,10 @@
         {
           "id": "as:Update",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex33-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Update",
               "actor": {
                 "type": "Person",
@@ -664,8 +646,8 @@
             },
             "name": "Example 30"
           },
-          "notes": "Indicates that the actor has updated the object. Note, however, that this vocabulary does not define a mechanism for describing the actual set of modifications made to object. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has updated the object. Note, however, that this vocabulary does not define a mechanism for describing the actual set of modifications made to object. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -676,10 +658,10 @@
         {
           "id": "as:View",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex161-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "View",
               "actor": {
                 "type": "Person",
@@ -693,8 +675,8 @@
             },
             "name": "Example 31"
           },
-          "notes": "Indicates that the actor has viewed the object.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has viewed the object.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -705,10 +687,10 @@
         {
           "id": "as:Listen",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex163-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Listen",
               "actor": {
                 "type": "Person",
@@ -719,8 +701,8 @@
             },
             "name": "Example 32"
           },
-          "notes": "Indicates that the actor has listened to the object.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has listened to the object.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -731,10 +713,10 @@
         {
           "id": "as:Read",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex164-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Read",
               "actor": {
                 "type": "Person",
@@ -745,8 +727,8 @@
             },
             "name": "Example 33"
           },
-          "notes": "Indicates that the actor has read the object.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has read the object.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -757,10 +739,10 @@
         {
           "id": "as:Move",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex168-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Move",
               "actor": {
                 "type": "Person",
@@ -779,8 +761,8 @@
             },
             "name": "Example 34"
           },
-          "notes": "Indicates that the actor has moved object from origin to target. If the origin or target are not specified, either can be determined by context.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor has moved object from origin to target. If the origin or target are not specified, either can be determined by context.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -791,10 +773,10 @@
         {
           "id": "as:Travel",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex169-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Travel",
               "actor": {
                 "type": "Person",
@@ -812,8 +794,8 @@
             },
             "name": "Example 35"
           },
-          "notes": "Indicates that the actor is traveling to target from origin. Travel is an IntransitiveObject whose actor specifies the direct object. If the target or origin are not specified, either can be determined by context.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is traveling to target from origin. Travel is an IntransitiveObject whose actor specifies the direct object. If the target or origin are not specified, either can be determined by context.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
@@ -824,10 +806,10 @@
         {
           "id": "as:Announce",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex170-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Announce",
               "actor": {
                 "id": "http://sally.example.org",
@@ -846,8 +828,8 @@
             },
             "name": "Example 36"
           },
-          "notes": "Indicates that the actor is calling the target's attention the object. The origin typically has no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is calling the target's attention the object. The origin typically has no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -858,10 +840,10 @@
         {
           "id": "as:Block",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex173-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Block",
               "actor": "http://sally.example.org",
               "object": "http://joe.example.org",
@@ -869,8 +851,8 @@
             },
             "name": "Example 37"
           },
-          "notes": "Indicates that the actor is blocking the object. Blocking is a stronger form of Ignore. The typical use is to support social systems that allow one user to block activities or content of other users. The target and origin typically have no defined meaning.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is blocking the object. Blocking is a stronger form of Ignore. The typical use is to support social systems that allow one user to block activities or content of other users. The target and origin typically have no defined meaning.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-ignore",
             "name": "Ignore"
@@ -881,10 +863,10 @@
         {
           "id": "as:Flag",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex174-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Flag",
               "actor": "http://sally.example.org",
               "object": {
@@ -895,8 +877,8 @@
             },
             "name": "Example 38"
           },
-          "notes": "Indicates that the actor is \"flagging\" the object. Flagging is defined in the sense common to many social platforms as reporting content as being inappropriate for any number of reasons.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor is \"flagging\" the object. Flagging is defined in the sense common to many social platforms as reporting content as being inappropriate for any number of reasons.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -907,10 +889,10 @@
         {
           "id": "as:Dislike",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex175-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Dislike",
               "actor": "http://sally.example.org",
               "object": "http://example.org/posts/1",
@@ -918,8 +900,8 @@
             },
             "name": "Example 39"
           },
-          "notes": "Indicates that the actor dislikes the object.",
-          "subClassOf": {
+          "rdfs:comment": "Indicates that the actor dislikes the object.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
@@ -930,11 +912,11 @@
         {
           "id": "as:Question",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55a-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Question",
                 "name": "What is the answer?",
                 "oneOf": [
@@ -953,7 +935,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex55b-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Question",
                 "closed": "2016-05-10T00:00:00Z",
                 "name": "What is the answer?"
@@ -961,8 +943,8 @@
               "name": "Example 41"
             }
           ],
-          "notes": "Represents a question being asked. Question objects are an extension of IntransitiveActivity. That is, the Question object is an Activity, but the direct object is the question itself and therefore it would not contain an object property. Either of the anyOf and oneOf properties MAY be used to express possible answers, but a Question object MUST NOT have both properties.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a question being asked. Question objects are an extension of IntransitiveActivity. That is, the Question object is an Activity, but the direct object is the question itself and therefore it would not contain an object property. Either of the anyOf and oneOf properties MAY be used to express possible answers, but a Question object MUST NOT have both properties.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
@@ -972,23 +954,24 @@
         }
       ]
     },
-    "actorTypes": {
+    {
+      "@index": "actorTypes",
       "type": "owl:Ontology",
-      "members": [
+      "owl:members": [
         {
           "id": "as:Application",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex34-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Application",
               "name": "Exampletron 3000"
             },
             "name": "Example 42"
           },
-          "notes": "Describes a software application.",
-          "subClassOf": {
+          "rdfs:comment": "Describes a software application.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -999,17 +982,17 @@
         {
           "id": "as:Group",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex37-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Group",
               "name": "Big Beards of Austin"
             },
             "name": "Example 43"
           },
-          "notes": "Represents a formal or informal collective of Actors.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a formal or informal collective of Actors.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1020,17 +1003,17 @@
         {
           "id": "as:Organization",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex186-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Organization",
               "name": "Example Co."
             },
             "name": "Example 44"
           },
-          "notes": "Represents an organization.",
-          "subClassOf": {
+          "rdfs:comment": "Represents an organization.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1041,17 +1024,17 @@
         {
           "id": "as:Person",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex39-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Person",
               "name": "Sally Smith"
             },
             "name": "Example 45"
           },
-          "notes": "Represents an individual person.",
-          "subClassOf": {
+          "rdfs:comment": "Represents an individual person.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1062,17 +1045,17 @@
         {
           "id": "as:Service",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex42-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Service",
               "name": "Acme Web Service"
             },
             "name": "Example 46"
           },
-          "notes": "Represents a service of any kind.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a service of any kind.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1082,16 +1065,17 @@
         }
       ]
     },
-    "objectTypes": {
+    {
+      "@index": "objectTypes",
       "type": "owl:Ontology",
-      "members": [
+      "owl:members": [
         {
           "id": "as:Relationship",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Relationship",
               "object": {
                 "type": "Person",
@@ -1106,8 +1090,8 @@
             },
             "name": "Example 47"
           },
-          "notes": "Describes a relationship between two individuals. The subject and object properties are used to identify the connected individuals. See 5.2 Representing Relationships Between Entities for additional information.",
-          "subClassOf": {
+          "rdfs:comment": "Describes a relationship between two individuals. The subject and object properties are used to identify the connected individuals. See 5.2 Representing Relationships Between Entities for additional information.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1118,10 +1102,10 @@
         {
           "id": "as:Article",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex43-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Article",
               "attributedTo": "http://sally.example.org",
               "content": "<div>... you will never believe ...</div>",
@@ -1129,8 +1113,8 @@
             },
             "name": "Example 48"
           },
-          "notes": "Represents any kind of multi-paragraph written work.",
-          "subClassOf": {
+          "rdfs:comment": "Represents any kind of multi-paragraph written work.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1141,18 +1125,18 @@
         {
           "id": "as:Document",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex48-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Document",
               "name": "4Q Sales Forecast",
               "url": "http://example.org/4q-sales-forecast.pdf"
             },
             "name": "Example 49"
           },
-          "notes": "Represents a document of any kind.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a document of any kind.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1163,10 +1147,10 @@
         {
           "id": "as:Audio",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex49-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Audio",
               "name": "Interview With A Famous Technologist",
               "url": {
@@ -1177,8 +1161,8 @@
             },
             "name": "Example 50"
           },
-          "notes": "Represents an audio document of any kind.",
-          "subClassOf": {
+          "rdfs:comment": "Represents an audio document of any kind.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
@@ -1189,10 +1173,10 @@
         {
           "id": "as:Image",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex50-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Image",
               "name": "Cat Jumping on Wagon",
               "url": [
@@ -1210,8 +1194,8 @@
             },
             "name": "Example 51"
           },
-          "notes": "An image document of any kind",
-          "subClassOf": {
+          "rdfs:comment": "An image document of any kind",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
@@ -1222,10 +1206,10 @@
         {
           "id": "as:Video",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex51-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Video",
               "duration": "PT2H",
               "name": "Puppy Plays With Ball",
@@ -1233,8 +1217,8 @@
             },
             "name": "Example 52"
           },
-          "notes": "Represents a video document of any kind.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a video document of any kind.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
@@ -1245,18 +1229,18 @@
         {
           "id": "as:Note",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex52-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "content": "Looks like it is going to rain today. Bring an umbrella!",
               "name": "A Word of Warning"
             },
             "name": "Example 53"
           },
-          "notes": "Represents a short written work typically less than a single paragraph in length.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a short written work typically less than a single paragraph in length.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1267,18 +1251,18 @@
         {
           "id": "as:Page",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex53-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Page",
               "name": "Omaha Weather Report",
               "url": "http://example.org/weather-in-omaha.html"
             },
             "name": "Example 54"
           },
-          "notes": "Represents a Web Page.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a Web Page.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
@@ -1289,10 +1273,10 @@
         {
           "id": "as:Event",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex56-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Event",
               "endTime": "2015-01-01T06:00:00-08:00",
               "name": "Going-Away Party for Jim",
@@ -1300,8 +1284,8 @@
             },
             "name": "Example 55"
           },
-          "notes": "Represents any kind of event.",
-          "subClassOf": {
+          "rdfs:comment": "Represents any kind of event.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1312,11 +1296,11 @@
         {
           "id": "as:Place",
           "type": "owl:Class",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex57-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Place",
                 "name": "Work"
               },
@@ -1325,7 +1309,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex58-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Place",
                 "latitude": 36.75,
                 "longitude": 119.7667,
@@ -1336,8 +1320,8 @@
               "name": "Example 57"
             }
           ],
-          "notes": "Represents a logical or physical location. See 5.3 Representing Places for additional information.",
-          "subClassOf": {
+          "rdfs:comment": "Represents a logical or physical location. See 5.3 Representing Places for additional information.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1348,10 +1332,10 @@
         {
           "id": "as:Mention",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex181-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Mention",
               "href": "http://example.org/joe",
               "name": "Joe",
@@ -1359,8 +1343,8 @@
             },
             "name": "Example 58"
           },
-          "notes": "A specialized Link that represents an @mention.",
-          "subClassOf": {
+          "rdfs:comment": "A specialized Link that represents an @mention.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
             "name": "Link"
@@ -1371,10 +1355,10 @@
         {
           "id": "as:Profile",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex184a-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Profile",
               "describes": {
                 "type": "Person",
@@ -1384,8 +1368,8 @@
             },
             "name": "Example 59"
           },
-          "notes": "A Profile is a content object that describes another Object, typically used to describe Actor Type objects. The describes property is used to reference the object being described by the profile.",
-          "subClassOf": {
+          "rdfs:comment": "A Profile is a content object that describes another Object, typically used to describe Actor Type objects. The describes property is used to reference the object being described by the profile.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1396,10 +1380,10 @@
         {
           "id": "as:Tombstone",
           "type": "owl:Class",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex184b-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "OrderedCollection",
               "orderedItems": [
                 {
@@ -1422,8 +1406,8 @@
             },
             "name": "Example 60"
           },
-          "notes": "A Tombstone represents a content object that has been deleted. It can be used in Collections to signify that there used to be an object at this position, but it has been deleted.",
-          "subClassOf": {
+          "rdfs:comment": "A Tombstone represents a content object that has been deleted. It can be used in Collections to signify that there used to be an object at this position, but it has been deleted.",
+          "rdfs:subClassOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
@@ -1433,9 +1417,10 @@
         }
       ]
     },
-    "properties": {
+    {
+      "@index": "properties",
       "type": "owl:Ontology",
-      "members": [
+      "owl:members": [
         {
           "id": "https://www.w3.org/TR/activitystreams-vocabulary/@id",
           "type": [
@@ -1443,19 +1428,19 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#exid-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "id": "http://example.org/foo",
               "name": "Foo"
             },
             "name": "Example 61"
           },
-          "notes": "Provides the globally unique identifier for an Object or Link.",
-          "domain": {
+          "rdfs:comment": "Provides the globally unique identifier for an Object or Link.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1468,10 +1453,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "https://www.w3.org/TR/activitystreams-vocabulary/anyURI"
+            "owl:unionOf": "https://www.w3.org/TR/activitystreams-vocabulary/anyURI"
           },
           "name": "id",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-id"
@@ -1482,19 +1467,19 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#extype-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "http://example.org/Foo",
               "summary": "A foo"
             },
             "name": "Example 62"
           },
-          "notes": "Identifies the Object or Link type. Multiple values may be specified.",
-          "domain": {
+          "rdfs:comment": "Identifies the Object or Link type. Multiple values may be specified.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1507,10 +1492,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "https://www.w3.org/TR/activitystreams-vocabulary/anyURI"
+            "owl:unionOf": "https://www.w3.org/TR/activitystreams-vocabulary/anyURI"
           },
           "name": "type",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-type"
@@ -1518,11 +1503,11 @@
         {
           "id": "as:actor",
           "type": "rdf:Property",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex59-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Offer",
                 "actor": "http://sally.example.org",
                 "object": "http://example.org/foo",
@@ -1533,7 +1518,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex60-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Offer",
                 "actor": {
                   "id": "http://sally.example.org",
@@ -1548,7 +1533,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex61-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Offer",
                 "actor": [
                   "http://joe.example.org",
@@ -1564,19 +1549,19 @@
               "name": "Example 65"
             }
           ],
-          "notes": "Describes one or more entities that either performed or are expected to perform the activity. Any single activity can have multiple actors. The actor MAY be specified using an indirect Link.",
-          "domain": {
+          "rdfs:comment": "Describes one or more entities that either performed or are expected to perform the activity. Any single activity can have multiple actors. The actor MAY be specified using an indirect Link.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
               "name": "Activity"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-actor",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1589,7 +1574,7 @@
               }
             ]
           },
-          "subPropertyOf": {
+          "rdfs:subPropertyOf": {
             "type": "Link",
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attributedto",
             "name": "attributedTo"
@@ -1603,10 +1588,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex64-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "attachment": {
                 "type": "Image",
@@ -1617,19 +1602,19 @@
             },
             "name": "Example 66"
           },
-          "notes": "Identifies a resource attached or related to an object that potentially requires special handling. The intent is to provide a model that is at least semantically similar to attachments in email.",
-          "domain": {
+          "rdfs:comment": "Identifies a resource attached or related to an object that potentially requires special handling. The intent is to provide a model that is at least semantically similar to attachments in email.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attachment",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1651,11 +1636,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex65-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Image",
                 "attributedTo": {
                   "type": "Person",
@@ -1669,7 +1654,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex66-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Image",
                 "attributedTo": [
                   "http://joe.example.org",
@@ -1684,10 +1669,10 @@
               "name": "Example 68"
             }
           ],
-          "notes": "Identifies one or more entities to which this object is attributed. The attributed entities might not be Actors. For instance, an object might be attributed to the completion of another activity.",
-          "domain": {
+          "rdfs:comment": "Identifies one or more entities to which this object is attributed. The attributed entities might not be Actors. For instance, an object might be attributed to the completion of another activity.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -1700,10 +1685,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attributedto",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-attributedto",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -1725,10 +1710,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex113-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "audience": {
                 "type": "http://example.org/Organization",
@@ -1739,19 +1724,19 @@
             },
             "name": "Example 69"
           },
-          "notes": "Identifies one or more entities that represent the total population of entities for which the object can considered to be relevant.",
-          "domain": {
+          "rdfs:comment": "Identifies one or more entities that represent the total population of entities for which the object can considered to be relevant.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-audience",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-audience",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1773,10 +1758,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex68-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Offer",
               "actor": "http://sally.example.org",
               "bcc": "http://joe.example.org",
@@ -1786,19 +1771,19 @@
             },
             "name": "Example 70"
           },
-          "notes": "Identifies one or more Objects that are part of the private secondary audience of this Object.",
-          "domain": {
+          "rdfs:comment": "Identifies one or more Objects that are part of the private secondary audience of this Object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bcc",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bcc",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1820,10 +1805,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex69-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Offer",
               "actor": "http://sally.example.org",
               "bto": "http://joe.example.org",
@@ -1833,19 +1818,19 @@
             },
             "name": "Example 71"
           },
-          "notes": "Identifies an Object that is part of the private primary audience of this Object.",
-          "domain": {
+          "rdfs:comment": "Identifies an Object that is part of the private primary audience of this Object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bto",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-bto",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1867,10 +1852,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex70-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Offer",
               "actor": "http://sally.example.org",
               "cc": "http://joe.example.org",
@@ -1880,19 +1865,19 @@
             },
             "name": "Example 72"
           },
-          "notes": "Identifies an Object that is part of the public secondary audience of this Object.",
-          "domain": {
+          "rdfs:comment": "Identifies an Object that is part of the public secondary audience of this Object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-cc",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-cc",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1914,10 +1899,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex171-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Collection",
               "items": [
                 {
@@ -1938,19 +1923,19 @@
             },
             "name": "Example 73"
           },
-          "notes": "Identifies the context within which the object exists or an activity was performed. The notion of \"context\" used is intentionally vague. The intended function is to serve as a means of grouping objects and activities that share a common originating context or purpose. An example could be all activities relating to a common project or event.",
-          "domain": {
+          "rdfs:comment": "Identifies the context within which the object exists or an activity was performed. The notion of \"context\" used is intentionally vague. The intended function is to serve as a means of grouping objects and activities that share a common originating context or purpose. An example could be all activities relating to a common project or event.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-context",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-context",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -1972,11 +1957,11 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex71-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "current": "http://example.org/collection",
                 "items": [
@@ -1992,7 +1977,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex72-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "current": {
                   "type": "Link",
@@ -2010,19 +1995,19 @@
               "name": "Example 75"
             }
           ],
-          "notes": "In a paged Collection, indicates the page that contains the most recently updated member items.",
-          "domain": {
+          "rdfs:comment": "In a paged Collection, indicates the page that contains the most recently updated member items.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-current",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-current",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
@@ -2044,11 +2029,11 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex73-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "first": "http://example.org/collection?page=0",
                 "summary": "Sally's blog posts",
@@ -2059,7 +2044,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex74-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "first": {
                   "type": "Link",
@@ -2072,19 +2057,19 @@
               "name": "Example 77"
             }
           ],
-          "notes": "In a paged Collection, indicates the furthest preceeding page of items in the collection.",
-          "domain": {
+          "rdfs:comment": "In a paged Collection, indicates the furthest preceeding page of items in the collection.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-first",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-first",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
@@ -2106,10 +2091,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex75-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "content": "This is all there is.",
               "generator": {
@@ -2120,19 +2105,19 @@
             },
             "name": "Example 78"
           },
-          "notes": "Identifies the entity (e.g. an application) that generated the object.",
-          "domain": {
+          "rdfs:comment": "Identifies the entity (e.g. an application) that generated the object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-generator",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-generator",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2154,11 +2139,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex77-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "This is all there is.",
                 "icon": {
@@ -2175,7 +2160,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex78-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "A simple note",
                 "icon": [
@@ -2199,19 +2184,19 @@
               "name": "Example 80"
             }
           ],
-          "notes": "Indicates an entity that describes an icon for this object. The image should have an aspect ratio of one (horizontal) to one (vertical) and should be suitable for presentation at a small size.",
-          "domain": {
+          "rdfs:comment": "Indicates an entity that describes an icon for this object. The image should have an aspect ratio of one (horizontal) to one (vertical) and should be suitable for presentation at a small size.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-icon",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-icon",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image",
@@ -2233,11 +2218,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex80-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "This is all there is.",
                 "image": {
@@ -2252,7 +2237,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex81-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "This is all there is.",
                 "image": [
@@ -2272,19 +2257,19 @@
               "name": "Example 82"
             }
           ],
-          "notes": "Indicates an entity that describes an image for this object. Unlike the icon property, there are no aspect ratio or display size limitations assumed.",
-          "domain": {
+          "rdfs:comment": "Indicates an entity that describes an image for this object. Unlike the icon property, there are no aspect ratio or display size limitations assumed.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image-term",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image-term",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image",
@@ -2306,11 +2291,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex83-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "This is all there is.",
                 "inReplyTo": {
@@ -2325,7 +2310,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex84-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "This is all there is.",
                 "inReplyTo": "http://example.org/posts/1",
@@ -2334,19 +2319,19 @@
               "name": "Example 84"
             }
           ],
-          "notes": "Indicates one or more entities for which this object is considered a response.",
-          "domain": {
+          "rdfs:comment": "Indicates one or more entities for which this object is considered a response.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2365,10 +2350,10 @@
         {
           "id": "as:instrument",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex101-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Listen",
               "actor": {
                 "type": "Person",
@@ -2383,19 +2368,19 @@
             },
             "name": "Example 85"
           },
-          "notes": "Identifies one or more objects used (or to be used) in the completion of an Activity.",
-          "domain": {
+          "rdfs:comment": "Identifies one or more objects used (or to be used) in the completion of an Activity.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
               "name": "Activity"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-instrument",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-instrument",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object | Link"
@@ -2410,11 +2395,11 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex87-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "last": "http://example.org/collection?page=1",
                 "summary": "A collection",
@@ -2425,7 +2410,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex88-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "last": {
                   "type": "Link",
@@ -2438,19 +2423,19 @@
               "name": "Example 87"
             }
           ],
-          "notes": "In a paged Collection, indicates the furthest proceeding page of the collection.",
-          "domain": {
+          "rdfs:comment": "In a paged Collection, indicates the furthest proceeding page of the collection.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-last",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-last",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
@@ -2472,10 +2457,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex89-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Person",
               "location": {
                 "type": "Place",
@@ -2489,19 +2474,19 @@
             },
             "name": "Example 88"
           },
-          "notes": "Indicates one or more physical or logical locations associated with the object.",
-          "domain": {
+          "rdfs:comment": "Indicates one or more physical or logical locations associated with the object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-location",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object | Link"
@@ -2513,11 +2498,11 @@
         {
           "id": "as:items",
           "type": "rdf:Property",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex91-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Collection",
                 "items": [
                   {
@@ -2537,7 +2522,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex92-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "OrderedCollection",
                 "orderedItems": [
                   {
@@ -2555,19 +2540,19 @@
               "name": "Example 90"
             }
           ],
-          "notes": "Identifies the items contained in a collection. The items might be ordered or unordered.",
-          "domain": {
+          "rdfs:comment": "Identifies the items contained in a collection. The items might be ordered or unordered.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-items",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-items",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2596,10 +2581,10 @@
         {
           "id": "as:oneOf",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex93-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Question",
               "name": "What is the answer?",
               "oneOf": [
@@ -2615,19 +2600,19 @@
             },
             "name": "Example 91"
           },
-          "notes": "Identifies an exclusive option for a Question. Use of oneOf implies that the Question can have only a single answer. To indicate that a Question can have multiple answers, use anyOf.",
-          "domain": {
+          "rdfs:comment": "Identifies an exclusive option for a Question. Use of oneOf implies that the Question can have only a single answer. To indicate that a Question can have multiple answers, use anyOf.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question",
               "name": "Question"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-oneof",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-oneof",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2646,10 +2631,10 @@
         {
           "id": "as:anyOf",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Question",
               "anyOf": [
                 {
@@ -2665,19 +2650,19 @@
             },
             "name": "Example 92"
           },
-          "notes": "Identifies an inclusive option for a Question. Use of anyOf implies that the Question can have multiple answers. To indicate that a Question can have only one answer, use oneOf.",
-          "domain": {
+          "rdfs:comment": "Identifies an inclusive option for a Question. Use of anyOf implies that the Question can have multiple answers. To indicate that a Question can have only one answer, use oneOf.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question",
               "name": "Question"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-anyof",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-anyof",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2696,29 +2681,29 @@
         {
           "id": "as:closed",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex94b-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Question",
               "closed": "2016-05-10T00:00:00Z",
               "name": "What is the answer?"
             },
             "name": "Example 93"
           },
-          "notes": "Indicates that a question has been closed, and answers are no longer accepted.",
-          "domain": {
+          "rdfs:comment": "Indicates that a question has been closed, and answers are no longer accepted.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question",
               "name": "Question"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-closed",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-closed",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2739,10 +2724,10 @@
         {
           "id": "as:origin",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex166-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Move",
               "actor": "http://sally.example.org",
               "object": "http://example.org/posts/1",
@@ -2758,19 +2743,19 @@
             },
             "name": "Example 94"
           },
-          "notes": "Describes an indirect object of the activity from which the activity is directed. The precise meaning of the origin is the object of the English preposition \"from\". For instance, in the activity \"John moved an item to List B from List A\", the origin of the activity is \"List A\".",
-          "domain": {
+          "rdfs:comment": "Describes an indirect object of the activity from which the activity is directed. The precise meaning of the origin is the object of the English preposition \"from\". For instance, in the activity \"John moved an item to List B from List A\", the origin of the activity is \"List A\".",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
               "name": "Activity"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-origin",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-origin",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2792,11 +2777,11 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex96-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "CollectionPage",
                 "items": [
                   "http://example.org/posts/1",
@@ -2811,7 +2796,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex97-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "CollectionPage",
                 "items": [
                   "http://example.org/posts/1",
@@ -2828,19 +2813,19 @@
               "name": "Example 96"
             }
           ],
-          "notes": "In a paged Collection, indicates the next page of items.",
-          "domain": {
+          "rdfs:comment": "In a paged Collection, indicates the next page of items.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
               "name": "CollectionPage"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-next",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-next",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
@@ -2859,11 +2844,11 @@
         {
           "id": "as:object",
           "type": "rdf:Property",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex98-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Like",
                 "actor": "http://sally.example.org",
                 "object": "http://example.org/posts/1",
@@ -2874,7 +2859,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex99-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Like",
                 "actor": "http://sally.example.org",
                 "object": {
@@ -2887,7 +2872,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex100-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Like",
                 "actor": "http://sally.example.org",
                 "object": [
@@ -2903,10 +2888,10 @@
               "name": "Example 99"
             }
           ],
-          "notes": "When used within an Activity, describes the direct object of the activity. For instance, in the activity \"John added a movie to his wishlist\", the object of the activity is the movie added. When used within a Relationship describes the entity to which the subject is related.",
-          "domain": {
+          "rdfs:comment": "When used within an Activity, describes the direct object of the activity. For instance, in the activity \"John added a movie to his wishlist\", the object of the activity is the movie added. When used within a Relationship describes the entity to which the subject is related.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
@@ -2919,10 +2904,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object-term",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object-term",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -2944,11 +2929,11 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex104-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "CollectionPage",
                 "items": [
                   "http://example.org/posts/1",
@@ -2963,7 +2948,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex105-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "CollectionPage",
                 "items": [
                   "http://example.org/posts/1",
@@ -2980,19 +2965,19 @@
               "name": "Example 101"
             }
           ],
-          "notes": "In a paged Collection, identifies the previous page of items.",
-          "domain": {
+          "rdfs:comment": "In a paged Collection, identifies the previous page of items.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
               "name": "CollectionPage"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-prev",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-prev",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
@@ -3014,10 +2999,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex106-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Video",
               "duration": "PT2H30M",
               "name": "Cool New Movie",
@@ -3033,10 +3018,10 @@
             },
             "name": "Example 102"
           },
-          "notes": "Identifies an entity that provides a preview of this object.",
-          "domain": {
+          "rdfs:comment": "Identifies an entity that provides a preview of this object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -3049,10 +3034,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-preview",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-preview",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -3071,10 +3056,10 @@
         {
           "id": "as:result",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex108-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": [
                 "Activity",
                 "http://www.verbs.example/Check"
@@ -3089,19 +3074,19 @@
             },
             "name": "Example 103"
           },
-          "notes": "Describes the result of the activity. For instance, if a particular action results in the creation of a new resource, the result property can be used to describe that new resource.",
-          "domain": {
+          "rdfs:comment": "Describes the result of the activity. For instance, if a particular action results in the creation of a new resource, the result property can be used to describe that new resource.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
               "name": "Activity"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-result",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-result",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -3124,10 +3109,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex112-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "id": "http://www.test.example/notes/1",
               "type": "Note",
               "content": "I am fine.",
@@ -3145,19 +3130,19 @@
             },
             "name": "Example 104"
           },
-          "notes": "Identifies a Collection containing objects considered to be responses to this object.",
-          "domain": {
+          "rdfs:comment": "Identifies a Collection containing objects considered to be responses to this object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
@@ -3172,10 +3157,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex118-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Image",
               "summary": "Picture of Sally",
               "tag": {
@@ -3187,19 +3172,19 @@
             },
             "name": "Example 105"
           },
-          "notes": "One or more \"tags\" that have been associated with an objects. A tag can be any kind of Object. The key difference between attachment and tag is that the former implies association by inclusion, while the latter implies associated by reference.",
-          "domain": {
+          "rdfs:comment": "One or more \"tags\" that have been associated with an objects. A tag can be any kind of Object. The key difference between attachment and tag is that the former implies association by inclusion, while the latter implies associated by reference.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tag",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -3218,11 +3203,11 @@
         {
           "id": "as:target",
           "type": "rdf:Property",
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex120-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Offer",
                 "actor": "http://sally.example.org",
                 "object": "http://example.org/posts/1",
@@ -3234,7 +3219,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex121-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Offer",
                 "actor": "http://sally.example.org",
                 "object": "http://example.org/posts/1",
@@ -3247,19 +3232,19 @@
               "name": "Example 107"
             }
           ],
-          "notes": "Describes the indirect object, or target, of the activity. The precise meaning of the target is largely dependent on the type of action being described but will often be the object of the English preposition \"to\". For instance, in the activity \"John added a movie to his wishlist\", the target of the activity is John's wishlist. An activity can have more than one target.",
-          "domain": {
+          "rdfs:comment": "Describes the indirect object, or target, of the activity. The precise meaning of the target is largely dependent on the type of action being described but will often be the object of the English preposition \"to\". For instance, in the activity \"John added a movie to his wishlist\", the target of the activity is John's wishlist. An activity can have more than one target.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
               "name": "Activity"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-target",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-target",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -3281,10 +3266,10 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex123-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Offer",
               "actor": "http://sally.example.org",
               "object": "http://example.org/posts/1",
@@ -3294,19 +3279,19 @@
             },
             "name": "Example 108"
           },
-          "notes": "Identifies an entity considered to be part of the public primary audience of an Object",
-          "domain": {
+          "rdfs:comment": "Identifies an entity considered to be part of the public primary audience of an Object",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-to",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-to",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -3328,11 +3313,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex124-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Document",
                 "name": "4Q Sales Forecast",
                 "url": "http://example.org/4q-sales-forecast.pdf"
@@ -3342,7 +3327,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex125-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Document",
                 "name": "4Q Sales Forecast",
                 "url": {
@@ -3355,7 +3340,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex126-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Document",
                 "name": "4Q Sales Forecast",
                 "url": [
@@ -3374,19 +3359,19 @@
               "name": "Example 111"
             }
           ],
-          "notes": "Identifies one or more links to representations of the object",
-          "domain": {
+          "rdfs:comment": "Identifies one or more links to representations of the object",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-url",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               "xsd:anyuri",
               {
                 "type": "Link",
@@ -3404,10 +3389,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex127-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "accuracy": 94.5,
               "latitude": 36.75,
@@ -3416,19 +3401,19 @@
             },
             "name": "Example 112"
           },
-          "notes": "Indicates the accuracy of position coordinates on a Place objects. Expressed in properties of percentage. e.g. \"94.0\" means \"94.0% accurate\".",
-          "domain": {
+          "rdfs:comment": "Indicates the accuracy of position coordinates on a Place objects. Expressed in properties of percentage. e.g. \"94.0\" means \"94.0% accurate\".",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
               "name": "Place"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accuracy",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accuracy",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:float"
+            "owl:unionOf": "xsd:float"
           },
           "name": "accuracy",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accuracy"
@@ -3440,10 +3425,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex129-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "altitude": 15,
               "latitude": 36.75,
@@ -3453,19 +3438,19 @@
             },
             "name": "Example 113"
           },
-          "notes": "Indicates the altitude of a place. The measurement units is indicated using the units property. If units is not specified, the default is assumed to be \"m\" indicating meters.",
-          "domain": {
+          "rdfs:comment": "Indicates the altitude of a place. The measurement units is indicated using the units property. If units is not specified, the default is assumed to be \"m\" indicating meters.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-altitude",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-altitude",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:float"
+            "owl:unionOf": "xsd:float"
           },
           "name": "altitude",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-altitude"
@@ -3476,11 +3461,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "A <em>simple</em> note",
                 "summary": "A simple note"
@@ -3490,7 +3475,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex131-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "contentMap": {
                   "en": "A <em>simple</em> note",
@@ -3504,7 +3489,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex130b-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "content": "## A simple note\nA simple markdown `note`",
                 "mediaType": "text/markdown",
@@ -3513,19 +3498,19 @@
               "name": "Example 116"
             }
           ],
-          "notes": "The content or textual representation of the Object encoded as a JSON string. By default, the value of content is HTML. The mediaType property can be used in the object to indicate a different content type. The content MAY be expressed using multiple language-tagged values.",
-          "domain": {
+          "rdfs:comment": "The content or textual representation of the Object encoded as a JSON string. By default, the value of content is HTML. The mediaType property can be used in the object to indicate a different content type. The content MAY be expressed using multiple language-tagged values.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-content",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               "xsd:string",
               "rdf:langstring"
             ]
@@ -3539,11 +3524,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex132-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "name": "A simple note"
               },
@@ -3552,7 +3537,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex133-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "nameMap": {
                   "en": "A simple note",
@@ -3563,10 +3548,10 @@
               "name": "Example 118"
             }
           ],
-          "notes": "A simple, human-readable, plain-text name for the object. HTML markup MUST NOT be included. The name MAY be expressed using multiple language-tagged values.",
-          "domain": {
+          "rdfs:comment": "A simple, human-readable, plain-text name for the object. HTML markup MUST NOT be included. The name MAY be expressed using multiple language-tagged values.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
@@ -3579,10 +3564,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-name",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               "xsd:string",
               "rdf:langstring"
             ]
@@ -3597,10 +3582,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex134-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Video",
               "duration": "PT2H",
               "name": "Birds Flying",
@@ -3608,19 +3593,19 @@
             },
             "name": "Example 119"
           },
-          "notes": "When the object describes a time-bound resource, such as an audio or video, a meeting, etc, the duration property indicates the object's approximate duration. The value MUST be expressed as an xsd:duration as defined by [ xmlschema11-2], section 3.3.6 (e.g. a period of 5 seconds is represented as \"PT5S\").",
-          "domain": {
+          "rdfs:comment": "When the object describes a time-bound resource, such as an audio or video, a meeting, etc, the duration property indicates the object's approximate duration. The value MUST be expressed as an xsd:duration as defined by [ xmlschema11-2], section 3.3.6 (e.g. a period of 5 seconds is represented as \"PT5S\").",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:duration"
+            "owl:unionOf": "xsd:duration"
           },
           "name": "duration",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-duration"
@@ -3631,10 +3616,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex136-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "height": 100,
               "href": "http://example.org/image.png",
@@ -3642,19 +3627,19 @@
             },
             "name": "Example 120"
           },
-          "notes": "On a Link, specifies a hint as to the rendering height in device-independent pixels of the linked resource.",
-          "domain": {
+          "rdfs:comment": "On a Link, specifies a hint as to the rendering height in device-independent pixels of the linked resource.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
               "name": "Link"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:nonnegativeinteger"
+            "owl:unionOf": "xsd:nonnegativeinteger"
           },
           "name": "height",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-height"
@@ -3665,10 +3650,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex137-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "href": "http://example.org/abc",
               "mediaType": "text/html",
@@ -3676,19 +3661,19 @@
             },
             "name": "Example 121"
           },
-          "notes": "The target resource pointed to by a Link.",
-          "domain": {
+          "rdfs:comment": "The target resource pointed to by a Link.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
               "name": "Link"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:anyuri"
+            "owl:unionOf": "xsd:anyuri"
           },
           "name": "href",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-href"
@@ -3699,10 +3684,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex138-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "href": "http://example.org/abc",
               "hreflang": "en",
@@ -3711,19 +3696,19 @@
             },
             "name": "Example 122"
           },
-          "notes": "Hints as to the language used by the target resource. Value MUST be a [BCP47] Language-Tag.",
-          "domain": {
+          "rdfs:comment": "Hints as to the language used by the target resource. Value MUST be a [BCP47] Language-Tag.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
               "name": "Link"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-hreflang",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-hreflang",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": []
+            "owl:unionOf": []
           },
           "name": "hreflang",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-hreflang"
@@ -3734,10 +3719,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex139-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "id": "http://example.org/collection?page=1",
               "type": "CollectionPage",
               "items": [
@@ -3755,19 +3740,19 @@
             },
             "name": "Example 123"
           },
-          "notes": "Identifies the Collection to which a CollectionPage objects items belong.",
-          "domain": {
+          "rdfs:comment": "Identifies the Collection to which a CollectionPage objects items belong.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage",
               "name": "CollectionPage"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-partof",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-partof",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -3789,10 +3774,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex140-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "latitude": 36.75,
               "longitude": 119.7667,
@@ -3802,19 +3787,19 @@
             },
             "name": "Example 124"
           },
-          "notes": "The latitude of a place",
-          "domain": {
+          "rdfs:comment": "The latitude of a place",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
               "name": "Place"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:float"
+            "owl:unionOf": "xsd:float"
           },
           "name": "latitude",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-latitude"
@@ -3825,10 +3810,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex141-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "latitude": 36.75,
               "longitude": 119.7667,
@@ -3838,19 +3823,19 @@
             },
             "name": "Example 125"
           },
-          "notes": "The longitude of a place",
-          "domain": {
+          "rdfs:comment": "The longitude of a place",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
               "name": "Place"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-longitude",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-longitude",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:float"
+            "owl:unionOf": "xsd:float"
           },
           "name": "longitude",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-longitude"
@@ -3862,10 +3847,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex142-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "href": "http://example.org/abc",
               "hreflang": "en",
@@ -3874,10 +3859,10 @@
             },
             "name": "Example 126"
           },
-          "notes": "When used on a Link, identifies the MIME media type of the referenced resource. When used on an Object, identifies the MIME media type of the value of the content property. If not specified, the content property is assumed to contain text/html content.",
-          "domain": {
+          "rdfs:comment": "When used on a Link, identifies the MIME media type of the referenced resource. When used on an Object, identifies the MIME media type of the value of the content property. If not specified, the content property is assumed to contain text/html content.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -3890,10 +3875,10 @@
               }
             ]
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": []
+            "owl:unionOf": []
           },
           "name": "mediaType",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mediatype"
@@ -3905,10 +3890,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex144-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Event",
               "endTime": "2015-01-01T06:00:00-08:00",
               "name": "Going-Away Party for Jim",
@@ -3916,19 +3901,19 @@
             },
             "name": "Example 127"
           },
-          "notes": "The date and time describing the actual or expected ending time of the object. When used with an Activity object, for instance, the endTime property specifies the moment the activity concluded or is expected to conclude.",
-          "domain": {
+          "rdfs:comment": "The date and time describing the actual or expected ending time of the object. When used with an Activity object, for instance, the endTime property specifies the moment the activity concluded or is expected to conclude.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-endtime",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-endtime",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:datetime"
+            "owl:unionOf": "xsd:datetime"
           },
           "name": "endTime",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-endtime"
@@ -3940,10 +3925,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex145-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "content": "Fish swim.",
               "published": "2014-12-12T12:12:12Z",
@@ -3951,19 +3936,19 @@
             },
             "name": "Example 128"
           },
-          "notes": "The date and time at which the object was published",
-          "domain": {
+          "rdfs:comment": "The date and time at which the object was published",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:datetime"
+            "owl:unionOf": "xsd:datetime"
           },
           "name": "published",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-published"
@@ -3975,10 +3960,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex146-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Event",
               "endTime": "2015-01-01T06:00:00-08:00",
               "name": "Going-Away Party for Jim",
@@ -3986,19 +3971,19 @@
             },
             "name": "Example 129"
           },
-          "notes": "The date and time describing the actual or expected starting time of the object. When used with an Activity object, for instance, the startTime property specifies the moment the activity began or is scheduled to begin.",
-          "domain": {
+          "rdfs:comment": "The date and time describing the actual or expected starting time of the object. When used with an Activity object, for instance, the startTime property specifies the moment the activity began or is scheduled to begin.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-starttime",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-starttime",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:datetime"
+            "owl:unionOf": "xsd:datetime"
           },
           "name": "startTime",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-starttime"
@@ -4009,10 +3994,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex147-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "latitude": 36.75,
               "longitude": 119.7667,
@@ -4022,19 +4007,19 @@
             },
             "name": "Example 130"
           },
-          "notes": "The radius from the given latitude and longitude for a Place. The units is expressed by the units property. If units is not specified, the default is assumed to be \"m\" indicating \"meters\".",
-          "domain": {
+          "rdfs:comment": "The radius from the given latitude and longitude for a Place. The units is expressed by the units property. If units is not specified, the default is assumed to be \"m\" indicating \"meters\".",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
               "name": "Place"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-radius",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-radius",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:float"
+            "owl:unionOf": "xsd:float"
           },
           "name": "radius",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-radius"
@@ -4042,10 +4027,10 @@
         {
           "id": "as:rel",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex149-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "href": "http://example.org/abc",
               "hreflang": "en",
@@ -4058,19 +4043,19 @@
             },
             "name": "Example 131"
           },
-          "notes": "A link relation associated with a Link. The value MUST conform to both the [HTML5] and [RFC5988] \"link relation\" definitions. In the [HTML5], any string not containing the \"space\" U+0020, \"tab\" (U+0009), \"LF\" (U+000A), \"FF\" (U+000C), \"CR\" (U+000D) or \",\" (U+002C) characters can be used as a valid link relation.",
-          "domain": {
+          "rdfs:comment": "A link relation associated with a Link. The value MUST conform to both the [HTML5] and [RFC5988] \"link relation\" definitions. In the [HTML5], any string not containing the \"space\" U+0020, \"tab\" (U+0009), \"LF\" (U+000A), \"FF\" (U+000C), \"CR\" (U+000D) or \",\" (U+002C) characters can be used as a valid link relation.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
               "name": "Link"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-rel",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-rel",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": []
+            "owl:unionOf": []
           },
           "name": "rel",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-rel"
@@ -4081,10 +4066,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex150-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "OrderedCollectionPage",
               "orderedItems": [
                 {
@@ -4101,19 +4086,19 @@
             },
             "name": "Example 132"
           },
-          "notes": "A non-negative integer value identifying the relative position within the logical view of a strictly ordered collection.",
-          "domain": {
+          "rdfs:comment": "A non-negative integer value identifying the relative position within the logical view of a strictly ordered collection.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollectionpage",
               "name": "OrderedCollectionPage"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-startindex",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-startindex",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:nonnegativeinteger"
+            "owl:unionOf": "xsd:nonnegativeinteger"
           },
           "name": "startIndex",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-startindex"
@@ -4124,11 +4109,11 @@
             "rdf:Property",
             "owl:ObjectProperty"
           ],
-          "example": [
+          "schema:workExample": [
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex152-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "name": "Cane Sugar Processing",
                 "summary": "A simple <em>note</em>"
@@ -4138,7 +4123,7 @@
             {
               "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex153-jsonld",
               "type": "https://schema.org/CreativeWork",
-              "mainEntity": {
+              "schema:mainEntity": {
                 "type": "Note",
                 "name": "Cane Sugar Processing",
                 "summaryMap": {
@@ -4150,19 +4135,19 @@
               "name": "Example 134"
             }
           ],
-          "notes": "A natural language summarization of the object encoded as HTML. Multiple language tagged summaries MAY be provided.",
-          "domain": {
+          "rdfs:comment": "A natural language summarization of the object encoded as HTML. Multiple language tagged summaries MAY be provided.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-summary",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-summary",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               "xsd:string",
               "rdf:langstring"
             ]
@@ -4176,10 +4161,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex156-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Collection",
               "items": [
                 {
@@ -4196,19 +4181,19 @@
             },
             "name": "Example 135"
           },
-          "notes": "A non-negative integer specifying the total number of objects contained by the logical view of the collection. This number might not reflect the actual number of items serialized within the Collection object instance.",
-          "domain": {
+          "rdfs:comment": "A non-negative integer specifying the total number of objects contained by the logical view of the collection. This number might not reflect the actual number of items serialized within the Collection object instance.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
               "name": "Collection"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-totalitems",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-totalitems",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:nonnegativeinteger"
+            "owl:unionOf": "xsd:nonnegativeinteger"
           },
           "name": "totalItems",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-totalitems"
@@ -4219,10 +4204,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex157-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Place",
               "latitude": 36.75,
               "longitude": 119.7667,
@@ -4232,19 +4217,19 @@
             },
             "name": "Example 136"
           },
-          "notes": "Specifies the measurement units for the radius and altitude properties on a Place object. If not specified, the default is assumed to be \"m\" for \"meters\".",
-          "domain": {
+          "rdfs:comment": "Specifies the measurement units for the radius and altitude properties on a Place object. If not specified, the default is assumed to be \"m\" for \"meters\".",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place",
               "name": "Place"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-units",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-units",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               "https://www.w3.org/TR/activitystreams-vocabulary/cm",
               "https://www.w3.org/TR/activitystreams-vocabulary/feet",
               "https://www.w3.org/TR/activitystreams-vocabulary/inches",
@@ -4264,10 +4249,10 @@
             "owl:ObjectProperty",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex158-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Note",
               "content": "Mush it up so it does not have the same shape as the can.",
               "name": "Cranberry Sauce Idea",
@@ -4275,19 +4260,19 @@
             },
             "name": "Example 137"
           },
-          "notes": "The date and time at which the object was updated",
-          "domain": {
+          "rdfs:comment": "The date and time at which the object was updated",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-updated",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-updated",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:datetime"
+            "owl:unionOf": "xsd:datetime"
           },
           "name": "updated",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-updated"
@@ -4298,10 +4283,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex159-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Link",
               "height": 100,
               "href": "http://example.org/image.png",
@@ -4309,19 +4294,19 @@
             },
             "name": "Example 138"
           },
-          "notes": "On a Link, specifies a hint as to the rendering width in device-independent pixels of the linked resource.",
-          "domain": {
+          "rdfs:comment": "On a Link, specifies a hint as to the rendering width in device-independent pixels of the linked resource.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
               "name": "Link"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:nonnegativeinteger"
+            "owl:unionOf": "xsd:nonnegativeinteger"
           },
           "name": "width",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-width"
@@ -4332,10 +4317,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22a-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Relationship",
               "object": {
                 "type": "Person",
@@ -4350,19 +4335,19 @@
             },
             "name": "Example 139"
           },
-          "notes": "On a Relationship object, the subject property identifies one of the connected individuals. For instance, for a Relationship object describing \"John is related to Sally\", subject would refer to John.",
-          "domain": {
+          "rdfs:comment": "On a Relationship object, the subject property identifies one of the connected individuals. For instance, for a Relationship object describing \"John is related to Sally\", subject would refer to John.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship",
               "name": "Relationship"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-subject",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-subject",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": [
+            "owl:unionOf": [
               {
                 "type": "Link",
                 "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
@@ -4381,10 +4366,10 @@
         {
           "id": "as:relationship",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex22c-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Relationship",
               "object": {
                 "type": "Person",
@@ -4399,19 +4384,19 @@
             },
             "name": "Example 140"
           },
-          "notes": "On a Relationship object, the relationship property identifies the kind of relationship that exists between subject and object.",
-          "domain": {
+          "rdfs:comment": "On a Relationship object, the relationship property identifies the kind of relationship that exists between subject and object.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship",
               "name": "Relationship"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship-term",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship-term",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
@@ -4426,10 +4411,10 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Profile",
               "describes": {
                 "type": "Person",
@@ -4440,19 +4425,19 @@
             },
             "name": "Example 141"
           },
-          "notes": "On a Profile object, the describes property identifies the object described by the Profile.",
-          "domain": {
+          "rdfs:comment": "On a Profile object, the describes property identifies the object described by the Profile.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-profile",
               "name": "Profile"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-describes",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-describes",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
@@ -4464,10 +4449,10 @@
         {
           "id": "as:formerType",
           "type": "rdf:Property",
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185b-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Tombstone",
               "formerType": "/Image",
               "summary": "This image has been deleted",
@@ -4475,19 +4460,19 @@
             },
             "name": "Example 142"
           },
-          "notes": "On a Tombstone object, the formerType property identifies the type of the object that was deleted.",
-          "domain": {
+          "rdfs:comment": "On a Tombstone object, the formerType property identifies the type of the object that was deleted.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone",
               "name": "Tombstone"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-formertype",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-formertype",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
               "name": "Object"
@@ -4502,34 +4487,34 @@
             "rdf:Property",
             "owl:FunctionalProperty"
           ],
-          "example": {
+          "schema:workExample": {
             "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex185c-jsonld",
             "type": "https://schema.org/CreativeWork",
-            "mainEntity": {
+            "schema:mainEntity": {
               "type": "Tombstone",
               "deleted": "2016-05-03T00:00:00Z",
               "summary": "This image has been deleted"
             },
             "name": "Example 143"
           },
-          "notes": "On a Tombstone object, the deleted property is a timestamp for when the object was deleted.",
-          "domain": {
+          "rdfs:comment": "On a Tombstone object, the deleted property is a timestamp for when the object was deleted.",
+          "rdfs:domain": {
             "type": "owl:Class",
-            "unionOf": {
+            "owl:unionOf": {
               "type": "Link",
               "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone",
               "name": "Tombstone"
             }
           },
-          "isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-deleted",
-          "range": {
+          "rdfs:isDefinedBy": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-deleted",
+          "rdfs:range": {
             "type": "owl:Class",
-            "unionOf": "xsd:datetime"
+            "owl:unionOf": "xsd:datetime"
           },
           "name": "deleted",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-deleted"
         }
       ]
     }
-  }
+  ]
 }

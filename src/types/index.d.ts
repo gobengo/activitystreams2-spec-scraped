@@ -45,8 +45,10 @@ interface Ontology<Member> {
 }
 
 export interface ScrapedVocabulary {
-  activityTypes: Ontology<ParsedClass>;
-  actorTypes: Ontology<ParsedClass>;
-  objectTypes: Ontology<ParsedClass>;
-  properties: Ontology<Property>
+  sections: {
+    activityTypes: Ontology<ParsedClass>;
+    actorTypes: Ontology<ParsedClass>;
+    objectTypes: Ontology<ParsedClass>;
+    properties: Ontology<Property>
+  }
 }
