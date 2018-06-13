@@ -139,6 +139,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
             'https://www.w3.org/TR/activitystreams-vocabulary/#properties',
       }
     ],
+    '@id': 'https://www.w3.org/TR/activitystreams-vocabulary/',
     type: 'http://www.w3.org/2002/07/owl#Ontology',
     activityTypes: new Ontology<ParsedClass>(
         {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),

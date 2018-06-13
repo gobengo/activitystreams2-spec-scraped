@@ -17,6 +17,11 @@ const testJsonLd = async (vocab: ScrapedVocabulary) => {
   const flattened = await jsonld.flatten(vocab);
   const bNodes = flattened.filter((n: LDObject) => n['@id'].startsWith('_:'));
   const nodesNoType = flattened.filter((n: LDObject) => !n['@type']);
+  const ontologies = (await jsonld.frame(
+      vocab, {'@type': 'http://www.w3.org/2002/07/owl#Ontology'}))['graph'];
+  const as2VocabularyUrl = 'https://www.w3.org/TR/activitystreams-vocabulary/';
+  const mainOntology = await jsonld.frame(vocab, {'@id': as2VocabularyUrl});
+  assert.equal(mainOntology['@graph'].length, 1);
   // @todo (bengo.is) actually we want this to be 0, but the last two are
   // actually from some examples in the vocabulary itself
   assert.equal(
