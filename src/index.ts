@@ -8,7 +8,7 @@ import * as url from 'url';
 
 import {cli} from './cli';
 import * as selectors from './selectors';
-import {DataType, Link, Property, ScrapedVocabulary} from './types';
+import {Link, Ontology as IOntology, OwlClassUnion, Property, RDFList, ScrapedVocabulary, ParsedClass,} from './types';
 
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
@@ -60,16 +60,17 @@ const withBaseUrl = (baseUrl: string, relativeUrl: string) => {
   return relativeUrl && url.resolve(baseUrl, relativeUrl);
 };
 
-const applyBaseUrlToDataType = (baseUrl: string, dt: DataType): DataType => {
-  return Object.assign({}, dt, {
-    unionOf: dt.unionOf.map((dt2 => {
-      if (typeof dt2 === 'string') {
-        return withBaseUrl(baseUrl, dt2);
-      }
-      return applyBaseUrlToLink(baseUrl, dt2);
-    }))
-  });
-};
+const applyBaseUrlToOwlClassUnion =
+    (baseUrl: string, dt: OwlClassUnion): OwlClassUnion => {
+      return Object.assign({}, dt, {
+        unionOf: dt.unionOf.map((dt2 => {
+          if (typeof dt2 === 'string') {
+            return withBaseUrl(baseUrl, dt2);
+          }
+          return applyBaseUrlToLink(baseUrl, dt2);
+        }))
+      });
+    };
 
 const parseClassElement =
     ($: CheerioSelector, el: CheerioElement, baseUrl: string) => {
@@ -98,12 +99,24 @@ const parseProperty =
         // @todo (bengo.is) rename selector to not mention activity vs property
         notes: selectors.notes($, $el),
         example: selectors.example($, $el, baseUrl),
-        domain: applyBaseUrlToDataType(baseUrl, domain),
-        range: applyBaseUrlToDataType(baseUrl, selectors.range($, $el)),
+        domain: applyBaseUrlToOwlClassUnion(baseUrl, domain),
+        range: applyBaseUrlToOwlClassUnion(baseUrl, selectors.range($, $el)),
         subPropertyOf:
             applyBaseUrlToLink(baseUrl, selectors.subPropertyOf($, $el)),
       };
     };
+
+class Ontology<Member> implements IOntology<Member> {
+  '@context' = {
+    owl: 'http://www.w3.org/2002/07/owl#' as 'http://www.w3.org/2002/07/owl#',
+    members: 'owl:members' as 'owl:members'
+  };
+  type: 'owl:Ontology' = 'owl:Ontology';
+  members: RDFList<Member>;
+  constructor({members}: {members: RDFList<Member>}) {
+    this.members = members;
+  }
+}
 
 /**
  * Parse html of an AS2 Vocabulary Document
@@ -114,13 +127,29 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
   const parseClassTable = ($el: Cheerio) =>
       $el.toArray().map(el => parseClassElement($, el, baseUrl));
   return {
-    '@context': jsonldContext,
-    activityTypes: parseClassTable($('#h-activity-types ~ table > tbody')),
-    actorTypes: parseClassTable($('#h-actor-types ~ table > tbody')),
-    objectTypes: parseClassTable($('#h-object-types ~ table > tbody')),
-    properties: $('#h-properties ~ table > tbody')
-                    .toArray()
-                    .map(el => parseProperty($, el, baseUrl)),
+    '@context': [
+      ...jsonldContext, {
+        activityTypes:
+            'https://www.w3.org/TR/activitystreams-vocabulary/#activity-types',
+        actorTypes:
+            'https://www.w3.org/TR/activitystreams-vocabulary/#actor-types',
+        objectTypes:
+            'https://www.w3.org/TR/activitystreams-vocabulary/#object-types',
+        properties:
+            'https://www.w3.org/TR/activitystreams-vocabulary/#properties',
+      }
+    ],
+    activityTypes: new Ontology<ParsedClass>(
+        {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),
+    actorTypes: new Ontology<ParsedClass>(
+        {members: parseClassTable($('#h-actor-types ~ table > tbody'))}),
+    objectTypes: new Ontology<ParsedClass>(
+        {members: parseClassTable($('#h-object-types ~ table > tbody'))}),
+    properties: new Ontology<Property>({
+      members: $('#h-properties ~ table > tbody')
+                   .toArray()
+                   .map(el => parseProperty($, el, baseUrl))
+    }),
   };
 };
 

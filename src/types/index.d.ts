@@ -16,7 +16,8 @@ export interface Example {
   mainEntity: object;
 }
 
-export interface DataType {
+export interface OwlClassUnion {
+  type: 'owl:Class'
   unionOf: Array<string|Link>
 }
 
@@ -25,16 +26,27 @@ export interface Property {
   id: string;
   url: string;
   notes: string;
-  domain: DataType;
-  range: DataType;
+  domain: OwlClassUnion;
+  range: OwlClassUnion;
   subPropertyOf?: Link;
   isDefinedBy: string;
   example: Example[];
 }
 
+type RDFList<Member> = Member[]
+
+interface Ontology<Member> {
+  "@context": {
+    owl: 'http://www.w3.org/2002/07/owl#',
+    members: 'owl:members'
+  }
+  type: 'owl:Ontology'
+  members: RDFList<Member>
+}
+
 export interface ScrapedVocabulary {
-  activityTypes: ParsedClass[];
-  actorTypes: ParsedClass[];
-  objectTypes: ParsedClass[];
-  properties: Property[]
+  activityTypes: Ontology<ParsedClass>;
+  actorTypes: Ontology<ParsedClass>;
+  objectTypes: Ontology<ParsedClass>;
+  properties: Ontology<Property>
 }

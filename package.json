@@ -36,6 +36,7 @@
     "@types/node-fetch": "^2.1.1",
     "cheerio": "^1.0.0-rc.2",
     "gts": "^0.6.0",
+    "jsonld": "^1.0.2",
     "node-fetch": "^2.1.2"
   },
   "bin": {
