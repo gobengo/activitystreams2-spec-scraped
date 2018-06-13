@@ -22,7 +22,7 @@
     "posttest": "npm run check",
     "preversion": "npm test",
     "start": "ts-node src",
-    "updateDataFixtures": "ts-node src > data/activitystreams-vocabulary/1528589057.json"
+    "updateDataFixtures": "ts-node src/scripts/updateDataFixtures.ts"
   },
   "devDependencies": {
     "@types/node": "^10.3.2",
@@ -36,7 +36,9 @@
     "@types/node-fetch": "^2.1.1",
     "cheerio": "^1.0.0-rc.2",
     "gts": "^0.6.0",
-    "node-fetch": "^2.1.2"
+    "jsonld": "^1.0.2",
+    "node-fetch": "^2.1.2",
+    "rdf-tools": "^0.4.4"
   },
   "bin": {
     "activitystreams2-spec-scraped": "./bin/activitystreams2-spec-scraped"

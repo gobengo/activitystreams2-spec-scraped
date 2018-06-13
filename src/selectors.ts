@@ -7,8 +7,9 @@ import assert from 'assert';
 import * as urlm from 'url';
 
 import {LabeledSection, makeTableSelector, optionalRow, TableSection, TableShape} from './tables';
-import {DataType, Link} from './types';
+import {Link, OwlClassUnion} from './types';
 import {CheerioSelector} from './types/cheerio';
+
 
 
 // TableShapes for the tables storing all the juicy data in the AS2 Vocab Spec
@@ -89,6 +90,7 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
             const $example = $(el);
             const domId = $example.attr('id');
             const example = {
+              type: 'https://schema.org/CreativeWork',
               name: $example.find('.example-title').text(),
               id: domId && urlm.resolve(baseUrl, `#${domId}`),
               mainEntity: JSON.parse($example.find('.json').text()),
@@ -109,7 +111,7 @@ export const url = ($: CheerioSelector, $el: Cheerio) => {
 type Selector = ($: CheerioSelector, $el: Cheerio) => Cheerio;
 
 const makeDomainOrRangeSelector = (selectDomainOrRange: Selector) => (
-    $: CheerioSelector, $el: Cheerio): DataType => {
+    $: CheerioSelector, $el: Cheerio): OwlClassUnion => {
   const as2TypeLinks =
       selectDomainOrRange($, $el).find('code').toArray().map((as2TypeEl) => {
         const $as2TypeEl = $(as2TypeEl);
@@ -124,7 +126,7 @@ const makeDomainOrRangeSelector = (selectDomainOrRange: Selector) => (
         };
         return link;
       });
-  return {unionOf: as2TypeLinks};
+  return {type: 'owl:Class', unionOf: as2TypeLinks};
 };
 
 export const domain = makeDomainOrRangeSelector(
@@ -184,7 +186,7 @@ export const propertyTypes = ($: CheerioSelector, $el: Cheerio) => {
 const objectClassUri = '#dfn-object';
 // @todo (bengo.is) this will fail if the domain has a subClassOf of Object
 // but not Object itself. Need to walk up
-const domainIncludesObject = (domain: DataType) =>
+const domainIncludesObject = (domain: OwlClassUnion) =>
     domain.unionOf
         .filter((l) => {
           if (typeof l === 'string') return l === objectClassUri;
