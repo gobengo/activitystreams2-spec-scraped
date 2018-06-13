@@ -90,6 +90,7 @@ export const example = ($: CheerioSelector, $el: Cheerio, baseUrl: string) => {
             const $example = $(el);
             const domId = $example.attr('id');
             const example = {
+              type: 'https://schema.org/CreativeWork',
               name: $example.find('.example-title').text(),
               id: domId && urlm.resolve(baseUrl, `#${domId}`),
               mainEntity: JSON.parse($example.find('.json').text()),

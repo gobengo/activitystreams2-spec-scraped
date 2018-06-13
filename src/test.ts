@@ -17,7 +17,10 @@ const testJsonLd = async (vocab: ScrapedVocabulary) => {
   const flattened = await jsonld.flatten(vocab);
   const bNodes = flattened.filter((n: LDObject) => n['@id'].startsWith('_:'));
   const nodesNoType = flattened.filter((n: LDObject) => !n['@type']);
-  // console.log(bNodes);
+  // @todo (bengo.is) actually we want this to be 0, but the last two are
+  // actually from some examples in the vocabulary itself
+  assert.equal(
+      nodesNoType.length, 2, 'all nodes in output JSON-LD should have a type');
 };
 
 export const test = async () => {

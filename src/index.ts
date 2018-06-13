@@ -8,7 +8,7 @@ import * as url from 'url';
 
 import {cli} from './cli';
 import * as selectors from './selectors';
-import {Link, Ontology as IOntology, OwlClassUnion, Property, RDFList, ScrapedVocabulary, ParsedClass,} from './types';
+import {Link, Ontology as IOntology, OwlClassUnion, ParsedClass, Property, RDFList, ScrapedVocabulary,} from './types';
 
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
@@ -139,6 +139,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
             'https://www.w3.org/TR/activitystreams-vocabulary/#properties',
       }
     ],
+    type: 'http://www.w3.org/2002/07/owl#Ontology',
     activityTypes: new Ontology<ParsedClass>(
         {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),
     actorTypes: new Ontology<ParsedClass>(
