@@ -17,6 +17,7 @@
       "notes": "rdfs:comment",
       "range": "rdfs:range",
       "subClassOf": "rdfs:subClassOf",
+      "disjointWith": "owl:disjointWith",
       "subPropertyOf": "rdfs:subPropertyOf",
       "unionOf": "owl:unionOf",
       "value": "rdf:value"
@@ -87,6 +88,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Accept",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept"
         },
@@ -120,6 +122,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-accept",
             "name": "Accept"
           },
+          "disjointWith": [],
           "name": "TentativeAccept",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tentativeaccept"
         },
@@ -174,6 +177,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Add",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-add"
         },
@@ -207,6 +211,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
           },
+          "disjointWith": [],
           "name": "Arrive",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-arrive"
         },
@@ -237,6 +242,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Create",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-create"
         },
@@ -267,6 +273,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Delete",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-delete"
         },
@@ -296,6 +303,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Follow",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-follow"
         },
@@ -322,6 +330,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Ignore",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-ignore"
         },
@@ -351,6 +360,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Join",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-join"
         },
@@ -399,6 +409,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Leave",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-leave"
         },
@@ -425,6 +436,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Like",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-like"
         },
@@ -458,6 +470,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Offer",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-offer"
         },
@@ -497,6 +510,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-offer",
             "name": "Offer"
           },
+          "disjointWith": [],
           "name": "Invite",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-invite"
         },
@@ -530,6 +544,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Reject",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-reject"
         },
@@ -563,6 +578,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-reject",
             "name": "Reject"
           },
+          "disjointWith": [],
           "name": "TentativeReject",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tentativereject"
         },
@@ -616,6 +632,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Remove",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-remove"
         },
@@ -644,6 +661,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Undo",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-undo"
         },
@@ -670,6 +688,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Update",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-update"
         },
@@ -699,6 +718,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "View",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-view"
         },
@@ -725,6 +745,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Listen",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-listen"
         },
@@ -751,6 +772,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Read",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-read"
         },
@@ -785,6 +807,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Move",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-move"
         },
@@ -818,6 +841,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
           },
+          "disjointWith": [],
           "name": "Travel",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-travel"
         },
@@ -852,6 +876,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Announce",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-announce"
         },
@@ -875,6 +900,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-ignore",
             "name": "Ignore"
           },
+          "disjointWith": [],
           "name": "Block",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-block"
         },
@@ -901,6 +927,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Flag",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-flag"
         },
@@ -924,6 +951,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
             "name": "Activity"
           },
+          "disjointWith": [],
           "name": "Dislike",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-dislike"
         },
@@ -967,6 +995,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity",
             "name": "IntransitiveActivity"
           },
+          "disjointWith": [],
           "name": "Question",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-question"
         }
@@ -993,6 +1022,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Application",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-application"
         },
@@ -1014,6 +1044,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Group",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-group"
         },
@@ -1035,6 +1066,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Organization",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-organization"
         },
@@ -1056,6 +1088,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Person",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-person"
         },
@@ -1077,8 +1110,264 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Service",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-service"
+        }
+      ]
+    },
+    "coreTypes": {
+      "type": "owl:Ontology",
+      "members": [
+        {
+          "id": "as:Object",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex1-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "id": "http://www.test.example/object/1",
+              "type": "Object",
+              "name": "A Simple, non-specific object"
+            },
+            "name": "Example 1"
+          },
+          "notes": "Describes an object of any kind. The Object type serves as the base type for most of the other kinds of objects defined in the Activity Vocabulary, including other Core types such as Activity, IntransitiveActivity, Collection and OrderedCollection.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
+            "name": "Link"
+          },
+          "disjointWith": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
+            "name": "Link"
+          },
+          "name": "Object",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object"
+        },
+        {
+          "id": "as:Link",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex2-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "type": "Link",
+              "href": "http://example.org/abc",
+              "hreflang": "en",
+              "mediaType": "text/html",
+              "name": "An example link"
+            },
+            "name": "Example 2"
+          },
+          "notes": "A Link is an indirect, qualified reference to a resource identified by a URL. The fundamental model for links is established by [ RFC5988]. Many of the properties defined by the Activity Vocabulary allow values that are either instances of Object or Link. When a Link is used, it establishes a qualified relation connecting the subject (the containing object) to the resource identified by the href. Properties of the Link are properties of the reference as opposed to properties of the resource.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
+            "name": "Object"
+          },
+          "disjointWith": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
+            "name": "Object"
+          },
+          "name": "Link",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link"
+        },
+        {
+          "id": "as:Activity",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex3-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "type": "Activity",
+              "actor": {
+                "type": "Person",
+                "name": "Sally"
+              },
+              "object": {
+                "type": "Note",
+                "name": "A Note"
+              },
+              "summary": "Sally did something to a note"
+            },
+            "name": "Example 3"
+          },
+          "notes": "An Activity is a subtype of Object that describes some form of action that may happen, is currently happening, or has already happened. The Activity type itself serves as an abstract base type for all types of activities. It is important to note that the Activity type itself does not carry any specific semantics about the kind of action being taken.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
+            "name": "Object"
+          },
+          "disjointWith": [],
+          "name": "Activity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity"
+        },
+        {
+          "id": "as:IntransitiveActivity",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex182-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "type": "Travel",
+              "actor": {
+                "type": "Person",
+                "name": "Sally"
+              },
+              "summary": "Sally went to work",
+              "target": {
+                "type": "Place",
+                "name": "Work"
+              }
+            },
+            "name": "Example 4"
+          },
+          "notes": "Instances of IntransitiveActivity are a subtype of Activity representing intransitive actions. The object property is therefore inappropriate for these activities.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-activity",
+            "name": "Activity"
+          },
+          "disjointWith": [],
+          "name": "IntransitiveActivity",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-intransitiveactivity"
+        },
+        {
+          "id": "as:Collection",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex5-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "type": "Collection",
+              "items": [
+                {
+                  "type": "Note",
+                  "name": "A Simple Note"
+                },
+                {
+                  "type": "Note",
+                  "name": "Another Simple Note"
+                }
+              ],
+              "summary": "Sally's notes",
+              "totalItems": 2
+            },
+            "name": "Example 5"
+          },
+          "notes": "A Collection is a subtype of Object that represents ordered or unordered sets of Object or Link instances. Refer to the Activity Streams 2.0 Core specification for a complete description of the Collection type.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
+            "name": "Object"
+          },
+          "disjointWith": [],
+          "name": "Collection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection"
+        },
+        {
+          "id": "as:OrderedCollection",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex6-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "type": "OrderedCollection",
+              "orderedItems": [
+                {
+                  "type": "Note",
+                  "name": "A Simple Note"
+                },
+                {
+                  "type": "Note",
+                  "name": "Another Simple Note"
+                }
+              ],
+              "summary": "Sally's notes",
+              "totalItems": 2
+            },
+            "name": "Example 6"
+          },
+          "notes": "A subtype of Collection in which members of the logical collection are assumed to always be strictly ordered.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
+            "name": "Collection"
+          },
+          "disjointWith": [],
+          "name": "OrderedCollection",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection"
+        },
+        {
+          "id": "as:CollectionPage",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex6b-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "id": "http://example.org/foo?page=1",
+              "type": "CollectionPage",
+              "items": [
+                {
+                  "type": "Note",
+                  "name": "A Simple Note"
+                },
+                {
+                  "type": "Note",
+                  "name": "Another Simple Note"
+                }
+              ],
+              "partOf": "http://example.org/foo",
+              "summary": "Page 1 of Sally's notes"
+            },
+            "name": "Example 7"
+          },
+          "notes": "Used to represent distinct subsets of items from a Collection. Refer to the Activity Streams 2.0 Core for a complete description of the CollectionPage object.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collection",
+            "name": "Collection"
+          },
+          "disjointWith": [],
+          "name": "CollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-collectionpage"
+        },
+        {
+          "id": "as:OrderedCollectionPage",
+          "type": "owl:Class",
+          "example": {
+            "id": "https://www.w3.org/TR/activitystreams-vocabulary/#ex6c-jsonld",
+            "type": "https://schema.org/CreativeWork",
+            "mainEntity": {
+              "id": "http://example.org/foo?page=1",
+              "type": "OrderedCollectionPage",
+              "orderedItems": [
+                {
+                  "type": "Note",
+                  "name": "A Simple Note"
+                },
+                {
+                  "type": "Note",
+                  "name": "Another Simple Note"
+                }
+              ],
+              "partOf": "http://example.org/foo",
+              "summary": "Page 1 of Sally's notes"
+            },
+            "name": "Example 8"
+          },
+          "notes": "Used to represent ordered subsets of items from an OrderedCollection. Refer to the Activity Streams 2.0 Core for a complete description of the OrderedCollectionPage object.",
+          "subClassOf": {
+            "type": "Link",
+            "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection",
+            "name": "OrderedCollectionCollectionPage"
+          },
+          "disjointWith": [],
+          "name": "OrderedCollectionPage",
+          "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollectionpage"
         }
       ]
     },
@@ -1112,6 +1401,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Relationship",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-relationship"
         },
@@ -1135,6 +1425,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Article",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-article"
         },
@@ -1157,6 +1448,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Document",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document"
         },
@@ -1183,6 +1475,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
           },
+          "disjointWith": [],
           "name": "Audio",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-audio"
         },
@@ -1216,6 +1509,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
           },
+          "disjointWith": [],
           "name": "Image",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-image"
         },
@@ -1239,6 +1533,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
           },
+          "disjointWith": [],
           "name": "Video",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-video"
         },
@@ -1261,6 +1556,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Note",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-note"
         },
@@ -1283,6 +1579,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-document",
             "name": "Document"
           },
+          "disjointWith": [],
           "name": "Page",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-page"
         },
@@ -1306,6 +1603,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Event",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-event"
         },
@@ -1342,6 +1640,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Place",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-place"
         },
@@ -1365,6 +1664,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-link",
             "name": "Link"
           },
+          "disjointWith": [],
           "name": "Mention",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-mention"
         },
@@ -1390,6 +1690,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Profile",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-profile"
         },
@@ -1428,6 +1729,7 @@
             "href": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object",
             "name": "Object"
           },
+          "disjointWith": [],
           "name": "Tombstone",
           "url": "https://www.w3.org/TR/activitystreams-vocabulary/#dfn-tombstone"
         }
