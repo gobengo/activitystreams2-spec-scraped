@@ -1,9 +1,10 @@
 import assert from 'assert';
+import * as url from 'url';
 
-import {scrapeVocabulary, vocabularySpecUrl} from '.';
+import {as2NsUrl, scrapeVocabulary, vocabularySpecUrl} from '.';
 import {defaultJsonldOptions} from './jsonld';
 import {easyForJavaScriptJsonldContext} from './jsonld/context';
-import {ScrapedVocabulary} from './types';
+import {ParsedClass, ScrapedVocabulary} from './types';
 
 const {promises: jsonld} = require('jsonld');
 
@@ -18,6 +19,15 @@ const owl = {
   Ontology: 'http://www.w3.org/2002/07/owl#Ontology'
 };
 
+const graphIncludes = async (graph: object, iri: string) => {
+  const framed = await jsonld.frame(graph, {'@id': iri}, defaultJsonldOptions);
+  return Boolean(framed['@graph'].length);
+};
+const assertGraphIncludes = async (graph: object, iri: string) => {
+  assert(await graphIncludes(graph, iri), `graph includes ${iri}`);
+};
+const as2Term = (term: string) => `${as2NsUrl}${term}`;
+
 const testJsonLd = async (vocab: ScrapedVocabulary) => {
   const expanded = await jsonld.expand(vocab, defaultJsonldOptions);
   const flattened = await jsonld.flatten(vocab, null, defaultJsonldOptions);
@@ -27,12 +37,11 @@ const testJsonLd = async (vocab: ScrapedVocabulary) => {
       await jsonld.frame(vocab, {'@type': owl.Ontology}, defaultJsonldOptions);
   const ontologies = ontologiesFramed['@graph'];
   assert.equal(
-      ontologies.length, 5,
-      'there are five total ontologies 1 + 4 subsections');
-  const as2VocabularyUrl = 'https://www.w3.org/TR/activitystreams-vocabulary/';
+      ontologies.length, 6,
+      'there are five total ontologies 1 + 5 subsections');
   const mainOntologyFramed = await jsonld.frame(
       vocab, {
-        '@id': as2VocabularyUrl,
+        '@id': vocabularySpecUrl,
       },
       defaultJsonldOptions);
   assert.equal(mainOntologyFramed['@graph'].length, 1);
@@ -41,21 +50,38 @@ const testJsonLd = async (vocab: ScrapedVocabulary) => {
       {}, mainOntologyFramed['@graph'][0],
       {'@context': mainOntologyFramed['@context']});
   assert.equal(
-      mainOntology[owl.imports].length, 4,
-      'Whole AS2 Ontology imports 4 subparts');
+      mainOntology[owl.imports].length, 5,
+      'Whole AS2 Ontology imports 5 subparts');
   // @todo (bengo.is) actually we want this to be 0, but the last two are
   // actually from some examples in the vocabulary itself
   assert.equal(
       nodesNoType.length, 2, 'all nodes in output JSON-LD should have a type');
 };
 
+const getNode = async (data: object, iri: string, context: object) => {
+  const framed = await jsonld.frame(
+      data, {'@context': context, '@id': iri}, defaultJsonldOptions);
+  const framedGraph = framed['@graph'];
+  assert.equal(framedGraph.length, 1);
+  const node = framedGraph[0];
+  return node;
+};
+
 export const test = async () => {
   // This will load from a fixture and *will not* make an http request
   const vocab = await scrapeVocabulary();
 
-  // Provide a URL to fetch the html from there, then parse
-  // await scrapeVocabulary(vocabularySpecUrl);
+  await assertGraphIncludes(vocab, as2Term('Collection'));
+  await assertGraphIncludes(vocab, as2Term('Question'));
+  const linkClass: ParsedClass =
+      await getNode(vocab, as2Term('Link'), easyForJavaScriptJsonldContext);
+  assert.deepStrictEqual(linkClass.disjointWith, {
+    type: 'Link',
+    name: 'Object',
+    href: 'https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object',
+  });
 
+  assert.equal(vocab.sections.coreTypes.members.length, 8);
   assert.equal(vocab.sections.activityTypes.members.length, 28);
   assert.equal(vocab.sections.actorTypes.members.length, 5);
   assert.equal(vocab.sections.objectTypes.members.length, 13);

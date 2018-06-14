@@ -4,6 +4,7 @@
 
 // clang-format off
 export enum TableSection {
+  disjointWith = 'disjointWith',
   domain = 'domain',
   example = 'example',
   extends = 'extends',

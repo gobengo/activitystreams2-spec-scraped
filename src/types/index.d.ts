@@ -1,7 +1,11 @@
 export interface ParsedClass {
   name: string;
   notes: string;
-  subClassOf: {name: string; href?: string;};
+  subClassOf: Link;
+  disjointWith?: Link[];
+  id: string;
+  url: string;
+  type: string;
 }
 
 export interface Link {
@@ -49,6 +53,11 @@ export interface ScrapedVocabulary {
     activityTypes: Ontology<ParsedClass>;
     actorTypes: Ontology<ParsedClass>;
     objectTypes: Ontology<ParsedClass>;
+    coreTypes: Ontology<ParsedClass>;
     properties: Ontology<Property>
   }
+}
+
+export interface AS2CoreOntology {
+
 }

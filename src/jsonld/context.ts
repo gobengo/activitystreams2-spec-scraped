@@ -15,6 +15,7 @@ export const easyForJavaScriptJsonldContext = [
     'notes': 'rdfs:comment',
     'range': 'rdfs:range',
     'subClassOf': 'rdfs:subClassOf',
+    'disjointWith': 'owl:disjointWith',
     'subPropertyOf': 'rdfs:subPropertyOf',
     'unionOf': 'owl:unionOf',
     'value': 'rdf:value',

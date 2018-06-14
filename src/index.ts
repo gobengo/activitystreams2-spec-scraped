@@ -2,6 +2,7 @@ import assert from 'assert';
 import cheerio from 'cheerio';
 import {readFileSync} from 'fs';
 import fetch from 'node-fetch';
+import * as path from 'path';
 import {relative} from 'path';
 import {Readable} from 'stream';
 import * as url from 'url';
@@ -9,11 +10,22 @@ import * as url from 'url';
 import {cli} from './cli';
 import {scrapedVocabularyJsonldContext} from './jsonld/context';
 import * as selectors from './selectors';
-import {Link, Ontology as IOntology, OwlClassUnion, ParsedClass, Property, RDFList, ScrapedVocabulary,} from './types';
+import {AS2CoreOntology, Link, Ontology as IOntology, OwlClassUnion, ParsedClass, Property, RDFList, ScrapedVocabulary,} from './types';
 
+export const as2NsUrl = 'https://www.w3.org/ns/activitystreams#';
 export const as2ContextUrl = 'https://www.w3.org/ns/activitystreams';
 export const vocabularySpecUrl =
     'https://www.w3.org/TR/activitystreams-vocabulary/';
+export const coreSpecUrl = 'https://www.w3.org/TR/activitystreams-core/';
+
+const fetchHtml = async (url: string) => {
+  const response = await fetch(url);
+  const responseText = await response.text();
+  return responseText;
+};
+
+const readFixture = (filename: string) =>
+    readFileSync(require.resolve(filename)).toString();
 
 /**
  * Scrape the ActivityStreams 2.0 Vocabulary and return the types + metadata
@@ -22,15 +34,11 @@ export const vocabularySpecUrl =
  */
 export async function scrapeVocabulary(url?: string):
     Promise<ScrapedVocabulary> {
-  const fetchHtml = async (url = vocabularySpecUrl) => {
-    const vocabResponse = await fetch(vocabularySpecUrl);
-    const vocabHtml = await vocabResponse.text();
-    return vocabHtml;
-  };
-  const readFixture =
-      (f = '../data/activitystreams-vocabulary/1528589057.html') =>
-          readFileSync(require.resolve(f)).toString();
-  const html = await (url ? fetchHtml(url) : readFixture());
+  const html = await (
+      url ? fetchHtml(url) :
+            readFixture(path.join(
+                __dirname,
+                '../data/activitystreams-vocabulary/1528589057.html')));
   const parsed = parseVocabulary(html, url || vocabularySpecUrl);
   return parsed;
 }
@@ -62,6 +70,8 @@ const parseClassElement =
         type: 'owl:Class',
         name: selectors.name($, $el),
         notes: selectors.notes($, $el),
+        disjointWith: (selectors.disjoinWith($, $el) ||
+                       []).map(l => applyBaseUrlToLink(baseUrl, l)),
         subClassOf: selectors.activityTypeSubClassOf($, $el, baseUrl),
         id: withBaseUrl(baseUrl, selectors.id($, $el)),
         url: withBaseUrl(baseUrl, selectors.url($, $el)),
@@ -101,25 +111,35 @@ class Ontology<Member> implements IOntology<Member> {
   }
 }
 
+const parseClassTable = ($: CheerioStatic, $el: Cheerio, baseUrl: string) =>
+    $el.toArray().map(el => parseClassElement($, el, baseUrl));
+
 /**
  * Parse html of an AS2 Vocabulary Document
  * @param html - ActivityStreams 2.0 Vocabulary document
  */
 export const parseVocabulary = (html: string, baseUrl = '') => {
   const $ = cheerio.load(html);
-  const parseClassTable = ($el: Cheerio) =>
-      $el.toArray().map(el => parseClassElement($, el, baseUrl));
-  return {
+  const parsedVocab = {
     '@context': scrapedVocabularyJsonldContext,
     '@id': 'https://www.w3.org/TR/activitystreams-vocabulary/',
     type: 'http://www.w3.org/2002/07/owl#Ontology',
     sections: {
-      activityTypes: new Ontology<ParsedClass>(
-          {members: parseClassTable($('#h-activity-types ~ table > tbody'))}),
-      actorTypes: new Ontology<ParsedClass>(
-          {members: parseClassTable($('#h-actor-types ~ table > tbody'))}),
-      objectTypes: new Ontology<ParsedClass>(
-          {members: parseClassTable($('#h-object-types ~ table > tbody'))}),
+      coreTypes: new Ontology<ParsedClass>({
+        members: parseClassTable($, $('#h-types ~ table > tbody'), baseUrl)
+      }),
+      activityTypes: new Ontology<ParsedClass>({
+        members:
+            parseClassTable($, $('#h-activity-types ~ table > tbody'), baseUrl)
+      }),
+      actorTypes: new Ontology<ParsedClass>({
+        members:
+            parseClassTable($, $('#h-actor-types ~ table > tbody'), baseUrl)
+      }),
+      objectTypes: new Ontology<ParsedClass>({
+        members:
+            parseClassTable($, $('#h-object-types ~ table > tbody'), baseUrl)
+      }),
       properties: new Ontology<Property>({
         members: $('#h-properties ~ table > tbody')
                      .toArray()
@@ -127,6 +147,7 @@ export const parseVocabulary = (html: string, baseUrl = '') => {
       })
     },
   };
+  return parsedVocab;
 };
 
 if (require.main === module) {

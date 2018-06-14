@@ -20,6 +20,15 @@ export const commonTableShape: TableShape = [
   new LabeledSection(TableSection.notes, 'Notes:'),
 ];
 
+
+/** TableShape for AS2 Vocab Core Types */
+export const coreTypeTableShape: TableShape = [
+  ...commonTableShape,
+  optionalRow(new LabeledSection(TableSection.disjointWith, 'Disjoint With:')),
+  new LabeledSection(TableSection.extends, 'Extends:'),
+  new LabeledSection(TableSection.properties, 'Properties:'),
+];
+
 /** TableShape for AS2 Vocab Activity Types */
 export const activityTypeTableShape: TableShape = [
   ...commonTableShape,
@@ -61,10 +70,8 @@ export const activityTypeSubClassOf =
           extendsHref && urlm.resolve(baseUrl, extendsHref);
       const subClassOf = {
         name: subClassOfName,
-        ...extendsAbsoluteUrl &&
-            {
-              type: 'Link', href: extendsAbsoluteUrl
-            }
+        type: 'Link' as 'Link',
+        href: extendsAbsoluteUrl,
       };
       return subClassOf;
     };
@@ -153,6 +160,26 @@ export const functional = ($: CheerioSelector, $el: Cheerio) => {
           `Can't determine whether property ${name($, $el)} is functional`);
   }
 };
+
+export const disjoinWith =
+    ($: CheerioSelector, $el: Cheerio): Link[]|undefined => {
+      const disjointWith =
+          $(makeTableSelector(coreTypeTableShape, TableSection.disjointWith)(
+                $, $el))
+              .find('code')
+              .toArray()
+              .map((el) => {
+                return {
+                  type: 'Link' as 'Link',
+                  name: $(el).text(),
+                  href: $(el).find('a').attr('href'),
+                };
+              });
+      if (!disjointWith.length) {
+        return;
+      }
+      return disjointWith;
+    };
 
 export const subPropertyOf = ($: CheerioSelector, $el: Cheerio) => {
   const subPropertyOf =
