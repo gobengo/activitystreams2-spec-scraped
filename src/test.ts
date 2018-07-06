@@ -4,7 +4,7 @@ import * as url from 'url';
 import {as2NsUrl, scrapeVocabulary, vocabularySpecUrl} from '.';
 import {defaultJsonldOptions} from './jsonld';
 import {easyForJavaScriptJsonldContext} from './jsonld/context';
-import {ParsedClass, ScrapedVocabulary} from './types';
+import {ParsedClass, ScrapedVocabulary, Property} from './types';
 
 const {promises: jsonld} = require('jsonld');
 
@@ -62,7 +62,7 @@ const getNode = async (data: object, iri: string, context: object) => {
   const framed = await jsonld.frame(
       data, {'@context': context, '@id': iri}, defaultJsonldOptions);
   const framedGraph = framed['@graph'];
-  assert.equal(framedGraph.length, 1);
+  assert.equal(framedGraph.length, 1, `graph contains node ${iri}`);
   const node = framedGraph[0];
   return node;
 };
@@ -73,6 +73,7 @@ export const test = async () => {
 
   await assertGraphIncludes(vocab, as2Term('Collection'));
   await assertGraphIncludes(vocab, as2Term('Question'));
+
   const linkClass: ParsedClass =
       await getNode(vocab, as2Term('Link'), easyForJavaScriptJsonldContext);
   assert.deepStrictEqual(linkClass.disjointWith, {
@@ -80,6 +81,9 @@ export const test = async () => {
     name: 'Object',
     href: 'https://www.w3.org/TR/activitystreams-vocabulary/#dfn-object',
   });
+
+  const urlProperty: Property = await getNode(vocab, as2Term('@id'), easyForJavaScriptJsonldContext)
+
 
   assert.equal(vocab.sections.coreTypes.members.length, 8);
   assert.equal(vocab.sections.activityTypes.members.length, 28);
