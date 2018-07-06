@@ -35,6 +35,17 @@ const easyForJsVocabulary = async (vocab: ScrapedVocabulary) => {
   return compacted;
 };
 
+const normalizedVocabulary = async (vocab: ScrapedVocabulary) => {
+  const compacted = await jsonld.normalize(vocab, defaultJsonldOptions);
+  return compacted;
+};
+
+const flattenedVocabulary = async (vocab: ScrapedVocabulary) => {
+  const compacted = await jsonld.flatten(
+      vocab, easyForJavaScriptJsonldContext, defaultJsonldOptions);
+  return compacted;
+};
+
 // Given a map of file paths to file contents, write them all in parallel
 const writeFiles =
     async (files: {[key: string]: string|object|Promise<string|object>}) => {
@@ -61,6 +72,8 @@ const main = async (
     const nameNoExtension = htmlFilename.replace(/\.html$/, '');
     return writeFiles({
       [path.join(dir, `${nameNoExtension}.json`)]: easyForJsVocabulary(vocab),
+      [path.join(dir, `${nameNoExtension}-normalized.json`)]: normalizedVocabulary(vocab),
+      [path.join(dir, `${nameNoExtension}-flattened.json`)]: flattenedVocabulary(vocab),
       [path.join(dir, `${nameNoExtension}-compacted.json`)]:
           compactedVocabulary(vocab),
     });
