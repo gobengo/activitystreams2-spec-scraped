@@ -21,6 +21,17 @@ import {
 	ScrapedVocabulary
 } from "./types";
 
+export {
+	AS2CoreOntology,
+	Link,
+	Ontology as IOntology,
+	OwlClassUnion,
+	ParsedClass,
+	Property,
+	RDFList,
+	ScrapedVocabulary
+} from "./types";
+
 export const as2NsUrl = "https://www.w3.org/ns/activitystreams#";
 export const as2ContextUrl = "https://www.w3.org/ns/activitystreams";
 export const vocabularySpecUrl =
