@@ -1,28 +1,23 @@
 {
-  "compilerOptions": {
-    "lib": ["es2017"],
-    "outDir": "build",
-    "rootDir": "./src",
-    // rest of compilerOptions from google/ts-style
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "pretty": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es2016"
-  },
-  "include": [
-    "src/*.ts",
-    "src/**/*.ts",
-    "test/*.ts",
-    "test/**/*.ts"
-  ]
+	"compilerOptions": {
+		"lib": ["es2017"],
+		"outDir": "build",
+		"rootDir": "./src",
+		// rest of compilerOptions from google/ts-style
+		"allowSyntheticDefaultImports": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "commonjs",
+		"noEmitOnError": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"pretty": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "es2016"
+	},
+	"include": ["src/**/*", "test/**/*"]
 }
